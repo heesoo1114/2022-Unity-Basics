@@ -14,6 +14,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField]
     protected BulletDataSO _bulletData;
+    public BulletDataSO BulletData
+    {
+        get => _bulletData;
+        set => _bulletData = value;
+    }
+
     protected bool _isEnemy;
     public bool IsEnemy
     {

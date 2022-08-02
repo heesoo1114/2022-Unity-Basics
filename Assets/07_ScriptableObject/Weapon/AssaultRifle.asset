@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d4c6b2ae1f3b4448d0fc29df1b5c89, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  BulletData: {fileID: 11400000, guid: 45319b8d62ed7054c8524a231a05e5c7, type: 2}
+  bulletData: {fileID: 11400000, guid: 45319b8d62ed7054c8524a231a05e5c7, type: 2}
   ammoCapacity: 50
   automaticFire: 1
   weaponDelay: 0.1

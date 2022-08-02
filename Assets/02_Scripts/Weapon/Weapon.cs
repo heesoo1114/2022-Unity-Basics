@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Weapon : MonoBehaviour
 {
     // 발사 관련 로직
@@ -54,7 +55,7 @@ public class Weapon : MonoBehaviour
     private void UseWeapon()
     {
         // 마우스 클릭중이고, 총의 딜레이가 false이면 발사
-        if(_isShooting && _delayCorutine == false)
+        if(_isShooting == true && _delayCorutine == false)
         {
             if(Ammo > 0)
             {
@@ -72,6 +73,7 @@ public class Weapon : MonoBehaviour
                 OnShootNoAmmo?.Invoke();
                 return;
             }
+            FinishShooting();
         }
 
     }
@@ -94,7 +96,22 @@ public class Weapon : MonoBehaviour
 
     private void ShootBullet()
     {
-        Debug.Log("빵야빵야");
+        SpawnBullet(_muzzle.transform.position, CalculateAngle(), false); // 나중에 false 부분 변경 예정
+    }
+
+    private Quaternion CalculateAngle()
+    {
+        float spread = Random.Range(-_weaponData.spreadAngle, +_weaponData.spreadAngle);
+        Quaternion spreadRot = Quaternion.Euler(new Vector3(0, 0, spread));
+        return _muzzle.transform.rotation * spreadRot;    
+    }
+
+    private void SpawnBullet(Vector3 position, Quaternion rot, bool isEnemyBullet)
+    {
+        Bullet bullet = Instantiate(_weaponData.bulletData.bulletPrefab).GetComponent<Bullet>();
+        bullet.SetPositionAndRotation(position, rot);
+        bullet.IsEnemy = isEnemyBullet;
+        bullet.BulletData = _weaponData.bulletData;
     }
 
     public void TryShooting()

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/WEAPON/WeaponData")]
 public class WeaponDataSO : ScriptableObject
 {
-    public BulletDataSO BulletData;
+    public BulletDataSO bulletData;
 
     [Range(0, 999)] public int ammoCapacity = 100; // 탄창 크기
     public bool automaticFire; // 연사 모드 가능
