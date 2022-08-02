@@ -11,7 +11,7 @@ public class TorchAnimation : MonoBehaviour
     private float _intensityRandom, radiusRandom, _timeRandom;
 
     private float _baseIntensity;
-    private float _baseTime = 1f;
+    private float _baseTime = 0.3f;
     private float _baseRadius;
 
     private Sequence _seq = null;

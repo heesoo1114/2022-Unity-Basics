@@ -10,10 +10,36 @@ public class AgentInput : MonoBehaviour
     public UnityEvent<Vector2> OnMovementKeyPress;
     public UnityEvent<Vector2> OnPointerPositionChanged;
 
+    public UnityEvent OnFireButtonPress;
+    public UnityEvent OnFireButtonRelease;
+    private bool _fireButtonDown = false;
+
     void Update()
     {
         GetMovementInput();
         GetPointerInput();
+        GetFireInput();
+    }
+
+    private void GetFireInput()
+    {
+        // GetAxisRaw("Fire1") => 마우스 클릭과 동일
+        if (Input.GetAxisRaw("Fire1") > 0)
+        {
+            if(_fireButtonDown == false)
+            {
+                _fireButtonDown = true;
+                OnFireButtonPress?.Invoke();
+            }
+        }
+        else
+        {
+            if(_fireButtonDown == true)
+            {
+                _fireButtonDown = false;
+                OnFireButtonRelease?.Invoke();
+            }
+        }
     }
 
     private void GetPointerInput()
