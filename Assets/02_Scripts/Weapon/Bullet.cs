@@ -49,4 +49,39 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject); // 나중엔 풀매니징으로 변경 예정
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_isDead == true) return;
+
+        
+        if (collision.gameObject.layer == _obstacleLayer)
+            HitObstacle(collision);
+        if(collision.gameObject.layer == _enemyLayer)
+            HitEnemy(collision);
+
+        _isDead = true;
+        Destroy(gameObject);
+    }
+
+    private void HitEnemy(Collider2D col)
+    {
+        // nothing
+    }
+
+    private void HitObstacle(Collider2D col)
+    {
+        // 실질적인 데미치 처리는 여기서 이루어짐 (아직 안 함)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 10f);
+
+        if (hit.collider != null)
+        {
+            Impact impact = Instantiate(_bulletData.impactObstaclePrefab).GetComponent<Impact>();
+            Quaternion rot = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
+            impact.SetPositionAndRotation(hit.point + (Vector2)transform.right * 0.5f , rot);
+            impact.SetScaleAndTime(Vector3.one, 0.2f);
+        }
+
+        
+    }
 }

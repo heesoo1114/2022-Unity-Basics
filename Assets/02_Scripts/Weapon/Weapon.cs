@@ -37,6 +37,10 @@ public class Weapon : MonoBehaviour
     public bool AmmoFull { get => Ammo == _weaponData.ammoCapacity; }
     public int  EmptyBulletCnt { get => _weaponData.ammoCapacity - _ammo; }
 
+    // Reload Sound 관련 
+    public UnityEvent OnPlayNoAmmo;
+    public UnityEvent OnPlayReload;
+
     private void Start()
     {
         // 나중에 변경 예정
@@ -122,5 +126,15 @@ public class Weapon : MonoBehaviour
     {
         _isShooting = false;
         OnStopShooting?.Invoke();
+    }
+
+    public void PlayReloadSound()
+    {
+        OnPlayReload?.Invoke();
+    }
+
+    public void PlayCannotSound()
+    {
+        OnPlayNoAmmo?.Invoke();
     }
 }
