@@ -6,11 +6,16 @@ public class ChaseAction : AIAction
 {
     public override void TakeAction()
     {
-        // 현재 공격중이지 않다면 이동 가능
+        if(_aiActionData.isAttack == true)
+        {
+            _aiActionData.isAttack = false;
+        }
 
         Vector2 direction = _brain.Target.position - transform.position;
+        _aiMovementData.direction = direction.normalized;
+        _aiMovementData.pointOfInterest = _brain.Target.position;
 
-        _brain.Move(direction.normalized, _brain.Target.position);
+        _brain.Move(_aiMovementData.direction, _aiMovementData.pointOfInterest);
 
     }
 }

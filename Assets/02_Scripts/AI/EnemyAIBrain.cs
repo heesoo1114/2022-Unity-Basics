@@ -20,6 +20,17 @@ public class EnemyAIBrain : MonoBehaviour
         get => _target;
     }
 
+    private AIActionData _aiActionData;
+    public AIActionData AIActionData { get => _aiActionData; }
+    private AIMovementData _aiMovementData;
+    public AIMovementData AIMovementData { get => _aiMovementData; }
+
+    protected virtual void Awake()
+    {
+        _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
+        _aiMovementData = transform.Find("AI").GetComponent<AIMovementData>();
+    }
+
     protected void Update()
     {
         if(_target == null)

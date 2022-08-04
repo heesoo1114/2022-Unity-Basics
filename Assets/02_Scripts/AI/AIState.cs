@@ -31,7 +31,7 @@ public class AIState : MonoBehaviour
                 result = d.MakeADecision();
                 if (result == false) break;
             }
-
+            
             if(result == true) // 이거는 해당 전이에 있는 모든 Decision 이 참이었다는거
             {
                  if(tr.positiveState != null)

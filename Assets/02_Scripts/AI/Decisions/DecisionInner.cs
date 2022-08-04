@@ -11,7 +11,7 @@ public class DecisionInner : AIDecision
 
     public override bool MakeADecision()
     {
-        float calc = Vector3.Distance(_brain.Target.position, transform.position);
+        float calc = Vector2.Distance(_brain.Target.position, transform.position);
 
         if(calc < _distance) // 적이 시야거리내에  존재한다면
         {
