@@ -6,7 +6,7 @@ public class EnemyAnimation : AgentAnimation
 {
     protected EnemyAIBrain _brain;
     protected readonly int _attackHash = Animator.StringToHash("Attack");
-    protected readonly int _DeadBoolHash = Animator.StringToHash("IsDead");
+    protected readonly int _DeadBoolHash = Animator.StringToHash("isDead");
 
     protected override void Awake()
     {
@@ -25,4 +25,14 @@ public class EnemyAnimation : AgentAnimation
         _animator.SetTrigger(_attackHash);
     }
 
+    public void PlayDeadAnimation()
+    {
+        _animator.SetBool(_DeadBoolHash, true);
+        _animator.SetTrigger(_deadHash);
+    }
+
+    public void EndofDeadAnimation()
+    {
+        _brain.Enemy.Die(); // 애니메이션 끝났으면 실제로 죽여라..
+    }
 }

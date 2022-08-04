@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecisionInner : AIDecision
+public class DecisionOuter : AIDecision
 {
-
     [SerializeField]
     [Range(0.1f, 30f)]
     private float _distance = 5f;
@@ -14,7 +13,7 @@ public class DecisionInner : AIDecision
     {
         float calc = Vector2.Distance(_brain.Target.position, _brain.BasePosition.position);
 
-        if(calc < _distance) // 적이 시야거리내에  존재한다면
+        if (calc > _distance) // 적이 시야거리내에  존재한다면
         {
             return true;
         }
@@ -27,13 +26,12 @@ public class DecisionInner : AIDecision
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if(UnityEditor.Selection.activeGameObject == gameObject)
+        if (UnityEditor.Selection.activeGameObject == gameObject)
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, _distance);
             Gizmos.color = Color.white;
         }
     }
 #endif
-
 }

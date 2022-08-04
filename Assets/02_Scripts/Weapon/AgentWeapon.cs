@@ -18,7 +18,7 @@ public class AgentWeapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _reloadUI = GetComponentInParent<ReloadGaugeUI>();
+        _reloadUI = transform.parent.Find("ReloadBar").GetComponent<ReloadGaugeUI>();
         AssignWeapon();
     }
 

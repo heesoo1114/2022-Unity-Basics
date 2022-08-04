@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _obstacleLayer = LayerMask.NameToLayer("Obstacle"); // 장애물 레이어의 번호를 알아오고
+        _enemyLayer = LayerMask.NameToLayer("Enemy");
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -54,6 +55,14 @@ public class Bullet : MonoBehaviour
     {
         if (_isDead == true) return;
 
+        IHitable hitable = collision.GetComponent<IHitable>();
+
+        if(hitable != null && hitable.IsEnemy == IsEnemy)
+        {
+            return;
+        }
+
+        hitable?.GetHit(_bulletData.damage, gameObject);
         
         if (collision.gameObject.layer == _obstacleLayer)
             HitObstacle(collision);
@@ -66,7 +75,11 @@ public class Bullet : MonoBehaviour
 
     private void HitEnemy(Collider2D col)
     {
-        // nothing
+        Vector2 randomOffset = Random.insideUnitCircle * 0.5f;
+        Impact impact = Instantiate(_bulletData.impactEnemyPrefab).GetComponent<Impact>();
+        Quaternion rot = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
+        impact.SetPositionAndRotation(col.transform.position + (Vector3)randomOffset, rot);
+        impact.SetScaleAndTime(Vector3.one * 0.7f, 0.2f);
     }
 
     private void HitObstacle(Collider2D col)

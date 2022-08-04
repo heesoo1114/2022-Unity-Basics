@@ -9,7 +9,9 @@ public abstract class EnemyAttack : MonoBehaviour
 
     public UnityEvent AttackFeedback;
 
+    [SerializeField]
     protected float _attackDelay;
+    public float AttackDelay { get => _attackDelay; set => _attackDelay = Mathf.Clamp(value, 0.1f, 10f); }
     protected bool _waitBeforeNextAttack;
     public bool WaitBeforeNextAttack { get => _waitBeforeNextAttack; }
 

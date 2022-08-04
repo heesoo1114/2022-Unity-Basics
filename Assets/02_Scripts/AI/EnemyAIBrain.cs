@@ -25,10 +25,18 @@ public class EnemyAIBrain : MonoBehaviour
     private AIMovementData _aiMovementData;
     public AIMovementData AIMovementData { get => _aiMovementData; }
 
+    private Transform _basePosition;
+    public Transform BasePosition { get => _basePosition; }
+
+    private Enemy _enemy;
+    public Enemy Enemy => _enemy;
+
     protected virtual void Awake()
     {
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
         _aiMovementData = transform.Find("AI").GetComponent<AIMovementData>();
+        _basePosition = transform.Find("BasePosition");
+        _enemy = GetComponent<Enemy>();
     }
 
     protected void Update()
