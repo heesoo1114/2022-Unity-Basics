@@ -39,6 +39,11 @@ public class EnemyAIBrain : MonoBehaviour
         _enemy = GetComponent<Enemy>();
     }
 
+    protected virtual void Start()
+    {
+        _target = GameManager.Instance.Player;
+    }
+
     protected void Update()
     {
         if(_target == null)

@@ -11,7 +11,7 @@ public class EnemyMeleeAttack : EnemyAttack
             _brain.AIActionData.isAttack = true;
 
             // 타겟에 공격이 들어가야하는데 아직 구현 안 함
-            Debug.Log("콰직");
+            Debug.Log("공격");
 
             AttackFeedback?.Invoke();
             StartCoroutine(WaitBeforeAttackCoroutine()); // 쿨타임 돌리고

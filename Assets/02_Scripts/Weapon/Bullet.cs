@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : PoolAbleMono
 {
     protected Rigidbody2D _rigidbody;
     protected float _timeToLive;
@@ -96,5 +96,11 @@ public class Bullet : MonoBehaviour
         }
 
         
+    }
+
+    public override void Init()
+    {
+        _isDead = false;
+        _timeToLive = 0;
     }
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
-public class Enemy : MonoBehaviour, IHitable, IAgent
+public class Enemy : PoolAbleMono, IHitable, IAgent
 {
     [SerializeField]
     protected EnemyDataSO _enemyData;
@@ -27,12 +28,71 @@ public class Enemy : MonoBehaviour, IHitable, IAgent
     protected EnemyAIBrain _brain;
     protected EnemyAttack _attack;
 
+    protected CapsuleCollider2D _bodyCollider;
+    protected SpriteRenderer _spriteRenderer = null;
+    protected AgentMovement _agentMovement = null;
+
     protected virtual void Awake()
     {
         _brain = GetComponent<EnemyAIBrain>();
         _attack = GetComponent<EnemyAttack>();
-
+        _bodyCollider = GetComponent<CapsuleCollider2D>();
+        _agentMovement = GetComponent<AgentMovement>();
+        _spriteRenderer = transform.Find("VisualSprite").GetComponent<SpriteRenderer>();
         SetEnemyData();
+
+        _brain.enabled = false;
+        _isActive = false;
+        _bodyCollider.enabled = false;
+        if(_spriteRenderer.material.HasProperty("_Dissolve"))
+        {
+            _spriteRenderer.material.SetFloat("_Dissolve", 0);
+        }
+
+        Init();
+    }
+
+    private void Start()
+    {
+        Spawn();
+    }
+
+    public override void Init()
+    {
+        _brain.enabled = false;
+        _isActive = false;
+        _bodyCollider.enabled = false;
+        _agentMovement.enabled = false;
+        _isDead = false;
+
+        if (_spriteRenderer.material.HasProperty("_Dissolve"))
+        {
+            _spriteRenderer.material.SetFloat("_Dissolve", 0);
+        }
+    }
+
+    public void Spawn()
+    {
+        Sequence seq = DOTween.Sequence();
+        
+        Tween dissolve = DOTween.To(
+            () => _spriteRenderer.material.GetFloat("_Dissolve"),
+            x => _spriteRenderer.material.SetFloat("Dissolve", x),
+            1f,
+            1f
+            );
+
+        seq.Append(dissolve);
+        seq.AppendCallback(() => ActiveObject());
+    }
+
+    public void ActiveObject()
+    {
+        _brain.enabled = true;
+        _isActive = true;
+        _bodyCollider.enabled = true;
+        _agentMovement.enabled = true;
+        Health = _enemyData.maxHealth;
     }
 
     private void SetEnemyData()
@@ -77,6 +137,6 @@ public class Enemy : MonoBehaviour, IHitable, IAgent
 
     public void Die()
     {
-        Destroy(gameObject);
+        PoolManager.Instance.Push(this);
     }
 }
