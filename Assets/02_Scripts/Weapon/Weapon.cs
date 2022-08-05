@@ -13,7 +13,6 @@ public class Weapon : MonoBehaviour
     protected bool _isShooting = false;
     protected bool _delayCorutine = false;
 
-
     [SerializeField] protected WeaponDataSO _weaponData;
     [SerializeField] protected GameObject _muzzle; // 총구 위치
     [SerializeField] protected TrackedReference _shellEjectPos; // 탄피 생성지점
@@ -23,6 +22,11 @@ public class Weapon : MonoBehaviour
     // AMMO 관련 코드
     public UnityEvent<int> OnAmmoChange; // 총알 변경시 발생할 이벤트
     [SerializeField] protected int _ammo; // 현재 총알 수
+
+    private void Awake()
+    {
+        
+    }
 
     public int Ammo
     {
@@ -110,13 +114,15 @@ public class Weapon : MonoBehaviour
         return _muzzle.transform.rotation * spreadRot;    
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     private void SpawnBullet(Vector3 position, Quaternion rot, bool isEnemyBullet)
     {
-        Bullet bullet = Instantiate(_weaponData.bulletData.bulletPrefab).GetComponent<Bullet>();
+        Bullet bullet = PoolManager.Instance.Pop(_weaponData.bulletData.bulletPrefab.name) as Bullet;
         bullet.SetPositionAndRotation(position, rot);
         bullet.IsEnemy = isEnemyBullet;
         bullet.BulletData = _weaponData.bulletData;
     }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void TryShooting()
     {

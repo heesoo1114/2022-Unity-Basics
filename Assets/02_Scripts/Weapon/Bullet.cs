@@ -32,6 +32,8 @@ public class Bullet : PoolAbleMono
         _obstacleLayer = LayerMask.NameToLayer("Obstacle"); // 장애물 레이어의 번호를 알아오고
         _enemyLayer = LayerMask.NameToLayer("Enemy");
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        Init();
     }
 
     public void SetPositionAndRotation(Vector3 pos, Quaternion rot)
@@ -47,7 +49,7 @@ public class Bullet : PoolAbleMono
         if(_timeToLive >= _bulletData.lifeTime)
         {
             _isDead = true;
-            Destroy(gameObject); // 나중엔 풀매니징으로 변경 예정
+            PoolManager.Instance.Push(this); // 나중엔 풀매니징으로 변경 예정
         }
     }
 
@@ -70,7 +72,7 @@ public class Bullet : PoolAbleMono
             HitEnemy(collision);
 
         _isDead = true;
-        Destroy(gameObject);
+        PoolManager.Instance.Push(this); // 풀매니징으로 변경
     }
 
     private void HitEnemy(Collider2D col)
@@ -93,9 +95,7 @@ public class Bullet : PoolAbleMono
             Quaternion rot = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
             impact.SetPositionAndRotation(hit.point + (Vector2)transform.right * 0.5f , rot);
             impact.SetScaleAndTime(Vector3.one, 0.2f);
-        }
-
-        
+        }   
     }
 
     public override void Init()
