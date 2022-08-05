@@ -77,7 +77,7 @@ public class Enemy : PoolAbleMono, IHitable, IAgent
         
         Tween dissolve = DOTween.To(
             () => _spriteRenderer.material.GetFloat("_Dissolve"),
-            x => _spriteRenderer.material.SetFloat("Dissolve", x),
+            x => _spriteRenderer.material.SetFloat("_Dissolve", x),
             1f,
             1f
             );
