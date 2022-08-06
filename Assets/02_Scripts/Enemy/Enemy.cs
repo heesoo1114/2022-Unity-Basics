@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using System;
 
 public class Enemy : PoolAbleMono, IHitable, IAgent
 {
@@ -119,10 +120,19 @@ public class Enemy : PoolAbleMono, IHitable, IAgent
     {
         if (_isDead == true) return;
 
+        bool isCritical = GameManager.Instance.IsCritical;
+        if (isCritical)
+        {
+            damage = GameManager.Instance.GetCriticalDamage(damage);
+        }
+
         Health -= damage;
         HitPoint = damageDealer.transform.position; // 나를 쏜 녀석
 
         OnGetHit?.Invoke(); // 피격시 피드백을 위해 이벤트 트리거
+
+        PopupText popup = PoolManager.Instance.Pop("PopupText") as PopupText;
+        popup?.Setup(damage, transform.position + new Vector3(0, 0.3f), isCritical,Color.white);
 
         if (Health <= 0)
             DeadProcess();

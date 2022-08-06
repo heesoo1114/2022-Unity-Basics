@@ -49,7 +49,7 @@ public class Bullet : PoolAbleMono
         if(_timeToLive >= _bulletData.lifeTime)
         {
             _isDead = true;
-            PoolManager.Instance.Push(this); // 나중엔 풀매니징으로 변경 예정
+            PoolManager.Instance.Push(this); // 풀매니징으로 변경
         }
     }
 
@@ -78,7 +78,8 @@ public class Bullet : PoolAbleMono
     private void HitEnemy(Collider2D col)
     {
         Vector2 randomOffset = Random.insideUnitCircle * 0.5f;
-        Impact impact = Instantiate(_bulletData.impactEnemyPrefab).GetComponent<Impact>();
+        Impact impact = PoolManager.Instance.Pop(_bulletData.impactEnemyPrefab.name) as Impact;
+        // Impact impact = Instantiate(_bulletData.impactEnemyPrefab).GetComponent<Impact>();
         Quaternion rot = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
         impact.SetPositionAndRotation(col.transform.position + (Vector3)randomOffset, rot);
         impact.SetScaleAndTime(Vector3.one * 0.7f, 0.2f);
@@ -91,7 +92,7 @@ public class Bullet : PoolAbleMono
 
         if (hit.collider != null)
         {
-            Impact impact = Instantiate(_bulletData.impactObstaclePrefab).GetComponent<Impact>();
+            Impact impact = PoolManager.Instance.Pop(_bulletData.impactObstaclePrefab.name) as Impact;
             Quaternion rot = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
             impact.SetPositionAndRotation(hit.point + (Vector2)transform.right * 0.5f , rot);
             impact.SetScaleAndTime(Vector3.one, 0.2f);
