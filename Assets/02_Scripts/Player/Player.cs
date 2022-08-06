@@ -16,7 +16,11 @@ public class Player : MonoBehaviour, IHitable, IAgent
     public int Health
     {
         get => _health;
-        set => _health = Mathf.Clamp(value, 0, _maxHealth);
+        set
+        {
+            _health = Mathf.Clamp(value, 0, _maxHealth);
+            OnUpdateHealthUI?.Invoke(_health);
+        }
     }
     #endregion
     private bool _isDead = false;

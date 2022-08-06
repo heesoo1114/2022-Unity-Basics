@@ -132,7 +132,7 @@ public class Enemy : PoolAbleMono, IHitable, IAgent
         OnGetHit?.Invoke(); // 피격시 피드백을 위해 이벤트 트리거
 
         PopupText popup = PoolManager.Instance.Pop("PopupText") as PopupText;
-        popup?.Setup(damage, transform.position + new Vector3(0, 0.3f), isCritical,Color.white);
+        popup?.Setup(damage, transform.position + new Vector3(0, 0.3f), isCritical, Color.white);
 
         if (Health <= 0)
             DeadProcess();

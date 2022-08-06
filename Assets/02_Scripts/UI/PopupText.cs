@@ -20,7 +20,7 @@ public class PopupText : PoolAbleMono
 
         if (isCritical == true)
         {
-            _textMesh.color = color;
+            _textMesh.color = Color.red;
             _textMesh.fontSize = 10f;
         }
         else

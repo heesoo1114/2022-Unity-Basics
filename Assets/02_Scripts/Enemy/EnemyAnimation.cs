@@ -25,10 +25,10 @@ public class EnemyAnimation : AgentAnimation
         _animator.SetTrigger(_attackHash);
     }
 
-    public void PlayDeadAnimation()
+    public override void PlayDeadAnimation()
     {
+        base.PlayDeadAnimation();
         _animator.SetBool(_DeadBoolHash, true);
-        _animator.SetTrigger(_deadHash);
     }
 
     public void EndofDeadAnimation()

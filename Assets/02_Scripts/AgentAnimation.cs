@@ -23,4 +23,9 @@ public class AgentAnimation : MonoBehaviour
     {
         SetWalkAnimation(velocity > 0);
     }
+
+    public virtual void PlayDeadAnimation()
+    {
+        _animator.SetTrigger(_deadHash);
+    }
 }

@@ -10,8 +10,14 @@ public class EnemyMeleeAttack : EnemyAttack
         {
             _brain.AIActionData.isAttack = true;
 
-            // 타겟에 공격이 들어가야하는데 아직 구현 안 함
-            Debug.Log("공격");
+            float range = _brain.Enemy.EnemyData.attackRange;
+            float distance = Vector2.Distance(_brain.BasePosition.position, _brain.Target.position);
+
+            if(distance < range)
+            {
+                IHitable hit = _brain.Target.GetComponent<IHitable>();
+                hit?.GetHit(damage, gameObject);
+            }
 
             AttackFeedback?.Invoke();
             StartCoroutine(WaitBeforeAttackCoroutine()); // 쿨타임 돌리고

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if(Instance != null)
         {
             Debug.Log("Multiple Gamemanager is running");
         }
@@ -50,5 +50,31 @@ public class GameManager : MonoBehaviour
     private void SetCursorIcon()
     {
         Cursor.SetCursor(_cursorTexture, new Vector2(_cursorTexture.width / 2f, _cursorTexture.height / 2f), CursorMode.Auto);
+    }
+
+    private float _nextGenerationTime = 0f;
+    private int _spawnCount = 3;
+    [SerializeField]
+    private float _generateMinTime = 5f, _generateMaxTime = 8f;
+
+    private void Start()
+    {
+        StartCoroutine(GameLoop());
+    }
+
+    IEnumerator GameLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_nextGenerationTime);
+
+            float posX = Random.Range(-4.5f, 4.5f);
+            float posY = Random.Range(-5f, 5f);
+            Spawner spawner = PoolManager.Instance.Pop("Spawner") as Spawner;
+            spawner.transform.position = new Vector3(posX, posY);
+            spawner.StartToSpawn(_spawnCount);
+            _spawnCount++;
+            _nextGenerationTime = Random.Range(_generateMinTime, _generateMaxTime);
+        }
     }
 }
