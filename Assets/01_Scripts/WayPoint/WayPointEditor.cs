@@ -12,8 +12,10 @@ public class WayPointEditor : Editor
 
     private void OnSceneGUI()
     {
-        for(int i = 0; i < _waypoint.Points.Length; i++)
+        for (int i = 0; i < _waypoint.Points.Length; i++)
         {
+            EditorGUI.BeginChangeCheck();
+
             // create handle
             Vector3 currentWaypointPoint = _waypoint.CurrentPosition + _waypoint.Points[i];
             Vector3 newWaypointPoint = Handles.FreeMoveHandle(currentWaypointPoint, Quaternion.identity, 0.7f,
@@ -27,6 +29,14 @@ public class WayPointEditor : Editor
             Vector3 textAllingnment = Vector3.down * 0.35f + Vector3.right * 0.35f;
 
             Handles.Label(_waypoint.CurrentPosition + _waypoint.Points[i] + textAllingnment, text: $"{i + 1}", numStyle);
+
+            EditorGUI.EndChangeCheck();
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(target, name: "Free Move Handle");
+                _waypoint.Points[i] = newWaypointPoint - _waypoint.CurrentPosition;
+            }
         }
     }
 }
