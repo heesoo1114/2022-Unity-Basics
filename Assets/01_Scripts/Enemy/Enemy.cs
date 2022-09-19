@@ -8,7 +8,9 @@ public class Enemy : MonoBehaviour
     public static Action OnEndReached;
 
     [SerializeField] private float moveSpeed = 3.0f;
-    [SerializeField] private WayPoint waypoint;
+    // [SerializeField] private WayPoint waypoint;
+
+    public WayPoint waypoint { get; set; }
 
     public Vector3 CurrentPointPosition => waypoint.GetWaypointPosition(_currentWayPointIndex);
 
@@ -79,5 +81,10 @@ public class Enemy : MonoBehaviour
 
         OnEndReached?.Invoke();
         ObjPooler.ReturnToPool(gameObject);
+    }
+
+    public void ResetEnemy()
+    {
+        _currentWayPointIndex = 0;
     }
 }

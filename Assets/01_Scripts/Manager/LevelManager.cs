@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private float lives = 10;
+    [SerializeField] private int lives = 10;
+    public int TotalLives { get; set; }
+
+    private void Start()
+    {
+        TotalLives = lives;
+        if(TotalLives <= 0)
+        {
+            TotalLives = 0;
+        }
+    }
 
     private void ReduceLives()
     {
-        lives--;
+        TotalLives--;
     }
 
     private void OnEnable() // 게임 오브젝트가 활성화 될 때마다
