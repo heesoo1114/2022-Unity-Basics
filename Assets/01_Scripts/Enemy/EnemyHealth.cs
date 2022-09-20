@@ -55,10 +55,18 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void ResetHealth()
     {
         CurrentHelath = initialHealth;
         _healthBar.fillAmount = 1;
+    }
+
+    private void Die()
+    {
+        /*CurrentHelath = initialHealth;
+        _healthBar.fillAmount = 1;*/
+
+        ResetHealth();
 
         OnEnemyKilled?.Invoke();
 

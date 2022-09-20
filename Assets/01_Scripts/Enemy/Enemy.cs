@@ -16,11 +16,14 @@ public class Enemy : MonoBehaviour
 
     private int _currentWayPointIndex;
 
+    private EnemyHealth _enemyHealth;
+
     ObjPooler _pooler;
 
     private void Start()
     {
         _currentWayPointIndex = 0;
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     private void Update()
@@ -68,18 +71,14 @@ public class Enemy : MonoBehaviour
         else
         {
             // enemy가 끝까지 도착했다면 obj가 pooler로 되돌림
-            ReturnEnemyToPool();
+            EndPointReached();
         }
     }
 
-    private void ReturnEnemyToPool()
+    private void EndPointReached()
     {
-        /*if(OnEndReached != null)
-        {
-            OnEndReached.Invoke();
-        }*/
-
         OnEndReached?.Invoke();
+        _enemyHealth.ResetHealth();
         ObjPooler.ReturnToPool(gameObject);
     }
 
