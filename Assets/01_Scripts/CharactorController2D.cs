@@ -7,10 +7,15 @@ public class CharactorController2D : MonoBehaviour
 {
     public float raycastDistance = 0.2f;
     public LayerMask layerMask;
+    public float slopAngleLimit = 45f;
 
     // flags
     public bool below;
     public GroundType groundType;
+
+    // 나중에 private으로 변경
+    public Vector2 _slopNormal;
+    public float _slopAngle;
 
     private Vector2 _moveAmount;
     private Vector2 _currentPosition;
@@ -33,6 +38,15 @@ public class CharactorController2D : MonoBehaviour
     private void FixedUpdate()
     {
         _lastPosition = _rigidbody.position;
+
+        if(_slopAngle != 0 && below)
+        {
+            if ((_moveAmount.x > 0f && _slopAngle > 0) || (_moveAmount.x < 0f && _slopAngle < 0f))
+            {
+                    _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopAngle * Mathf.Deg2Rad) * _moveAmount.x);
+            }
+        }
+
         _currentPosition = _lastPosition + _moveAmount;
 
         _rigidbody.MovePosition(_currentPosition);
@@ -49,34 +63,23 @@ public class CharactorController2D : MonoBehaviour
 
     private void CheckGrounded()
     {
-        Vector2 raycastOrigin = _rigidbody.position - new Vector2(0, _capsuleCollider.size.y * 0.5f);
+        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, 
+            CapsuleDirection2D.Vertical, 0f, Vector2.down, raycastDistance);
 
-        _raycastPosition[0] = raycastOrigin + (Vector2.left * _capsuleCollider.size.x * 0.25f + Vector2.up * 0.1f);
-        _raycastPosition[1] = raycastOrigin;
-        _raycastPosition[2] = raycastOrigin + (Vector2.right * _capsuleCollider.size.x * 0.25f + Vector2.up * 0.1f);
-
-        DrawDebugRays(Vector2.down, Color.green);
-
-        int numberofGroundHits = 0;
-
-        for(int i = 0; i < _raycastPosition.Length; i++)
+        if(hit.collider)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_raycastPosition[i], Vector2.down, raycastDistance, layerMask);
+            groundType = DetermineGroundType(hit.collider);
+            _slopNormal = hit.normal;
+            _slopAngle = Vector2.SignedAngle(_slopNormal, Vector2.up); // 경사 각도
 
-            if(hit.collider)
+            if (_slopAngle > slopAngleLimit || _slopAngle < -slopAngleLimit)
             {
-                _raycastHits[i] = hit;
-                numberofGroundHits++;
+                below = false;
             }
-        }
-
-        if(numberofGroundHits > 0)
-        {
-            if(_raycastHits[1].collider)
+            else
             {
-                groundType = DetermineGroundType(_raycastHits[1].collider);
+                below = true;
             }
-            below = true;
         }
         else
         {

@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour
     {
         _moveDirection.x = _input.x * walkSpeed;
         
-        if(_charactorController.below)
+        if(_charactorController.below) // on the ground
         {
+            _moveDirection.y = 0;
             if(_startJump)
             {
                 _startJump = false;
