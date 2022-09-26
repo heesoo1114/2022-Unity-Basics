@@ -16,8 +16,10 @@ public class Enemy : MonoBehaviour
     public Vector3 CurrentPointPosition => waypoint.GetWaypointPosition(_currentWayPointIndex);
 
     private int _currentWayPointIndex;
+    private Vector3 _lastPointPosition;
 
     private EnemyHealth _enemyHealth;
+    private SpriteRenderer _spriteRenderer; // flip
 
     ObjPooler _pooler;
 
@@ -26,17 +28,16 @@ public class Enemy : MonoBehaviour
         _currentWayPointIndex = 0;
         _enemyHealth = GetComponent<EnemyHealth>();
 
-        MoveSpeed = moveSpeed;  
+        MoveSpeed = moveSpeed;
+        _lastPointPosition = transform.position;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        /*if (_currentWayPointIndex == waypoint.Points.Length)
-        {
-            return;
-        }*/
-
         Move();
+        Rotate();
+
         if(CheckPoint())
         {
             UpdateCurrentPointIndex();
@@ -61,17 +62,25 @@ public class Enemy : MonoBehaviour
 
     private bool CheckPoint()
     {
-        /*if (CurrentPointPosition == transform.position)
-        {
-            _currentWayPointIndex++;
-        }*/
-
         float distanceToNextPointPosition = (transform.position - CurrentPointPosition).magnitude;
         if(distanceToNextPointPosition < 0.1f)
         {
+            _lastPointPosition = transform.position;
             return true;
         }
         return false;
+    }
+
+    private void Rotate()
+    {
+        if(CurrentPointPosition.x > _lastPointPosition.x)
+        {
+            _spriteRenderer.flipX = false; // 오른쪽 향하게
+        }
+        else
+        {
+            _spriteRenderer.flipX = true; // 왼쪽 향하게
+        }
     }
 
     private void UpdateCurrentPointIndex()
