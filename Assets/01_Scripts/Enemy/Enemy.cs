@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static Action OnEndReached;
+    public static Action<Enemy> OnEndReached;
 
     [SerializeField] private float moveSpeed = 3.0f;
+    public float MoveSpeed { get; set; }
     // [SerializeField] private WayPoint waypoint;
 
     public WayPoint waypoint { get; set; }
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour
     {
         _currentWayPointIndex = 0;
         _enemyHealth = GetComponent<EnemyHealth>();
+
+        MoveSpeed = moveSpeed;  
     }
 
     private void Update()
@@ -43,7 +46,17 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         // Vector3 currentPosition = waypoint.GetWaypointPosition(_currentWayPointIndex);
-        transform.position = Vector3.MoveTowards(transform.position, CurrentPointPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, CurrentPointPosition, MoveSpeed * Time.deltaTime);
+    }
+
+    public void StopMovement()
+    {
+        MoveSpeed = 0f;
+    }
+
+    public void ResumeMovement()
+    {
+        MoveSpeed = moveSpeed;  
     }
 
     private bool CheckPoint()
@@ -77,7 +90,7 @@ public class Enemy : MonoBehaviour
 
     private void EndPointReached()
     {
-        OnEndReached?.Invoke();
+        OnEndReached?.Invoke(this);
         _enemyHealth.ResetHealth();
         ObjPooler.ReturnToPool(gameObject);
     }

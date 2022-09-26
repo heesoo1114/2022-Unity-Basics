@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void ReduceLives()
+    private void ReduceLives(Enemy enemy)
     {
         TotalLives--;
     }
