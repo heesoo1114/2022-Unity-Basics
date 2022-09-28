@@ -49,9 +49,18 @@ public class PlayerController : MonoBehaviour
                     _moveDirection.y *= 0.5f;
                 }
             }
-            _moveDirection.y -= gravity * Time.deltaTime;
+            GravityCalculation();
         }
         _charactorController.Move(_moveDirection * Time.deltaTime);
+    }
+
+    void GravityCalculation()
+    {
+        if(_moveDirection.y > 0f && _charactorController.above)
+        {
+            _moveDirection.y = 0f;
+        }
+        _moveDirection.y -= gravity * Time.deltaTime;
     }
 
     public void OnMovement(InputAction.CallbackContext context)

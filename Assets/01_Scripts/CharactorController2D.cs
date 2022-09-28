@@ -11,6 +11,10 @@ public class CharactorController2D : MonoBehaviour
 
     // flags
     public bool below;
+    public bool above;
+    public bool right;
+    public bool left;
+
     public GroundType groundType;
 
     // 나중에 private으로 변경
@@ -54,6 +58,7 @@ public class CharactorController2D : MonoBehaviour
         _moveAmount = Vector2.zero;
 
         if (!_didsbleGroundCheck) CheckGrounded();
+        CheckOtherCollision();
     }
 
     public void Move(Vector2 movement)
@@ -61,18 +66,55 @@ public class CharactorController2D : MonoBehaviour
         _moveAmount += movement;
     }
 
+    private void CheckOtherCollision()
+    {
+        //left check
+        RaycastHit2D leftHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, _capsuleCollider.size * 0.7f, 0f, Vector2.left, raycastDistance, layerMask);
+
+        if (leftHit.collider)
+        {
+            left = true;
+        }
+        else
+        {
+            left = false;
+        }
+
+        RaycastHit2D rightHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, _capsuleCollider.size * 0.7f, 0f, Vector2.right, raycastDistance, layerMask);
+
+        if (rightHit.collider)
+        {
+            right = true;
+        }
+        else
+        {
+            right = false;
+        }
+
+        RaycastHit2D abovehit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.up, raycastDistance, layerMask);
+
+        if (abovehit.collider)
+        {
+            above = true;
+        }
+        else
+        {
+            above = false;
+        }
+    }
+
     private void CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, 
-            CapsuleDirection2D.Vertical, 0f, Vector2.down, raycastDistance);
+        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, 
+            Vector2.down, raycastDistance, layerMask);
 
-        if(hit.collider)
+        if (hit.collider)
         {
             groundType = DetermineGroundType(hit.collider);
             _slopNormal = hit.normal;
-            _slopAngle = Vector2.SignedAngle(_slopNormal, Vector2.up); // 경사 각도
+            _slopAngle = Vector2.SignedAngle(_slopNormal, Vector2.up);
 
-            if (_slopAngle > slopAngleLimit || _slopAngle < -slopAngleLimit)
+            if (_slopAngle > slopAngleLimit || _slopAngle < - slopAngleLimit)
             {
                 below = false;
             }
@@ -86,6 +128,8 @@ public class CharactorController2D : MonoBehaviour
             below = false;
             groundType = GroundType.none;
         }
+
+        System.Array.Clear(_raycastHits, 0, _raycastHits.Length);
     }
 
     private GroundType DetermineGroundType(Collider2D collider)
