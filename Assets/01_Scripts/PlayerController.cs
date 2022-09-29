@@ -5,13 +5,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    // player properties
     public float walkSpeed = 10f;
     public float gravity = 20f;
     public float jumpSpeed = 15f;
+    public float doubleJumpSpeed = 10f;
+
+    // player ability toggles
+    public bool canDoubleJump;
+    public bool canTripleJump;
 
     // public state
     public bool isJumping;
+    public bool isDoubleJumping;
+    public bool isTripleJumping;
 
+    // input flags
     private bool _startJump;
     private bool _releaseJump;
 
@@ -41,6 +50,10 @@ public class PlayerController : MonoBehaviour
         if (_charactorController.below) // on the ground
         {
             _moveDirection.y = 0;
+            isJumping = false;
+            isDoubleJumping = false;   
+            isTripleJumping = false;
+
             if(_startJump)
             {
                 _startJump = false;
@@ -54,11 +67,42 @@ public class PlayerController : MonoBehaviour
             if(_releaseJump)
             {
                 _releaseJump = false;
+
                 if(_moveDirection.y > 0)
                 {
                     _moveDirection.y *= 0.5f;
                 }
             }
+            
+            // pressed jump buttonin air
+            if (_startJump)
+            {
+                // tripple jumpping  // 트리플 점프를 먼저 체크해야 함
+                if (canTripleJump && (!_charactorController.left && !_charactorController.right))
+                {
+                    if (isDoubleJumping && !isTripleJumping)
+                    {
+                        _moveDirection.y = doubleJumpSpeed;
+                        isTripleJumping = true;
+                    }
+                }
+
+                // double jumpping
+                if (canDoubleJump && (!_charactorController.left && !_charactorController.right))
+                {
+                    if(!isDoubleJumping)
+                    {
+                        _moveDirection.y = doubleJumpSpeed;
+                        isDoubleJumping = true;
+                    }
+                }
+
+                // Wall jumpping
+                
+
+                _startJump = false;
+            }
+
             GravityCalculation();
         }
         _charactorController.Move(_moveDirection * Time.deltaTime);

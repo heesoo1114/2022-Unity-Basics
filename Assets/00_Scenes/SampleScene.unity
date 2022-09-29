@@ -2262,7 +2262,12 @@ MonoBehaviour:
   walkSpeed: 10
   gravity: 20
   jumpSpeed: 15
+  doubleJumpSpeed: 10
+  canDoubleJump: 1
+  canTripleJump: 1
   isJumping: 0
+  isDoubleJumping: 0
+  isTripleJumping: 0
 --- !u!1 &1361569936
 GameObject:
   m_ObjectHideFlags: 0
