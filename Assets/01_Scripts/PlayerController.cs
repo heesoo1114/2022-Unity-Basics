@@ -28,7 +28,17 @@ public class PlayerController : MonoBehaviour
     {
         _moveDirection.x = _input.x * walkSpeed;
         
-        if(_charactorController.below) // on the ground
+        // flipX 
+        if(_moveDirection.x > 0f)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else if(_moveDirection.x < 0f)
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+
+        if (_charactorController.below) // on the ground
         {
             _moveDirection.y = 0;
             if(_startJump)
