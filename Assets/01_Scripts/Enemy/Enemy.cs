@@ -21,12 +21,15 @@ public class Enemy : MonoBehaviour
     private EnemyHealth _enemyHealth;
     private SpriteRenderer _spriteRenderer; // flip
 
+    public EnemyHealth EnemyHealth { get; set; }
+
     ObjPooler _pooler;
 
     private void Start()
     {
         _currentWayPointIndex = 0;
         _enemyHealth = GetComponent<EnemyHealth>();
+        EnemyHealth = GetComponent<EnemyHealth>();
 
         MoveSpeed = moveSpeed;
         _lastPointPosition = transform.position;
