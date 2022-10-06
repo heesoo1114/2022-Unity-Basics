@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     public float doubleJumpSpeed = 10f;
     public float xWallJumpSpeed = 15f;
     public float yWallJumpSpeed = 15f;
+    public float wallRunSpeed = 8f;
 
     // player ability toggles
     [Header("Player Abilties")]
     public bool canDoubleJump;
     public bool canTripleJump;
     public bool canWallJump;
+    public bool canWallRun;
 
     // public state
     [Header("Player States")]
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool isDoubleJumping;
     public bool isTripleJumping;
     public bool isWallJumping;
+    public bool isWallRunning;
     
     // input flags
     private bool _startJump;
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 _input;
     private Vector2 _moveDirection;
     private CharactorController2D _charactorController;
+
+    private bool _ableToWallRun;
 
     private void Awake()
     {
@@ -64,12 +69,14 @@ public class PlayerController : MonoBehaviour
             isDoubleJumping = false;   
             isTripleJumping = false;
             isWallJumping = false;
+            isWallRunning = false;
 
             if(_startJump)
             {
                 _startJump = false;
                 _moveDirection.y = jumpSpeed;
                 isJumping = true;
+                _ableToWallRun = true;
                 _charactorController.DisableGroundCheck(0.1f);
             }
         }
@@ -128,6 +135,18 @@ public class PlayerController : MonoBehaviour
                 }
                 _startJump = false;
             }
+
+            // wall running
+            if (canWallRun && (_charactorController.left || _charactorController.right))
+            {
+                if(_input.y > 0f && _ableToWallRun)
+                {
+                    _moveDirection.y = wallRunSpeed;
+                }
+                // isWallRunning = true;
+                StartCoroutine(WallRunWaiter());
+            }
+
             GravityCalculation();
         }
         _charactorController.Move(_moveDirection * Time.deltaTime);
@@ -166,5 +185,13 @@ public class PlayerController : MonoBehaviour
         isWallJumping = true;
         yield return new WaitForSeconds(4f);
         isWallJumping = false;
+    }
+
+    IEnumerator WallRunWaiter()
+    {
+        isWallRunning = true;
+        yield return new WaitForSeconds(0.5f);
+        isWallRunning = false;
+        if(!isWallRunning) _ableToWallRun = false;
     }
 }
