@@ -47,4 +47,10 @@ public class Projectile : MonoBehaviour
         float angle = Vector3.SignedAngle(transform.up, enemyPos, transform.forward);
         transform.Rotate(0f, 0f, angle);
     }
+
+    public void ResetProjectile()
+    {
+        _enemyTarget = null;
+        transform.rotation = Quaternion.identity;
+    }
 }
