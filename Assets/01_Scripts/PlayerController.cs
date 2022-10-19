@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public float yWallJumpSpeed = 15f;
     public float wallRunSpeed = 8f;
     public float wallSlideAmount = 0.1f;
+    public float dashTime = 0.2f;
+    public float dashSpeed = 40f;
+    public float dashCoolDownTime = 1f;
 
     // player ability toggles
     [Header("Player Abilties")]
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public bool canWallJump;
     public bool canWallRun;
     public bool canWallSlide;
+    public bool canGroundDash;
+    public bool canAirDash;
 
     // public state
     [Header("Player States")]
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public bool isWallRunning;
     public bool isDucking;
     public bool isCreeping;
+    public bool isDashing;
     
     // input flags
     private bool _startJump;
@@ -47,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _originalColliderSize;
     private bool _ableToWallRun;
+    private bool _facinRight;
 
     private void Awake()
     {
@@ -60,16 +67,35 @@ public class PlayerController : MonoBehaviour
     {
         if (!isWallJumping)
         {
-            _moveDirection.x = _input.x * walkSpeed;
+            _moveDirection.x = _input.x;
 
             // flipX 
             if (_moveDirection.x > 0f)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                _facinRight = true;
             }
             else if (_moveDirection.x < 0f)
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                _facinRight = false;
+            }
+
+            if (isDashing)
+            {
+                if (_facinRight)
+                {
+                    _moveDirection.x = dashSpeed;
+                }
+                else
+                {
+                    _moveDirection.x = -dashSpeed;
+                }
+                _moveDirection.y = 0;
+            }
+            else
+            {
+                _moveDirection.x *= walkSpeed;
             }
         }
 
@@ -90,6 +116,18 @@ public class PlayerController : MonoBehaviour
                 _ableToWallRun = true;
                 _charactorController.DisableGroundCheck(0.1f);
             }
+
+            /*if (canGroundDash && isDashing)
+            {
+                if (_charactorController.right)
+                {
+                    _moveDirection.x += dashSpeed;
+                }
+                else if (_charactorController.left)
+                {
+                    _moveDirection.x += -dashSpeed;
+                }
+            }*/
 
             // 웅크리기, 기어가기 (duking, creeping)
             if (_input.y < 0f)
@@ -134,6 +172,18 @@ public class PlayerController : MonoBehaviour
         }
         else // 공중에
         {
+            /*if (canAirDash && isDashing)
+            {
+                if (_charactorController.right)
+                {
+                    _moveDirection.x += dashSpeed;
+                }
+                else if (_charactorController.left)
+                {
+                    _moveDirection.x += -dashSpeed;
+                }
+            }*/
+
             if ((isCreeping || isDucking) && _moveDirection.y > 0)
             {
                 StartCoroutine(ClearDuckingstate());
@@ -255,6 +305,24 @@ public class PlayerController : MonoBehaviour
             _startJump = false;
             _releaseJump = true;
         }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if ((canAirDash && !_charactorController.below) || (canGroundDash && _charactorController.below))
+            {
+                StartCoroutine(Dash());
+            }
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        isDashing = true;
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
     }
 
     IEnumerator WallJumpWaiter()
