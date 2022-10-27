@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using GlobalType;
 
 public class PlayerController : MonoBehaviour
 {
@@ -236,10 +237,20 @@ public class PlayerController : MonoBehaviour
         if (_startJump)
         {
             _startJump = false;
-            _moveDirection.y = jumpSpeed;
+
+            if (isDucking && _charactorController.groundType == GroundType.OneWayPlatform)
+            {
+                StartCoroutine(DisableOneWayPlatform(true));
+            }
+            else
+            {
+                _moveDirection.y = jumpSpeed;
+            }
+
             isJumping = true;
             _ableToWallRun = true;
             _charactorController.DisableGroundCheck(0.1f);
+
         }
     }
 
@@ -288,7 +299,14 @@ public class PlayerController : MonoBehaviour
     {
         if(_moveDirection.y > 0f && _charactorController.above)
         {
-            _moveDirection.y = 0f;
+            if (_charactorController.ceilingType == GroundType.OneWayPlatform)
+            {
+                StartCoroutine(DisableOneWayPlatform(false));
+            }
+            else
+            {
+                _moveDirection.y = 0f;
+            }
         }
 
         if (canWallSlide && (_charactorController.left || _charactorController.right))
@@ -385,6 +403,55 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));
             _spriteRenderer.sprite = Resources.Load<Sprite>("directionSpriteUp");
         }
+    }
+
+    IEnumerator DisableOneWayPlatform(bool checkBelow)
+    {
+        #region 내코드
+        /*RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1.285f, _charactorController.layerMask);
+
+        if (hit.collider)
+        {
+            hit.collider.GetComponent<EdgeCollider2D>().enabled = false;
+
+            yield return new WaitForSeconds(0.7f);
+
+            hit.collider.GetComponent<EdgeCollider2D>().enabled = true;
+        }*/
+        #endregion
+
+        #region 선생님 코드
+        GameObject tempOneWayPlatform = null;
+
+        if (checkBelow)
+        {
+            Vector2 raycastBelow = transform.position - new Vector3(0, _capsuleCollider.size.y * 0.5f, 0);
+
+            RaycastHit2D hit = Physics2D.Raycast(raycastBelow, Vector2.down, 0.2f, _charactorController.layerMask);
+
+            if (hit.collider)
+            {
+                tempOneWayPlatform = hit.collider.gameObject;
+            }
+        }
+        else
+        {
+            Vector2 raycastAbove = transform.position + new Vector3(0, _capsuleCollider.size.y * 0.5f, 0);
+
+            RaycastHit2D hit = Physics2D.Raycast(raycastAbove, Vector2.up, 0.4f, _charactorController.layerMask);
+
+            if (hit.collider)
+            {
+                tempOneWayPlatform = hit.collider.gameObject;
+            }
+        }
+
+        if (tempOneWayPlatform) tempOneWayPlatform.GetComponent<EdgeCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (tempOneWayPlatform) tempOneWayPlatform.GetComponent<EdgeCollider2D>().enabled = true;
+        #endregion
     }
     #endregion
 }
