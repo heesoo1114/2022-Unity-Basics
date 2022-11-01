@@ -13,6 +13,5 @@ public class TurretCard : MonoBehaviour
     {
         turretImage.sprite = turretSettings.TurretShopSprite;
         turretCost.text = turretSettings.TurretShopCost.ToString();
-
     }
 }
