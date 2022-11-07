@@ -11,8 +11,11 @@ public class Turret : MonoBehaviour
 
     public Enemy CurrentEnemyTarget { get; set; } //리스트 중 제일 첫번째 놈
 
+    public TurretUpgrade TurretUpgrade { get; set; }
+
     private void Start()
     {
+        TurretUpgrade = GetComponent<TurretUpgrade>();
         _gameStarted = true;
         _enemies = new List<Enemy>();
     }

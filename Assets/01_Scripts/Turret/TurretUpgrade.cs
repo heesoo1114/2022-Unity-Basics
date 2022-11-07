@@ -23,15 +23,7 @@ public class TurretUpgrade : MonoBehaviour
         UpgradeCost = upgradeInitialCost;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            UpgradeTurret();
-        }
-    }
-
-    private void UpgradeTurret()
+    public void UpgradeTurret()
     {
         if(MoneySystem.Instance.TotalCoins >= UpgradeCost)
         {
