@@ -13,7 +13,13 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private float damageIncremental;
     [SerializeField] private float delayReduce;
 
+    [Header("Sell"), Range(0f, 1f)]
+    [SerializeField] private float sellPert;
+
+    public float SellPert { get; set; }
+
     public int UpgradeCost { get; set; }
+    public int Level { get; set; }
 
     private TurretProjectile _turretProjectile;
 
@@ -21,6 +27,8 @@ public class TurretUpgrade : MonoBehaviour
     {
         _turretProjectile = GetComponent<TurretProjectile>();
         UpgradeCost = upgradeInitialCost;
+        Level = 1;
+        SellPert = sellPert;
     }
 
     public void UpgradeTurret()
@@ -38,5 +46,12 @@ public class TurretUpgrade : MonoBehaviour
     {
         MoneySystem.Instance.RemoveCoins(UpgradeCost);
         UpgradeCost += upgradeCostIncremental;
+        Level++;
+    }
+
+    public int GetSellValue()
+    {
+        int sellValue = Mathf.RoundToInt(UpgradeCost * sellPert);
+        return sellValue;
     }
 }

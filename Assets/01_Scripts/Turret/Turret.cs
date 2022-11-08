@@ -5,6 +5,9 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     [SerializeField] private float attackRange = 3.0f;
+
+    public float AttackRange => attackRange;
+    
     private bool _gameStarted;
 
     private List<Enemy> _enemies; //공격범위 안에 들어오는 적들을 리스트로 저장

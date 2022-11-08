@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1075772445
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: c3d28eab4929da54d9a803eb58cf9097, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,10 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a959ddeac65a3d45a2c4e3624c12c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeInitialCost: 0
-  upgradeCostIncremental: 0
-  damageIncremental: 0
-  delayReduce: 0
+  upgradeInitialCost: 10
+  upgradeCostIncremental: 20
+  damageIncremental: 2
+  delayReduce: 0.1
+  sellPert: 0.5
 --- !u!114 &307029133081394083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1075772445
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 93d77e13d61d19e4595e98b24fa6b53b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -384,7 +385,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1075772445
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 27696cdbcef7c784b8efdb851b2f7d39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
