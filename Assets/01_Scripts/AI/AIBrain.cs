@@ -39,6 +39,7 @@ public class AIBrain : MonoBehaviour
     private void MakeAttackType()
     {
         Transform atkTrm = transform.Find("AttackType");
+
         EnemyAttackData rangeAttack = new EnemyAttackData
         {
             atk = atkTrm.GetComponent<RangeAttack>(),
@@ -48,9 +49,19 @@ public class AIBrain : MonoBehaviour
                 _stateInfo.IsRange = false;
             },
             coolTime = 3f
+        },
+        meleeAttack = new EnemyAttackData
+        {
+            atk = atkTrm.GetComponent<MeleeAttack>(),
+            action = (value) => {
+                _stateInfo.IsAttack = false;
+                _stateInfo.IsMelee = false;
+            },
+            coolTime = 1f
         };
 
         _attackDictionary.Add(SkillName.Range, rangeAttack);
+        _attackDictionary.Add(SkillName.Melee, meleeAttack);
     }
 
     public void ChangeToState(AIState nextState)
@@ -97,7 +108,7 @@ public class AIBrain : MonoBehaviour
             finfoBool.SetValue(_stateInfo, true);
             finfo.SetValue(_stateInfo, atkData.coolTime);
             atkData.atk.Attack(atkData.action);
-        }
+;        }
     }
 
     public void Move(Vector2 direction, Vector2 targetPos)

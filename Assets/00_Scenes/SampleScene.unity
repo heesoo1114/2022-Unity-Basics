@@ -608,7 +608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713585973}
   - component: {fileID: 713585974}
-  - component: {fileID: 713585975}
+  - component: {fileID: 713585976}
   m_Layer: 0
   m_Name: TranChase
   m_TagString: Untagged
@@ -643,10 +643,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decisions:
-  - {fileID: 713585975}
+  - {fileID: 713585976}
   positiveResult: {fileID: 1519902020}
   negativeResult: {fileID: 0}
---- !u!114 &713585975
+--- !u!114 &713585976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -655,10 +655,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 713585972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c355d708733464d4197070c97c2bb6be, type: 3}
+  m_Script: {fileID: 11500000, guid: fdc68029cf3625c4dbc8703d50431933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skill: 0
+  skill: 0
 --- !u!1 &739765034
 GameObject:
   m_ObjectHideFlags: 0
