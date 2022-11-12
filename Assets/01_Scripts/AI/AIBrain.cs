@@ -24,6 +24,9 @@ public class AIBrain : MonoBehaviour
     public Transform target = null;
     private Dictionary<SkillName, EnemyAttackData> _attackDictionary = new Dictionary<SkillName, EnemyAttackData>();
 
+    public float viewAngle;
+    public float viewRange;
+
     private void Awake()
     {
         _stateInfo = transform.Find("AI").GetComponent<AIStateInfo>();

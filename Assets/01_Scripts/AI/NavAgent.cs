@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -12,6 +12,9 @@ public class NavAgent : MonoBehaviour
 
     public float speed = 5f;
     public bool cornerCheck = false;
+    private bool _isMove = false;
+    private int _moveIdx = 0; // 라우트 패스의 몇 번째를 진행하고 있는지
+    private Vector3 _nextPos; // 다음에 이동할 워드 포지션
 
     private Vector3Int _currentPosition; // 현재 타일 위치
     private Vector3Int _destination; // 목표 타일 위치
@@ -19,10 +22,14 @@ public class NavAgent : MonoBehaviour
     [SerializeField]
     private Tilemap _tilemap;
 
+    private LineRenderer _lineRenderer;
+
     private void Awake()
     {
         _openList = new PriorityQueue<Node>();
         _closeList = new List<Node>();
+        _routePath = new List<Vector3Int>();
+        _lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Start()
@@ -39,20 +46,53 @@ public class NavAgent : MonoBehaviour
             Vector3 mPos = Input.mousePosition;
             mPos.z = 0;
             Vector3 world = Camera.main.ScreenToWorldPoint(mPos);
-            Vector3Int cellPos = _tilemap.WorldToCell(world); // 이걸로 월드를 타일 맵 포지션으로 변경
-
-            // Debug.Log(cellPos);
-
+            Vector3Int cellPos = MapManager.Instance.GetTilePos(world); // 이걸로 월드를 타일 맵 포지션으로 변경
+            
             _destination = cellPos;
 
-            CalcuRoute();
-            PrintRoute();
+            if (CalcuRoute())
+            {
+                PrintRoute();
+                _moveIdx = 0;
+                _isMove = true;
+                SetNextTarget();
+            }
         }
+
+        if (_isMove)
+        {
+            Vector3 dir = _nextPos - transform.position;
+            transform.position += dir.normalized * speed * Time.deltaTime;
+            if (dir.magnitude <= 0.05)
+            {
+                SetNextTarget();
+            }
+        }
+    }
+
+    private void SetNextTarget()
+    {
+        if (_moveIdx >= _routePath.Count)
+        {
+            _isMove = false;
+            return;
+        }
+
+        _currentPosition = _routePath[_moveIdx];    
+        _nextPos = MapManager.Instance.GetWorldPos(_currentPosition);
+        _moveIdx++;
     }
 
     private void PrintRoute() // 계산한 경로를 디버그로 찍어본다.
     {
+        _lineRenderer.positionCount = _routePath.Count;
+        _lineRenderer.SetPositions(_routePath.Select(p => MapManager.Instance.GetWorldPos(p)).ToArray());
 
+        /*for (int i = 0; i < _routePath.Count; i++)
+        {
+            Vector3 worldPos = MapManager.Instance.GetWorldPos(_routePath[i]);
+            _lineRenderer.SetPosition(i, worldPos);
+        }*/
     }
 
     private bool CalcuRoute()
@@ -87,12 +127,14 @@ public class NavAgent : MonoBehaviour
 
         if (result) // 길을 찾음
         {
+            _routePath.Clear();
             Node last = _closeList[_closeList.Count - 1];
             while (last._parent != null)
             {
-                Debug.Log(last.pos);
+                _routePath.Add(last.pos);
                 last = last._parent;
             }
+            _routePath.Reverse(); // 역순 리스트를 출발점부터 다시 들어오게 뒤집어 줌
         }
 
         return result;
@@ -113,6 +155,7 @@ public class NavAgent : MonoBehaviour
                 if (temp != null) continue;
 
                 // 타일에서 진짜 갈 수 있는 곳인지
+                if (MapManager.Instance.CanMove(nextPos))
                 {
                     float g = (n.pos - nextPos).magnitude + n.G;
 
