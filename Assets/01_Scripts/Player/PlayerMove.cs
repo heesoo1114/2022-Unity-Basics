@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 3;
-
     private Rigidbody2D _rigid;
     private Animator _animator;
-    [SerializeField]
+    
+    public float speed = 3;
+
+    /*[SerializeField]
     AnimationCurve _animationCurve;
     [SerializeField] float maxSpeed = 5;
     [SerializeField] float accelerationMaxTime = 1f;
     float buttonHoldTime;
-    bool isMoving;
+    bool isMoving;*/
 
     private void Start()
     {
@@ -25,8 +26,9 @@ public class PlayerMove : MonoBehaviour
     {
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        SetAccelationParamenters(dir);
-        speed = CalulateSpeed(dir, _animationCurve);
+        // SetAccelationParamenters(dir);
+
+        // speed = CalulateSpeed(dir, _animationCurve);
 
         _rigid.velocity = dir.normalized * speed;
 
@@ -39,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         _animator.SetFloat("InputY", dir.y);
     }
 
-    void SetAccelationParamenters(Vector2 input)
+    /*void SetAccelationParamenters(Vector2 input)
     {
         if (input.magnitude > 0)
         {
@@ -51,9 +53,9 @@ public class PlayerMove : MonoBehaviour
             isMoving = false;
             buttonHoldTime = 0;
         }
-    }
+    }*/
 
-    float CalulateSpeed(Vector2 input, AnimationCurve anmationCurve)
+    /*float CalulateSpeed(Vector2 input, AnimationCurve anmationCurve)
     {
         if (isMoving)
         {
@@ -61,5 +63,5 @@ public class PlayerMove : MonoBehaviour
             return maxSpeed * acceleration;
         }
         else return 0;
-    }
+    }*/
 }
