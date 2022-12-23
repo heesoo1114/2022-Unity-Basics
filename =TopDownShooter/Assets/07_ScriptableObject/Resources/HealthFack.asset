@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e499b9f0df97448a1dfea725ac7246, type: 3}
+  m_Name: HealthFack
+  m_EditorClassIdentifier: 
+  rate: 0.2
+  itemPrefab: {fileID: 7433132190202811821, guid: 07738aab732fcdd47b97eca0172525bd, type: 3}
+  _resourceType: 1
+  minAmount: 1
+  maxAmount: 1
+  useSound: {fileID: 8300000, guid: 9c5a34f26495d384f8ca635579011bbb, type: 3}
+  popupTextColor: {r: 0.3164474, g: 0.9056604, b: 0.20847276, a: 1}
