@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     {
         components.Add(new UIComponent());
 
+        components.Add(GetComponent<TileComponent>());
+
         UpdateState(GameState.INIT);
     }
 
@@ -39,8 +41,6 @@ public class GameManager : MonoBehaviour
         {
             UpdateState(GameState.STANDBY);
         }
-
-
     }
 
     public T GetGameComponent<T>() where T : class, IComponent
