@@ -54,7 +54,7 @@ public class EnemyComponent : MonoBehaviour, IComponent
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            var enemy = Instantiate(enemyPrefab);
+            var enemy = ObjectPool.Instance.GetObject(PoolObjectType.Enemy);
 
             enemy.transform.position = GetRandomPosition();
 
@@ -75,7 +75,7 @@ public class EnemyComponent : MonoBehaviour, IComponent
     {
         for (var i = 0; i < enemies.Count; i++)
         {
-            Destroy(enemies[i]);
+            ObjectPool.Instance.ReturnObject(PoolObjectType.Enemy, enemies[i]);
         }
 
         enemies.Clear();
