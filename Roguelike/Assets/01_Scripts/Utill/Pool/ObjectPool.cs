@@ -47,7 +47,7 @@ public class ObjectPool : MonoBehaviour
     {
         var newObj = Instantiate(poolObjectDataMap[objectType].prefab, transform, true);
 
-        newObj.gameObject.SetActive(true);
+        newObj.gameObject.SetActive(false);
 
         return newObj;
     }

@@ -1,12 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
+
+// Random이 모호한 참조라 확실히 정해줌
+using Random = UnityEngine.Random;
 
 public class EnemyComponent : MonoBehaviour, IComponent
 {
     [SerializeField] private GameObject enemyPrefab;
 
     private List<GameObject> enemies = new ();
+
+    // subject: stream을 수동적으로 가져올 수 있게
+    private Subject<List<GameObject>> enemiesStream = new ();
 
     private int enemyCount = 10;
 
@@ -20,7 +28,9 @@ public class EnemyComponent : MonoBehaviour, IComponent
 
             case GameState.STANDBY:
                 Reset();
+                break;
 
+            case GameState.RUNNING:
                 Generate();
                 break;
         }
@@ -45,7 +55,7 @@ public class EnemyComponent : MonoBehaviour, IComponent
     {
         var normal = (playerPosition - enemyPosition).normalized;
 
-        enemyPosition += normal * Time.deltaTime;
+        enemyPosition += normal * Time.deltaTime * .25f;
 
         return enemyPosition;
     }
@@ -60,6 +70,8 @@ public class EnemyComponent : MonoBehaviour, IComponent
 
             enemies.Add(enemy);
         }
+
+        enemiesStream.OnNext(enemies);
     }
 
     private Vector3 GetRandomPosition()
@@ -79,5 +91,10 @@ public class EnemyComponent : MonoBehaviour, IComponent
         }
 
         enemies.Clear();
+    }
+
+    public void EnemiesSubscribe(Action<List<GameObject>> action)
+    {
+        enemiesStream.Subscribe(action);
     }
 }

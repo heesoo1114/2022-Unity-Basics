@@ -1,5 +1,6 @@
 public enum PoolObjectType
 {
     Player,
-    Enemy
+    Enemy,
+    Bullet
 }
