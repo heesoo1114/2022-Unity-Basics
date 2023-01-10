@@ -9,7 +9,7 @@ public class Gun : IWeapon
 {
     private List<GameObject> bullets = new ();
 
-    private List<GameObject> enemies;
+    private List<Enemy> enemies;
 
     private GameObject player;
 
@@ -42,7 +42,7 @@ public class Gun : IWeapon
 
         bullet.transform.position = player.transform.position;
 
-        var normalized = (enemies[0].transform.position - bullet.transform.position).normalized;
+        var normalized = (enemies[0].Position - bullet.transform.position).normalized;
 
         var angle = MathF.Atan2(normalized.x, normalized.y) * Mathf.Rad2Deg - 90;
 

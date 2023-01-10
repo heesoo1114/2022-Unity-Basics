@@ -11,10 +11,10 @@ public class EnemyComponent : MonoBehaviour, IComponent
 {
     [SerializeField] private GameObject enemyPrefab;
 
-    private List<GameObject> enemies = new ();
+    private List<Enemy> enemies = new ();
 
     // subject: stream을 수동적으로 가져올 수 있게
-    private Subject<List<GameObject>> enemiesStream = new ();
+    private Subject<List<Enemy>> enemiesStream = new ();
 
     private int enemyCount = 10;
 
@@ -43,11 +43,11 @@ public class EnemyComponent : MonoBehaviour, IComponent
 
     private void PlayerMoveEvent(Vector3 playerPosition)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        foreach (var enemy in enemies)
         {
-            var movePosition = GetPosition(enemies[i].transform.position, playerPosition);
+            var movePosition = GetPosition(enemy.Position, playerPosition);
 
-            enemies[i].transform.position = movePosition;
+            enemy.Position = movePosition;
         }
     }
 
@@ -64,14 +64,26 @@ public class EnemyComponent : MonoBehaviour, IComponent
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            var enemy = ObjectPool.Instance.GetObject(PoolObjectType.Enemy);
+            enemies.Add(Enemy.EnemyBuilder.Build(PoolObjectType.Slime));
 
-            enemy.transform.position = GetRandomPosition();
+            enemies[^1].Position = GetRandomPosition();
 
-            enemies.Add(enemy);
+            enemies[^1].DestorySubscribe(EnemyDestoryEvent);
         }
 
         enemiesStream.OnNext(enemies);
+    }
+
+    private void EnemyDestoryEvent(Enemy target)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].Equals(target))
+            {
+                enemies.RemoveAt(i);
+                return;
+            }
+        }
     }
 
     private Vector3 GetRandomPosition()
@@ -87,13 +99,13 @@ public class EnemyComponent : MonoBehaviour, IComponent
     {
         for (var i = 0; i < enemies.Count; i++)
         {
-            ObjectPool.Instance.ReturnObject(PoolObjectType.Enemy, enemies[i]);
+            enemies[i].ReturnObject();
         }
 
         enemies.Clear();
     }
 
-    public void EnemiesSubscribe(Action<List<GameObject>> action)
+    public void EnemiesSubscribe(Action<List<Enemy>> action)
     {
         enemiesStream.Subscribe(action);
     }
