@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         components.Add(new UIComponent());
         components.Add(new PlayerComponent());
         components.Add(new CameraComponent());
+        components.Add(new ChunkComponent());
 
         components.Add(GetComponent<TileComponent>());
         components.Add(GetComponent<EnemyComponent>());

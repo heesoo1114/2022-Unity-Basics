@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class TileComponent : MonoBehaviour, IComponent
 {
-    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private Tilemap tile;
 
     [SerializeField] private TileBase tilebase;
 
@@ -13,30 +13,37 @@ public class TileComponent : MonoBehaviour, IComponent
     {
         switch (state)
         {
-            case GameState.STANDBY:
-                Reset();
-                Generate();
+            case GameState.INIT:
+                Init();
                 break;
         }
     }
 
-    private void Generate()
+    private void Init()
     {
-        var tileStartPosition = -new Vector3Int(size / 2, size / 2);
+        GameManager.Instance.GetGameComponent<ChunkComponent>().ChunkSubscribe(ChunkEvent);
+    }
 
-        for (int i = 0; i < size; i++)
+    private void ChunkEvent(Chunk chunk)
+    {
+        var chunkSize = chunk.map.GetLength(0);
+
+        var start = chunk.index * (chunkSize - 1);
+        start += new Vector3Int(chunk.index.x - (int)(chunkSize * 0.5f), chunk.index.y - (int)(chunkSize * 0.5f));
+
+        for (int i = 0; i < chunkSize; i++)
         {
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < chunkSize; j++)
             {
-                var tilePosition = new Vector3Int((int)tileStartPosition.x + i, (int)tileStartPosition.y + j);
+                var tilePosition = new Vector3Int(start.x + i, start.y + j);
 
-                tilemap.SetTile(tilePosition, tilebase);
+                tile.SetTile(tilePosition, tilebase);
             }
         }
     }
 
     private void Reset()
     {
-        tilemap.ClearAllTiles();
+        tile.ClearAllTiles();
     }
 }

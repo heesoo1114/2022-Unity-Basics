@@ -10,6 +10,10 @@ public class PlayerComponent : IComponent
 
     private IObservable<Vector3> playerMoveStream;
 
+    private IObservable<Vector3Int> playerChunkMoveStream;
+
+    private const float playerChunkMoveSize = ChunkComponent.ChunkSize * 0.16f;
+
     private List<IPlayerComponent> components = new ();
 
     public void UpdateState(GameState state)
@@ -35,7 +39,20 @@ public class PlayerComponent : IComponent
     {
         player = ObjectPool.Instance.GetObject(PoolObjectType.Player);
 
-        playerMoveStream = Observable.EveryUpdate().Select(stream => player.transform.position);
+        playerMoveStream = Observable.EveryUpdate()
+            //.Where(condition => GameManager.Instance.State == GameState.RUNNING)
+            .Select(stream => player.transform.position);
+
+        playerChunkMoveStream = playerMoveStream.Select(position =>
+        {
+            var pos = position / playerChunkMoveSize;
+
+            pos.x += position.x > 0 ? 0.5f : -0.5f;
+            pos.y += position.y > 0 ? 0.5f : -0.5f;
+
+            return new Vector3Int((int)pos.x, (int)pos.y);
+        }).DistinctUntilChanged();
+           
 
         components.Add(new PlayerWeaponComponent(player));
         components.Add(new PlayerAnimationComponent(player));
@@ -58,5 +75,10 @@ public class PlayerComponent : IComponent
         }
 
         return value;
+    }
+
+    public void PlayerChunkMoveSubscribe(Action<Vector3Int> action)
+    {
+        playerChunkMoveStream.Subscribe(action);
     }
 }

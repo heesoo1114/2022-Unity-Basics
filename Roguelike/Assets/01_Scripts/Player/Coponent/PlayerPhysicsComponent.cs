@@ -4,6 +4,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class PlayerPhysicsComponent : IPlayerComponent
 {
@@ -14,6 +15,8 @@ public class PlayerPhysicsComponent : IPlayerComponent
     private float hp = 10;
 
     private float speed = 0.5f;
+
+    private Vector3 velocity;
 
     public PlayerPhysicsComponent(GameObject player) : base(player)
     {
@@ -37,7 +40,14 @@ public class PlayerPhysicsComponent : IPlayerComponent
 
     private void Init()
     {
-        GameManager.Instance.GetGameComponent<PlayerComponent>().PlayerMoveSubscribe(PlayerPositionEvent);
+        GameManager.Instance.GetGameComponent<PlayerComponent>().PlayerMoveSubscribe(PlayerPositionEvent =>
+        {
+            var direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            direction *= Time.deltaTime * speed;
+            direction += velocity * Time.deltaTime * 2;
+
+            UpdateTranslate(direction);
+        });
 
         player.OnCollisionEnter2DAsObservable().Subscribe(col =>
         {
@@ -46,6 +56,9 @@ public class PlayerPhysicsComponent : IPlayerComponent
             hp--;
 
             hpStream.OnNext(hp / maxHp);
+
+            var normalized = (player.transform.position - col.transform.position).normalized;
+            DOTween.To(() => normalized, x => velocity = x, Vector3.zero, 1);
 
             if (hp <= 0)
             {
@@ -64,6 +77,8 @@ public class PlayerPhysicsComponent : IPlayerComponent
 
     private void UpdateTranslate(Vector2 direction)
     {
+        Debug.Log(direction);
+
         player.transform.Translate(direction);
     }
 

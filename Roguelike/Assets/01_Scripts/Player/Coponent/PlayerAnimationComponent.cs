@@ -8,7 +8,7 @@ public class PlayerAnimationComponent : IPlayerComponent
 
     private SpriteRenderer spriteRenderer;
 
-    private readonly int IsWalk = Animator.StringToHash("iswalk");
+    private readonly int IsWalk = Animator.StringToHash("isWalk");
 
     public PlayerAnimationComponent(GameObject player) : base(player)
     {
@@ -47,6 +47,7 @@ public class PlayerAnimationComponent : IPlayerComponent
             case PlayerAnimationType.Walk:
                 animator.SetBool(IsWalk, true);
                 break;
+
             default:
                 animator.SetBool(IsWalk, false);
                 break;
