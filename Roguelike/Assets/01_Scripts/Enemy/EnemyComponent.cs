@@ -9,8 +9,6 @@ using Random = UnityEngine.Random;
 
 public class EnemyComponent : MonoBehaviour, IComponent
 {
-    [SerializeField] private GameObject enemyPrefab;
-
     private List<Enemy> enemies = new ();
 
     // subject: stream을 수동적으로 가져올 수 있게

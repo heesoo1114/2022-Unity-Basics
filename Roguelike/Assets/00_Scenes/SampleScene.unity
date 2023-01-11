@@ -585,8 +585,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7385730dddf6ea4db77832d71943206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 1260591644}
-  tilebase: {fileID: 11400000, guid: e07e10a7a41a0034cb74f3dede11eb40, type: 2}
+  tile: {fileID: 1260591644}
+  tilebases:
+  - {fileID: 11400000, guid: e07e10a7a41a0034cb74f3dede11eb40, type: 2}
+  - {fileID: 11400000, guid: dfbf05149a1522d439ba7c9761b3cc08, type: 2}
 --- !u!114 &1839204957
 MonoBehaviour:
   m_ObjectHideFlags: 0

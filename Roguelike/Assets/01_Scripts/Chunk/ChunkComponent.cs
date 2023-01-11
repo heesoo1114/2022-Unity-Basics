@@ -10,7 +10,11 @@ public class ChunkComponent : IComponent
 
     private List<Chunk> chunks = new ();
 
+    private System.Random random;
+
     public const int ChunkSize = 32;
+
+    private const int Seed = 1;
 
     public void UpdateState(GameState state)
     {
@@ -25,6 +29,8 @@ public class ChunkComponent : IComponent
     private void Init()
     {
         GameManager.Instance.GetGameComponent<PlayerComponent>().PlayerChunkMoveSubscribe(PlayerChunkMoveEvent);
+
+        random = new System.Random(Seed.GetHashCode());
     }
 
     private void PlayerChunkMoveEvent(Vector3Int index)
@@ -46,9 +52,77 @@ public class ChunkComponent : IComponent
                 var chunkMap = new int[ChunkSize, ChunkSize];
                 var chunkIndex = new Vector3Int(i, j);
 
+                RandomFillMap(chunkMap);
+                SmoothMap(chunkMap);    
+
                 var chunk = new Chunk(chunkMap, chunkIndex);
 
                 chunks.Add(chunk);
+            }
+        }
+    }
+
+    private void SmoothMap(int[,] map)
+    {
+        for (int x = 0; x < ChunkSize; x++)
+        {
+            for (int y = 0; y < ChunkSize; y++)
+            {
+                var neighboutWallCount = GetSurroundingGrassCount(map, x, y);
+
+                if (neighboutWallCount > 4)
+                {
+                    map[x, y] = 0;
+                }
+                else
+                {
+                    map[x, y] = 1;
+                }
+            }
+        }
+    }
+
+    private int GetSurroundingGrassCount(int[,] map, int gridX, int gridY)
+    {
+        var grassCount = 0;
+
+        // 인접한 9개칸 타일 순회
+        for (int i = gridX - 1; i <= gridX + 1; i++)
+        {
+            for (int j = gridY - 1; j <= gridY + 1; j++)
+            {
+                if (i >= 0 && i < ChunkSize && j >= 0 && j < ChunkSize)
+                {
+                    if (i != gridX || j != gridX)
+                    {
+                        grassCount += map[i, j] == 0 ? 1 : 0;
+                    }
+                }
+                else
+                {
+                    grassCount++;
+                }
+            }
+        }
+
+        return grassCount;
+    }
+
+    private void RandomFillMap(int[,] map)
+    {
+        for (int x = 0; x < ChunkSize; x++)
+        {
+            for (var y = 0; y < ChunkSize; y++)
+            {
+                if (x == 0 || x == ChunkSize - 1 || y == 0 || y == ChunkSize - 1)
+                {
+                    map[x, y] = 0;
+                }
+                else
+                {
+                    map[x, y] = random.Next(0, 100) < 50 ? 0 : 1;
+                }
+
             }
         }
     }

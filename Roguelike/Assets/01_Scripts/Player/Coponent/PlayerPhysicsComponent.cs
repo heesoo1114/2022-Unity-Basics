@@ -77,8 +77,6 @@ public class PlayerPhysicsComponent : IPlayerComponent
 
     private void UpdateTranslate(Vector2 direction)
     {
-        Debug.Log(direction);
-
         player.transform.Translate(direction);
     }
 
