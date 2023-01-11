@@ -40,7 +40,7 @@ public class PlayerComponent : IComponent
         player = ObjectPool.Instance.GetObject(PoolObjectType.Player);
 
         playerMoveStream = Observable.EveryUpdate()
-            //.Where(condition => GameManager.Instance.State == GameState.RUNNING)
+            .Where(condition => GameManager.Instance.State == GameState.RUNNING)
             .Select(stream => player.transform.position);
 
         playerChunkMoveStream = playerMoveStream.Select(position =>
