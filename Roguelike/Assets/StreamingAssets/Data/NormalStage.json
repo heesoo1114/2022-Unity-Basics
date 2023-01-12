@@ -1,0 +1,17 @@
+{
+  "spawns": 
+  [
+    {
+      "minimum": 5,
+      "frequency": 1000,
+      "frequencyTime": 5,
+      "enemies": [ 100 ]
+    },
+    {
+      "minimum": 20,
+      "frequency": 3000,
+      "frequencyTime": 5,
+      "enemies": [ 100 ]
+    }
+  ]
+}
