@@ -37,6 +37,8 @@ public class Enemy
             {
                 case PoolObjectType.Slime:
                     return new Slime(gameObject);
+                case PoolObjectType.Skeleton:
+                    return new Skeleton(gameObject);
                 default:
                     return new Enemy(gameObject);
             }

@@ -67,7 +67,7 @@ public class TileComponent : MonoBehaviour, IComponent
         var tilePos = tiles[1].WorldToCell(position);
         var type = tiles[1].GetColliderType(tilePos);
 
-        returnPosition = tilePos;
+        returnPosition = tiles[1].GetCellCenterWorld(tilePos);
 
         return type != Tile.ColliderType.None;
     }

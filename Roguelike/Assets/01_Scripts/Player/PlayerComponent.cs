@@ -52,8 +52,14 @@ public class PlayerComponent : IComponent
         })
         .DistinctUntilChanged();
 
+        var paths = BetterStreamingAssets.GetFiles("/Data", "PlayerData.json", System.IO.SearchOption.AllDirectories);
+
+        var playerData = JsonUtility.FromJson<PlayerData>(BetterStreamingAssets.ReadAllText(paths[0]));
+
+        Debug.Log(playerData);
+
         components.Add(new PlayerWeaponComponent(player));
-        components.Add(new PlayerPhysicsComponent(player));
+        components.Add(new PlayerPhysicsComponent(player, playerData));
         components.Add(new PlayerAnimationComponent(player));
         components.Add(new PlayerUiComponent(player));
     }

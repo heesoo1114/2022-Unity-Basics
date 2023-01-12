@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        components.Add(new UIComponent());
         components.Add(new PlayerComponent());
+        components.Add(new UIComponent());
         components.Add(new CameraComponent());
         components.Add(new ChunkComponent());
         components.Add(new StageComponent());

@@ -11,7 +11,14 @@ namespace Ui.Screens
         public override void Init()
         {
             tapToResult.onClick.AddListener(() => GameManager.Instance.UpdateState(GameState.GAMEOVER));
+
+            GameManager.Instance.GetGameComponent<PlayerComponent>()
+                .GetPlayerComponent<PlayerPhysicsComponent>()
+                .PlayerLevelUpSubscibe(playerData =>
+                {
+                    // level.value = playerData.level % 1;
+                });
         }
-        
+
     }
 }

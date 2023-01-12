@@ -10,6 +10,8 @@ public class EnemyComponent : MonoBehaviour, IComponent
 
     private Subject<List<Enemy>> enemiesStream = new();
 
+    private Subject<Enemy> enemyDestroyStream = new();
+
     private IDisposable spawner;
 
     private Vector3 spawnPoint;
@@ -52,8 +54,16 @@ public class EnemyComponent : MonoBehaviour, IComponent
 
                 var count = spawn.minimum - enemies.Count;
 
-                if (count > 0)
-                    Generate(count);
+                if (count <= 0) return;
+
+                for (var i = 0; i < count; i++)
+                {
+                    var type = (PoolObjectType)spawn.enemies[Random.Range(0, spawn.enemies.Length)];
+
+                    Debug.Log(type);
+
+                    Generate(type);
+                }
             }, 
             () =>
             {
@@ -90,15 +100,15 @@ public class EnemyComponent : MonoBehaviour, IComponent
         return enemyPosition;
     }
 
-    private void Generate(int count)
+    private void Generate(PoolObjectType type)
     {
-        for (var i = 0; i < count; i++)
+        for (var i = 0; i < 1; i++)
         {
             var enemyPosition = GetRandomCircleEdgeVector3();
 
             if (!GameManager.Instance.GetGameComponent<TileComponent>().isCollision(enemyPosition, out var returnPosition))
             {
-                enemies.Add(Enemy.EnemyBuilder.Build(PoolObjectType.Slime));
+                enemies.Add(Enemy.EnemyBuilder.Build(type));
 
                 enemies[^1].Position = enemyPosition;
 
@@ -115,6 +125,8 @@ public class EnemyComponent : MonoBehaviour, IComponent
     
     private void EnemyDestroyEvent(Enemy target)
     {
+        enemyDestroyStream.OnNext(target);
+
         for(int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i].Equals(target))
@@ -152,4 +164,8 @@ public class EnemyComponent : MonoBehaviour, IComponent
         enemiesStream.Subscribe(action);
     }
     
+    public void EnemyDestorySubscribe(Action<Enemy> action)
+    {
+        enemyDestroyStream.Subscribe(action);
+    }
 }
