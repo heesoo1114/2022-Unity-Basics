@@ -2,23 +2,23 @@
 
 # Repositery 정보
 
-### shootinggame
+## shootinggame
   처음 유니티를 배우게 된 수업, 세로 슈팅 게임
 
-### PlatformerGame
+## PlatformerGame
   기본적인 플랫포머 장르의 게임
 
-### 2thEginebasics
+## 2thEginebasics
   2학기 수행평가 준비 (움직임, 타일맵, JSON 저장활용 등)
 
-### TopDownShooter
+## TopDownShooter
   FSM을 활용한 탑다운 슈터
 
-### FSMProject
+## FSMProject
   FSM, 길찾기 알고리즘, 에디터 프로그래밍을 포함한 탑다운 슈터
   
-### DefenceGame
+## DefenceGame
   기본적인 디펜스 장르의 게임
   
-### Roguelike
+## Roguelike
   컴포넌트 패턴, 옵저버 패턴 등 다양한 디자인 패턴을 활용한 뱀서 장르의 게임
