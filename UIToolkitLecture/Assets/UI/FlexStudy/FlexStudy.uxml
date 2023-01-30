@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/FlexStudy/Flex.uss?fileID=7433441132597879392&amp;guid=0fe91135478f2284a996a847b7d34394&amp;type=3#Flex" />
-    <ui:VisualElement style="width: 100%; height: 100%; flex-direction: column;">
-        <ui:VisualElement name="box" style="flex-basis: 1px; background-color: rgb(23, 54, 255); flex-grow: 0.5; flex-shrink: 0;" />
-        <ui:VisualElement name="box2" style="flex-basis: 1px; background-color: rgb(255, 31, 23); flex-grow: 2;" />
-        <ui:VisualElement name="box3" style="flex-basis: 1px; background-color: rgb(202, 255, 0); flex-grow: 3;" />
-    </ui:VisualElement>
-</ui:UXML>
