@@ -1,0 +1,45 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Ex2/Ex2.uss?fileID=7433441132597879392&amp;guid=cd5e515d064195f46aa153d8507071f1&amp;type=3#Ex2" />
+    <ui:VisualElement style="width: 100%; height: 100%; justify-content: center;">
+        <ui:GroupBox name="CardContainer" style="flex-shrink: 1;">
+            <ui:VisualElement name="CardRow" style="flex-basis: 350px; background-color: rgb(180, 180, 180); flex-direction: row; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; justify-content: space-between;">
+                <ui:VisualElement name="LalaCard" class="card" style="flex-basis: 250px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-grow: 0; top: auto;">
+                    <ui:GroupBox name="ProfileBox" style="flex-basis: 60px; justify-content: flex-end; align-items: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-shrink: 1;">
+                        <ui:VisualElement name="ImageElement" style="width: 120px; height: 120px; border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Face1.png?fileID=21300000&amp;guid=4edfa6fa7b8404a4e8cf10de477e7bc7&amp;type=3#Face1&apos;);" />
+                    </ui:GroupBox>
+                    <ui:VisualElement name="NameBox" style="-unity-text-align: middle-center; color: rgb(255, 255, 255); font-size: 40px; white-space: nowrap; flex-basis: 20px;">
+                        <ui:Label text="Lara" display-tooltip-when-elided="true" style="top: -20px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ContentsBox" style="flex-basis: 20px; background-color: rgb(185, 115, 10);">
+                        <ui:Label text="Engineer" display-tooltip-when-elided="true" style="-unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="LalaCard" class="card" style="flex-basis: 250px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-grow: 0; top: auto;">
+                    <ui:GroupBox name="ProfileBox" style="flex-basis: 60px; justify-content: flex-end; align-items: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-shrink: 1;">
+                        <ui:VisualElement name="ImageElement" style="width: 120px; height: 120px; border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Face1.png?fileID=21300000&amp;guid=4edfa6fa7b8404a4e8cf10de477e7bc7&amp;type=3#Face1&apos;);" />
+                    </ui:GroupBox>
+                    <ui:VisualElement name="NameBox" style="-unity-text-align: middle-center; color: rgb(255, 255, 255); font-size: 40px; white-space: nowrap; flex-basis: 20px;">
+                        <ui:Label text="Lara" display-tooltip-when-elided="true" style="top: -20px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ContentsBox" style="flex-basis: 20px; background-color: rgb(185, 115, 10);">
+                        <ui:Label text="Engineer" display-tooltip-when-elided="true" style="-unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="LalaCard" class="card" style="flex-basis: 250px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-grow: 0; top: auto;">
+                    <ui:GroupBox name="ProfileBox" style="flex-basis: 60px; justify-content: flex-end; align-items: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-shrink: 1;">
+                        <ui:VisualElement name="ImageElement" style="width: 120px; height: 120px; border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Face1.png?fileID=21300000&amp;guid=4edfa6fa7b8404a4e8cf10de477e7bc7&amp;type=3#Face1&apos;);" />
+                    </ui:GroupBox>
+                    <ui:VisualElement name="NameBox" style="-unity-text-align: middle-center; color: rgb(255, 255, 255); font-size: 40px; white-space: nowrap; flex-basis: 20px;">
+                        <ui:Label text="Lara" display-tooltip-when-elided="true" style="top: -20px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ContentsBox" style="flex-basis: 20px; background-color: rgb(185, 115, 10);">
+                        <ui:Label text="Engineer" display-tooltip-when-elided="true" style="-unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ButtonRow" style="flex-basis: 80px; justify-content: flex-end; align-items: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-direction: row;">
+                <ui:Button text="Card Toggle" display-tooltip-when-elided="true" name="BtnShow" style="height: 50px; width: 140px; padding-left: 12px; padding-right: 12px; justify-content: flex-start; font-size: 20px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; flex-shrink: 0; background-color: rgb(0, 22, 255);" />
+            </ui:VisualElement>
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

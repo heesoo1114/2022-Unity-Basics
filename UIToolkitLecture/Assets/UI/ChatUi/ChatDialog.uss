@@ -1,0 +1,55 @@
+.chat {
+    flex-basis: 120px;
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.chat > #ProfileImage {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 255);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.chat > #Dialog {
+    flex-grow: 1;
+    flex-basis: 60px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: 25px;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-direction: row;
+}
+
+.chat > #Dialog > #MsgLabel {
+    font-size: 30px;
+    color: rgba(0, 0, 0, 255);
+    -unity-text-align: upper-left;
+    white-space: normal;
+}
+
+.chat.right {
+    flex-direction: row-reverse;
+}
+
+.chat.right > #Dialog {
+    margin-left: 0;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 255);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
+}
+
+.chat.right > #Dialog > #MsgLabel {
+    background-color: rgba(0, 0, 0, 255);
+    color: rgba(255, 255, 255, 255);
+}
