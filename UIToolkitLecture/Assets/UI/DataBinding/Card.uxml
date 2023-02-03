@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="CardBorder" class="cardBorder" style="flex-basis: auto; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; align-items: center; justify-content: center; flex-direction: column; flex-grow: 0;">
+        <ui:VisualElement name="CardElement" class="card">
+            <ui:VisualElement name="ImageBox">
+                <ui:VisualElement name="Image" style="background-image: url(&apos;project://database/Assets/Sprite/Face1.png?fileID=21300000&amp;guid=4edfa6fa7b8404a4e8cf10de477e7bc7&amp;type=3#Face1&apos;); width: 200px; height: 200px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="NameBox">
+                <ui:Label text="Lora" display-tooltip-when-elided="true" name="NameLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="InfoBox">
+                <ui:Label text="Developer" display-tooltip-when-elided="true" name="InfoLabel" style="font-size: 30px; color: rgba(0, 0, 0, 255); -unity-text-align: upper-center; -unity-font-style: bold;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

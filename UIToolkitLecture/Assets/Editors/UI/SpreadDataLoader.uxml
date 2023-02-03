@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editors/UI/SpreadDataLoader.uss?fileID=7433441132597879392&amp;guid=776d124b951128b448873d655d34ec91&amp;type=3#SpreadDataLoader" />
+    <ui:VisualElement name="Container" style="flex-basis: 100%;">
+        <ui:VisualElement name="InputRow">
+            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="URLText" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="LoadBtn" class="btn" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ContentRow">
+            <ui:Label text="Google SpreadSheet ID를 넣으면 데이터를 읽어오는 프로그램입니다. 읽어오는 데이터는 반드시 공유설정이 되어 있어햐 합니다." display-tooltip-when-elided="true" style="white-space: normal; font-size: 14px;" />
+            <ui:VisualElement name="StatusWindow">
+                <ui:Label text="로딩 정보 표기" display-tooltip-when-elided="true" name="StatusLabel" style="font-size: 14px; color: rgb(0, 0, 0);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="LoadingPopup" class="LoadingPopup">
+            <ui:Label text="Loading..." display-tooltip-when-elided="true" name="LoadingText" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); font-size: 20px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

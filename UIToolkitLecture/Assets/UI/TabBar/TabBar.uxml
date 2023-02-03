@@ -1,0 +1,59 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TabBar/TabBar.uss?fileID=7433441132597879392&amp;guid=6de3ec177be79634c9c0d87771c77a4d&amp;type=3#TabBar" />
+    <ui:VisualElement name="Container" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="TabBar" style="background-color: rgba(255, 255, 255, 0);">
+            <ui:VisualElement name="TabBox">
+                <ui:VisualElement class="tab">
+                    <ui:VisualElement name="RogoImage" style="background-image: url(&apos;project://database/Assets/Sprite/Nike.jpg?fileID=21300000&amp;guid=15141382b5db58b478618dc69fb69cc8&amp;type=3#Nike&apos;); flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement class="tab">
+                    <ui:VisualElement name="RogoImage" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Sprite/Adidas.jpg?fileID=21300000&amp;guid=a9552621a1dd8d141ad499c1cfcf6fa6&amp;type=3#Adidas&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement class="tab" style="margin-right: 0;">
+                    <ui:VisualElement name="RogoImage" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Sprite/%EB%89%B4%EB%B0%9C%EB%9E%80%EC%8A%A4.jpg?fileID=21300000&amp;guid=201fc3f971da3e245982a9c6c1492144&amp;type=3#뉴발란스&apos;);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ContentBox">
+                <ui:VisualElement name="Content" style="flex-basis: 100%; flex-grow: 1; margin-left: 0; left: 0;">
+                    <ui:VisualElement class="tab_content" style="border-top-left-radius: 0; border-bottom-left-radius: 5px; border-top-right-radius: 0; border-bottom-right-radius: 5px;">
+                        <ui:VisualElement name="Product" style="background-image: url(&apos;project://database/Assets/Sprite/%ED%86%B0%EC%82%AD%EC%8A%A4.png?fileID=21300000&amp;guid=97a3b674b71521c4e9cf95787497adbe&amp;type=3#톰삭스&apos;);" />
+                        <ui:Label text="나이키 톰삭스" display-tooltip-when-elided="true" name="Name" />
+                        <ui:VisualElement name="Price">
+                            <ui:VisualElement name="PriceTab" style="background-color: rgb(0, 255, 32);">
+                                <ui:Label text="즉시판매가&#10;230,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="PriceTab" style="-unity-text-outline-color: rgb(255, 0, 0); background-color: rgb(255, 0, 0);">
+                                <ui:Label text="즉시 구매가&#10;210,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="tab_content" style="border-top-left-radius: 0; border-bottom-left-radius: 5px; border-top-right-radius: 0; border-bottom-right-radius: 5px;">
+                        <ui:VisualElement name="Product" style="background-image: url(&apos;project://database/Assets/Sprite/574%201.png?fileID=21300000&amp;guid=49953a128f6c9da4e971c24650bd9dcf&amp;type=3#574 1&apos;);" />
+                        <ui:Label text="아디다스 슈퍼스타" display-tooltip-when-elided="true" name="Name" />
+                        <ui:VisualElement name="Price">
+                            <ui:VisualElement name="PriceTab" style="background-color: rgb(0, 255, 32);">
+                                <ui:Label text="즉시판매가&#10;110,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="PriceTab" style="-unity-text-outline-color: rgb(255, 0, 0); background-color: rgb(255, 0, 0);">
+                                <ui:Label text="즉시 구매가&#10;100,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="tab_content" style="border-top-left-radius: 0; border-bottom-left-radius: 5px; border-top-right-radius: 0; border-bottom-right-radius: 5px;">
+                        <ui:VisualElement name="Product" style="background-image: url(&apos;project://database/Assets/Sprite/2002.png?fileID=21300000&amp;guid=9b52fd217e7d13a48ada18b564f824cd&amp;type=3#2002&apos;);" />
+                        <ui:Label text="뉴발란스 2002r" display-tooltip-when-elided="true" name="Name" />
+                        <ui:VisualElement name="Price">
+                            <ui:VisualElement name="PriceTab" style="background-color: rgb(0, 255, 32);">
+                                <ui:Label text="즉시판매가&#10;180,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="PriceTab" style="-unity-text-outline-color: rgb(255, 0, 0); background-color: rgb(255, 0, 0);">
+                                <ui:Label text="즉시 구매가&#10;170,000원" display-tooltip-when-elided="true" name="PriceLabel" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="KREAM" display-tooltip-when-elided="true" name="HeadName" style="position: absolute; justify-content: center; align-items: center; height: 0; top: 336px; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 22px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>

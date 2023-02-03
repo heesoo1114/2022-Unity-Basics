@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="ChatMessage" class="chat" style="background-color: rgb(222, 153, 54);">
+        <ui:VisualElement name="ProfileImage" style="-unity-background-scale-mode: scale-and-crop; background-image: url(&apos;project://database/Assets/Sprite/Face1.png?fileID=21300000&amp;guid=4edfa6fa7b8404a4e8cf10de477e7bc7&amp;type=3#Face1&apos;);" />
+        <ui:VisualElement name="Dialog" style="background-color: rgb(255, 255, 255); flex-direction: column; justify-content: center;">
+            <ui:Label text="Hi, This is Yoon HeeSoo!" display-tooltip-when-elided="true" name="MsgLabel" style="flex-direction: column; align-items: stretch; -unity-text-align: upper-left;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
