@@ -1,0 +1,1023 @@
+fileFormatVersion: 2
+guid: c8896d83481fca741b2a75c5b0715041
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -8950871662309763832
+    second: LittleAdventurerAndie_Airborne
+  - first:
+      74: -7302583836952418145
+    second: LittleAdventurerAndie_ATTACK_01
+  - first:
+      74: -4742812937562208181
+    second: LittleAdventurerAndie_ATTACK_02
+  - first:
+      74: 7707133112889339124
+    second: LittleAdventurerAndie_ATTACK_03
+  - first:
+      74: -4415999896821254479
+    second: LittleAdventurerAndie_Dead
+  - first:
+      74: 6384521209533983301
+    second: LittleAdventurerAndie_Hurt
+  - first:
+      74: -8536451273130828546
+    second: LittleAdventurerAndie_Idel
+  - first:
+      74: 460896157708957318
+    second: LittleAdventurerAndie_Roll
+  - first:
+      74: 3841638117330723870
+    second: LittleAdventurerAndie_Run
+  - first:
+      74: -4527050030688546157
+    second: LittleAdventurerAndie_Walk
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ResultChecking.005
+    second: {fileID: 2100000, guid: 0ca2a3da21cf64042bc7a820af0a2909, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Airborne
+      takeName: LittleAdventurerAndie_Airborne
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_ATTACK_01
+      takeName: LittleAdventurerAndie_ATTACK_01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.13953488
+        functionName: PlayBlade01
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.28228635
+        functionName: EnableDamageCaster
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9755245
+        functionName: AttackAnimationEnds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_ATTACK_02
+      takeName: LittleAdventurerAndie_ATTACK_02
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.21328671
+        functionName: PlayBlade02
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.29370627
+        functionName: EnableDamageCaster
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.979021
+        functionName: AttackAnimationEnds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_ATTACK_03
+      takeName: LittleAdventurerAndie_ATTACK_03
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.16083917
+        functionName: PlayBlade03
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3146853
+        functionName: EnableDamageCaster
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.979021
+        functionName: AttackAnimationEnds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Dead
+      takeName: LittleAdventurerAndie_Dead
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Hurt
+      takeName: LittleAdventurerAndie_Hurt
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.9825175
+        functionName: BeingHitAnimationEnds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Idel
+      takeName: LittleAdventurerAndie_Idel
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 81
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Roll
+      takeName: LittleAdventurerAndie_Roll
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.986014
+        functionName: SlideAnimationEnds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Run
+      takeName: LittleAdventurerAndie_Run
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LittleAdventurerAndie_Walk
+      takeName: LittleAdventurerAndie_Walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: LittleAdventurerAndie(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LittleAdventurerAndie_GameRig
+      parentName: LittleAdventurerAndie(Clone)
+      position: {x: 0, y: 0, z: 0.1424452}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 40, y: 40, z: 40}
+    - name: DEF-spine
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.00005519555, y: 0.0042229546, z: 0.019222813}
+      rotation: {x: 0.75905603, y: -0.00000007699736, z: -0.000000089044214, w: 0.65102535}
+      scale: {x: 0.9999992, y: 0.9999979, z: 0.9999984}
+    - name: DEF-spine.001
+      parentName: DEF-spine
+      position: {x: 6.170012e-11, y: 0.004916555, z: -2.397428e-11}
+      rotation: {x: -0.0148302615, y: 0.00000011741041, z: -8.9145524e-10, w: 0.9998901}
+      scale: {x: 0.9999995, y: 0.9999996, z: 0.99999946}
+    - name: DEF-spine.002
+      parentName: DEF-spine.001
+      position: {x: 1.7493685e-11, y: 0.0026930005, z: -0.0000000027581797}
+      rotation: {x: -0.07746422, y: 9.976729e-11, z: 0.0000000021805084, w: 0.99699515}
+      scale: {x: 0.99999964, y: 0.99999994, z: 0.99999964}
+    - name: DEF-spine.003
+      parentName: DEF-spine.002
+      position: {x: 2.4226975e-12, y: 0.0034074718, z: -0.0000000014907476}
+      rotation: {x: -0.1787118, y: 1.8172961e-14, z: 4.062722e-14, w: 0.98390144}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999996}
+    - name: DEF-spine.004
+      parentName: DEF-spine.003
+      position: {x: 2.1094237e-17, y: 0.0034510114, z: -0.0000000020861626}
+      rotation: {x: 0.35615873, y: 0.00000011139222, z: 0.000000042457486, w: 0.9344255}
+      scale: {x: 0.99999934, y: 0.9999999, z: 0.99999976}
+    - name: DEF-spine.005
+      parentName: DEF-spine.004
+      position: {x: 6.6391337e-16, y: 0.00077087653, z: -0.0000000013411044}
+      rotation: {x: -0.09746282, y: -0.00000023728363, z: -8.1712415e-14, w: 0.99523926}
+      scale: {x: 0.99999905, y: 1.0000006, z: 1.0000002}
+    - name: DEF-spine.006
+      parentName: DEF-spine.005
+      position: {x: 5.9952044e-16, y: 0.0005301362, z: 1.11022296e-17}
+      rotation: {x: -0.075516365, y: 5.6843412e-14, z: 0.00000001800452, w: 0.99714464}
+      scale: {x: 0.99999934, y: 0.99999946, z: 0.99999946}
+    - name: DEF-spine.006_end
+      parentName: DEF-spine.006
+      position: {x: -0, y: 0.011415224, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-pelvis.L
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.00005519539, y: 0.004222956, z: 0.01922281}
+      rotation: {x: 0.2113757, y: 0.15276182, z: 0.78861177, w: 0.55684435}
+      scale: {x: 0.9999979, y: 0.9999962, z: 0.9999981}
+    - name: DEF-pelvis.L_end
+      parentName: DEF-pelvis.L
+      position: {x: -0, y: 0.00593327, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-pelvis.R
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.000055195986, y: 0.004222953, z: 0.019222816}
+      rotation: {x: 0.21137564, y: -0.15276176, z: -0.78861177, w: 0.55684435}
+      scale: {x: 0.99999845, y: 0.99999523, z: 0.99999815}
+    - name: DEF-pelvis.R_end
+      parentName: DEF-pelvis.R
+      position: {x: -0, y: 0.00593327, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thigh.L
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.0045977295, y: 0.0033005245, z: 0.020199392}
+      rotation: {x: 0.7593004, y: 0.000000078767165, z: -0.00000009146164, w: -0.6507403}
+      scale: {x: 0.99999905, y: 0.9999988, z: 0.9999993}
+    - name: DEF-thigh.L.001
+      parentName: DEF-thigh.L
+      position: {x: 4.2840836e-10, y: 0.004952756, z: -1.11758706e-10}
+      rotation: {x: -0, y: -0.0000000038784798, z: 0.000000006025676, w: 1}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.99999946}
+    - name: DEF-shin.L
+      parentName: DEF-thigh.L.001
+      position: {x: 1.8626451e-11, y: 0.0049527576, z: 0.0000000019185245}
+      rotation: {x: 0.21428216, y: 0.00000015404838, z: -0.00000005480487, w: 0.9767718}
+      scale: {x: 0.9999992, y: 1.0000001, z: 1.0000005}
+    - name: DEF-shin.L.001
+      parentName: DEF-shin.L
+      position: {x: 1.4901161e-10, y: 0.00386046, z: 4.0978193e-10}
+      rotation: {x: -0.000000104308135, y: -0.00000003438082, z: 0.0000000067938974, w: 1}
+      scale: {x: 0.9999999, y: 1.0000002, z: 0.99999905}
+    - name: DEF-foot.L
+      parentName: DEF-shin.L.001
+      position: {x: -0, y: 0.0038604578, z: -3.9115547e-10}
+      rotation: {x: -0.60137117, y: 0.0004673181, z: -0.0003516495, w: 0.7989696}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: DEF-toe.L
+      parentName: DEF-foot.L
+      position: {x: 1.6530975e-10, y: 0.0025473188, z: -1.8626451e-11}
+      rotation: {x: 0.00016131476, y: 0.9612487, z: -0.27568218, w: 0.0005621331}
+      scale: {x: 1.0000002, y: 1.000001, z: 0.9999995}
+    - name: DEF-toe.L_end
+      parentName: DEF-toe.L
+      position: {x: -0, y: 0.0013244532, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thigh.R
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: 0.0045209564, y: 0.003821731, z: 0.020379119}
+      rotation: {x: 0.7593004, y: -0.0000000765573, z: 0.00000008956772, w: -0.65074027}
+      scale: {x: 0.999999, y: 0.99999934, z: 0.99999976}
+    - name: DEF-thigh.R.001
+      parentName: DEF-thigh.R
+      position: {x: -2.0489097e-10, y: 0.005004475, z: 6.3329936e-10}
+      rotation: {x: 0.000000059604645, y: -0.0000000116157, z: -0.0000000010629897, w: 1}
+      scale: {x: 0.99999964, y: 1, z: 0.9999996}
+    - name: DEF-shin.R
+      parentName: DEF-thigh.R.001
+      position: {x: 3.8417056e-10, y: 0.005004475, z: 3.0733643e-10}
+      rotation: {x: 0.2142822, y: -0.000000058819356, z: -0.000000007996218, w: 0.97677183}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: DEF-shin.R.001
+      parentName: DEF-shin.R
+      position: {x: 5.9604643e-10, y: 0.0039134542, z: -2.6077032e-10}
+      rotation: {x: -0.000000029802322, y: -0.000000023189738, z: 0.000000045972275, w: 1}
+      scale: {x: 0.9999997, y: 0.99999964, z: 0.9999995}
+    - name: DEF-foot.R
+      parentName: DEF-shin.R.001
+      position: {x: 5.0291415e-10, y: 0.0039134547, z: 5.5879353e-11}
+      rotation: {x: -0.6013711, y: -0.00046759227, z: 0.00035199974, w: 0.79896957}
+      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000011}
+    - name: DEF-toe.R
+      parentName: DEF-foot.R
+      position: {x: 2.8681824e-10, y: 0.00254732, z: -2.2351741e-10}
+      rotation: {x: -0.00016130254, y: 0.96124864, z: -0.2756822, w: -0.00056260434}
+      scale: {x: 1.0000006, y: 1.0000002, z: 0.9999995}
+    - name: DEF-toe.R_end
+      parentName: DEF-toe.R
+      position: {x: -0, y: 0.0013244532, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-shoulder.L
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.00036067143, y: -0.0032664004, z: 0.029873047}
+      rotation: {x: 0.07274765, y: 0.05628544, z: 0.5763891, w: 0.8119824}
+      scale: {x: 0.99999946, y: 0.9999992, z: 1.0000001}
+    - name: DEF-shoulder.L_end
+      parentName: DEF-shoulder.L
+      position: {x: -0, y: 0.005391752, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-upper_arm.L
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.0071645407, y: -0.0011146201, z: 0.031597707}
+      rotation: {x: 0.5149136, y: -0.5520305, z: 0.44031197, w: 0.48605725}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000012}
+    - name: DEF-upper_arm.L.001
+      parentName: DEF-upper_arm.L
+      position: {x: 0.0000000058393925, y: 0.002508255, z: 9.126961e-10}
+      rotation: {x: -0, y: -0, z: 0.000000029802322, w: 1}
+      scale: {x: 0.9999987, y: 0.99999946, z: 0.99999905}
+    - name: DEF-forearm.L
+      parentName: DEF-upper_arm.L.001
+      position: {x: -0.0000000011920929, y: 0.0025082608, z: -4.4703483e-10}
+      rotation: {x: 0.099391825, y: 0.00000016095068, z: 0.00000014915919, w: 0.9950484}
+      scale: {x: 1.0000012, y: 1.0000001, z: 1.0000006}
+    - name: DEF-forearm.L.001
+      parentName: DEF-forearm.L
+      position: {x: 4.4703483e-10, y: 0.0028205656, z: 0.000000002980232}
+      rotation: {x: 0.00000012665987, y: 0.000000112677924, z: 0.000000078596905, w: 1}
+      scale: {x: 1.0000002, y: 1.000001, z: 0.99999934}
+    - name: DEF-hand.L
+      parentName: DEF-forearm.L.001
+      position: {x: 0.0000000010430813, y: 0.0028205626, z: 0.0000000040233132}
+      rotation: {x: 0.07382097, y: -0.002420582, z: 0.032661848, w: 0.9967336}
+      scale: {x: 0.9999992, y: 0.9999996, z: 0.99999976}
+    - name: DEF-f_index.01.L
+      parentName: DEF-hand.L
+      position: {x: 0.0002033285, y: 0.0021333704, z: 0.00063660246}
+      rotation: {x: 0.13266867, y: -0.7278995, z: 0.09571274, w: 0.66588324}
+      scale: {x: 1.000001, y: 1.0000006, z: 1.0000005}
+    - name: DEF-f_index.02.L
+      parentName: DEF-f_index.01.L
+      position: {x: 0.000000002980232, y: 0.0008877003, z: -1.4901161e-10}
+      rotation: {x: 0.07754339, y: 0.0005641877, z: -0.007252074, w: 0.9969624}
+      scale: {x: 1, y: 1, z: 0.9999993}
+    - name: DEF-f_index.03.L
+      parentName: DEF-f_index.02.L
+      position: {x: 0.0000000037252903, y: 0.00055626314, z: 0.0000000014156103}
+      rotation: {x: 0.11756525, y: -0.00020268161, z: 0.016157568, w: 0.9929337}
+      scale: {x: 1, y: 1.0000005, z: 0.9999994}
+    - name: DEF-f_index.03.L_end
+      parentName: DEF-f_index.03.L
+      position: {x: -0, y: 0.00044973622, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thumb.01.L
+      parentName: DEF-hand.L
+      position: {x: -0.00030421317, y: 0.00060736935, z: 0.0005402768}
+      rotation: {x: 0.13071428, y: -0.9273755, z: -0.27607512, w: -0.21603473}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.99999994}
+    - name: DEF-thumb.02.L
+      parentName: DEF-thumb.01.L
+      position: {x: -1.4901161e-10, y: 0.00082274753, z: 0.0000000023841857}
+      rotation: {x: 0.174535, y: 0.0019007768, z: -0.010722888, w: 0.9845907}
+      scale: {x: 1.0000002, y: 0.99999964, z: 1.0000014}
+    - name: DEF-thumb.03.L
+      parentName: DEF-thumb.02.L
+      position: {x: 0.0000000023841857, y: 0.000659201, z: -0.000000004470348}
+      rotation: {x: 0.034024443, y: -0.00022559997, z: 0.02839166, w: 0.9990177}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000007}
+    - name: DEF-thumb.03.L_end
+      parentName: DEF-thumb.03.L
+      position: {x: -0, y: 0.00040976438, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.01.L
+      parentName: DEF-hand.L
+      position: {x: 0.00016695677, y: 0.00077675085, z: 0.00043312638}
+      rotation: {x: 0.051512174, y: -0.59820354, z: -0.055237412, w: 0.7977768}
+      scale: {x: 1.0000011, y: 1.0000006, z: 1.0000014}
+    - name: DEF-palm.01.L_end
+      parentName: DEF-palm.01.L
+      position: {x: -0, y: 0.0013722682, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_middle.01.L
+      parentName: DEF-hand.L
+      position: {x: 0.00020772785, y: 0.0021680435, z: 0.00017987333}
+      rotation: {x: 0.16255526, y: -0.6891107, z: 0.1245939, w: 0.69511056}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000011}
+    - name: DEF-f_middle.02.L
+      parentName: DEF-f_middle.01.L
+      position: {x: -0.0000000012293457, y: 0.0009764023, z: -2.2351741e-10}
+      rotation: {x: 0.11918432, y: 0.0004307329, z: -0.0035904269, w: 0.9928656}
+      scale: {x: 1.0000005, y: 1.0000012, z: 1.0000001}
+    - name: DEF-f_middle.03.L
+      parentName: DEF-f_middle.02.L
+      position: {x: -0.0000000027939677, y: 0.0006345573, z: 0.0000000010430813}
+      rotation: {x: 0.06116072, y: -0.000092335584, z: 0.008727553, w: 0.9980898}
+      scale: {x: 1.0000004, y: 0.99999976, z: 0.9999994}
+    - name: DEF-f_middle.03.L_end
+      parentName: DEF-f_middle.03.L
+      position: {x: -0, y: 0.00044748472, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.02.L
+      parentName: DEF-hand.L
+      position: {x: 0.00016739733, y: 0.00082726864, z: 0.00009753104}
+      rotation: {x: 0.0150239, y: -0.6124477, z: -0.030646712, w: 0.7897739}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000005}
+    - name: DEF-palm.02.L_end
+      parentName: DEF-palm.02.L
+      position: {x: -0, y: 0.0013439093, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_ring.01.L
+      parentName: DEF-hand.L
+      position: {x: 0.00015464246, y: 0.0021605112, z: -0.00030010342}
+      rotation: {x: 0.19694245, y: -0.6759932, z: 0.17303684, w: 0.6886981}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.000001}
+    - name: DEF-f_ring.02.L
+      parentName: DEF-f_ring.01.L
+      position: {x: 0.0000000024214386, y: 0.00088329636, z: 0.0000000015925615}
+      rotation: {x: 0.07692079, y: -0.00027292964, z: 0.0035410672, w: 0.99703085}
+      scale: {x: 0.9999995, y: 1.0000001, z: 1}
+    - name: DEF-f_ring.03.L
+      parentName: DEF-f_ring.02.L
+      position: {x: 7.8231094e-10, y: 0.0006267695, z: 5.2154064e-10}
+      rotation: {x: 0.16070175, y: 0.00040739425, z: -0.009514761, w: 0.9869571}
+      scale: {x: 1.0000001, y: 1.0000007, z: 0.9999999}
+    - name: DEF-f_ring.03.L_end
+      parentName: DEF-f_ring.03.L
+      position: {x: -0, y: 0.00036560663, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.03.L
+      parentName: DEF-hand.L
+      position: {x: 0.000109743174, y: 0.00078907056, z: -0.00020243227}
+      rotation: {x: -0.037894115, y: -0.6279923, z: 0.009626775, w: 0.77723676}
+      scale: {x: 1.0000005, y: 0.99999976, z: 1.0000006}
+    - name: DEF-palm.03.L_end
+      parentName: DEF-palm.03.L
+      position: {x: -0, y: 0.0013756438, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_pinky.01.L
+      parentName: DEF-hand.L
+      position: {x: -0.000014134049, y: 0.002157229, z: -0.00075932563}
+      rotation: {x: 0.23976468, y: -0.6246942, z: 0.2565545, w: 0.6974596}
+      scale: {x: 1.0000002, y: 1.000001, z: 1.0000006}
+    - name: DEF-f_pinky.02.L
+      parentName: DEF-f_pinky.01.L
+      position: {x: -0.000000001490116, y: 0.00054941775, z: 0.0000000026077032}
+      rotation: {x: 0.046320572, y: -0.00019362569, z: 0.0041775554, w: 0.99891794}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.9999997}
+    - name: DEF-f_pinky.03.L
+      parentName: DEF-f_pinky.02.L
+      position: {x: -0.0000000031292438, y: 0.0004452759, z: 9.685754e-10}
+      rotation: {x: 0.0870576, y: 0.0001837445, z: -0.0104338145, w: 0.9961486}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000001}
+    - name: DEF-f_pinky.03.L_end
+      parentName: DEF-f_pinky.03.L
+      position: {x: -0, y: 0.00029598476, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.04.L
+      parentName: DEF-hand.L
+      position: {x: 0.000022751092, y: 0.00070938154, z: -0.00048381946}
+      rotation: {x: -0.062002257, y: -0.65928626, z: 0.071574464, w: 0.74590516}
+      scale: {x: 1.0000013, y: 1.0000002, z: 1.0000011}
+    - name: DEF-palm.04.L_end
+      parentName: DEF-palm.04.L
+      position: {x: -0, y: 0.0014742891, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-shoulder.R
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: 0.00036067143, y: -0.0032664004, z: 0.029873047}
+      rotation: {x: 0.07274765, y: -0.05628544, z: -0.576389, w: 0.8119824}
+      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000001}
+    - name: DEF-shoulder.R_end
+      parentName: DEF-shoulder.R
+      position: {x: -0, y: 0.005391752, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-upper_arm.R
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: 0.007164542, y: -0.0011146201, z: 0.031597707}
+      rotation: {x: 0.5149137, y: 0.55203056, z: -0.4403119, w: 0.48605725}
+      scale: {x: 1.0000013, y: 1.0000015, z: 1.0000026}
+    - name: DEF-upper_arm.R.001
+      parentName: DEF-upper_arm.R
+      position: {x: -0.000000004004687, y: 0.0024935512, z: -0.0000000019185245}
+      rotation: {x: 0.000000059604645, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999905, y: 0.9999991, z: 0.9999991}
+    - name: DEF-forearm.R
+      parentName: DEF-upper_arm.R.001
+      position: {x: 0.0000000011920929, y: 0.0024935552, z: 0.0000000032782554}
+      rotation: {x: 0.09939185, y: -0.0000003427267, z: -0.00000017881392, w: 0.9950484}
+      scale: {x: 0.99999905, y: 0.9999996, z: 1.0000001}
+    - name: DEF-forearm.R.001
+      parentName: DEF-forearm.R
+      position: {x: 0.000000001490116, y: 0.0028058933, z: -0.0000000016391277}
+      rotation: {x: 0.000000029802322, y: 0.00000006821267, z: -0.00000006671479, w: 1}
+      scale: {x: 0.9999996, y: 0.9999994, z: 0.99999905}
+    - name: DEF-hand.R
+      parentName: DEF-forearm.R.001
+      position: {x: 4.4703483e-10, y: 0.0028058975, z: -0.0000000011920929}
+      rotation: {x: 0.07382105, y: 0.0024204715, z: -0.032661878, w: 0.99673355}
+      scale: {x: 1, y: 0.9999997, z: 0.9999993}
+    - name: DEF-f_index.01.R
+      parentName: DEF-hand.R
+      position: {x: -0.00020332582, y: 0.0021333715, z: 0.0006365981}
+      rotation: {x: 0.13266875, y: 0.7278995, z: -0.09571287, w: 0.6658832}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1}
+    - name: DEF-f_index.02.R
+      parentName: DEF-f_index.01.R
+      position: {x: 4.4703483e-10, y: 0.0008877, z: 0.0000000012665987}
+      rotation: {x: 0.07754322, y: -0.00056418777, z: 0.0072520827, w: 0.9969624}
+      scale: {x: 1.0000007, y: 1.0000011, z: 1.0000002}
+    - name: DEF-f_index.03.R
+      parentName: DEF-f_index.02.R
+      position: {x: -0, y: 0.00055626285, z: -5.587935e-10}
+      rotation: {x: 0.11756526, y: 0.00020264374, z: -0.016157694, w: 0.99293375}
+      scale: {x: 1.0000001, y: 1.0000008, z: 1.0000007}
+    - name: DEF-f_index.03.R_end
+      parentName: DEF-f_index.03.R
+      position: {x: -0, y: 0.00044973622, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thumb.01.R
+      parentName: DEF-hand.R
+      position: {x: 0.00030421442, y: 0.0006073661, z: 0.0005402717}
+      rotation: {x: 0.13071431, y: 0.9273755, z: 0.2760751, w: -0.21603481}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000008}
+    - name: DEF-thumb.02.R
+      parentName: DEF-thumb.01.R
+      position: {x: 5.2154064e-10, y: 0.0008227469, z: 5.9604643e-10}
+      rotation: {x: 0.17453507, y: -0.001900926, z: 0.01072286, w: 0.98459077}
+      scale: {x: 1, y: 0.9999998, z: 1.0000005}
+    - name: DEF-thumb.03.R
+      parentName: DEF-thumb.02.R
+      position: {x: -0.0000000010058283, y: 0.0006592037, z: 0.000000002980232}
+      rotation: {x: 0.034024473, y: 0.00022570285, z: -0.028391587, w: 0.99901766}
+      scale: {x: 0.99999994, y: 1.0000006, z: 0.9999997}
+    - name: DEF-thumb.03.R_end
+      parentName: DEF-thumb.03.R
+      position: {x: -0, y: 0.00040976438, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.01.R
+      parentName: DEF-hand.R
+      position: {x: -0.0001669576, y: 0.0007767613, z: 0.00043312236}
+      rotation: {x: 0.05151201, y: 0.59820354, z: 0.05523739, w: 0.7977769}
+      scale: {x: 0.9999999, y: 1.000001, z: 1.0000001}
+    - name: DEF-palm.01.R_end
+      parentName: DEF-palm.01.R
+      position: {x: -0, y: 0.0013722682, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_middle.01.R
+      parentName: DEF-hand.R
+      position: {x: -0.00020772702, y: 0.0021680493, z: 0.00017986556}
+      rotation: {x: 0.16255519, y: 0.6891107, z: -0.12459392, w: 0.69511056}
+      scale: {x: 0.99999905, y: 1.0000002, z: 1.0000001}
+    - name: DEF-f_middle.02.R
+      parentName: DEF-f_middle.01.R
+      position: {x: -8.1956386e-10, y: 0.00097639847, z: -0.0000000022165476}
+      rotation: {x: 0.11918441, y: -0.00043079263, z: 0.0035905098, w: 0.99286556}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000013}
+    - name: DEF-f_middle.03.R
+      parentName: DEF-f_middle.02.R
+      position: {x: -0.000000001899898, y: 0.0006345628, z: -8.5681673e-10}
+      rotation: {x: 0.061160572, y: 0.00009228595, z: -0.008727673, w: 0.9980898}
+      scale: {x: 0.99999964, y: 1.0000017, z: 1.0000002}
+    - name: DEF-f_middle.03.R_end
+      parentName: DEF-f_middle.03.R
+      position: {x: -0, y: 0.00044748472, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.02.R
+      parentName: DEF-hand.R
+      position: {x: -0.0001673974, y: 0.0008272649, z: 0.00009752489}
+      rotation: {x: 0.015023762, y: 0.61244774, z: 0.030646708, w: 0.78977394}
+      scale: {x: 0.9999993, y: 0.9999999, z: 1.000001}
+    - name: DEF-palm.02.R_end
+      parentName: DEF-palm.02.R
+      position: {x: -0, y: 0.0013439093, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_ring.01.R
+      parentName: DEF-hand.R
+      position: {x: -0.00015464268, y: 0.0021605191, z: -0.0003001019}
+      rotation: {x: 0.19694239, y: 0.67599326, z: -0.17303683, w: 0.6886982}
+      scale: {x: 1.0000007, y: 1.0000004, z: 1.0000004}
+    - name: DEF-f_ring.02.R
+      parentName: DEF-f_ring.01.R
+      position: {x: -4.9360094e-10, y: 0.00088330195, z: 0.0000000014342367}
+      rotation: {x: 0.07692089, y: 0.00027289987, z: -0.0035410079, w: 0.99703085}
+      scale: {x: 1.0000002, y: 1.0000017, z: 1.0000001}
+    - name: DEF-f_ring.03.R
+      parentName: DEF-f_ring.02.R
+      position: {x: 6.9849193e-10, y: 0.0006267619, z: -0.0000000035390257}
+      rotation: {x: 0.16070174, y: -0.00040732528, z: 0.009514609, w: 0.98695713}
+      scale: {x: 0.99999934, y: 1.0000007, z: 1.0000004}
+    - name: DEF-f_ring.03.R_end
+      parentName: DEF-f_ring.03.R
+      position: {x: -0, y: 0.00036560663, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.03.R
+      parentName: DEF-hand.R
+      position: {x: -0.00010974899, y: 0.0007890789, z: -0.00020243596}
+      rotation: {x: -0.037894204, y: 0.6279923, z: -0.009626679, w: 0.7772368}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000011}
+    - name: DEF-palm.03.R_end
+      parentName: DEF-palm.03.R
+      position: {x: -0, y: 0.0013756438, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-f_pinky.01.R
+      parentName: DEF-hand.R
+      position: {x: 0.00027229637, y: 0.0020889724, z: -0.00074275874}
+      rotation: {x: 0.23976463, y: 0.6246941, z: -0.25655457, w: 0.69745976}
+      scale: {x: 0.9999999, y: 1.0000007, z: 1}
+    - name: DEF-f_pinky.02.R
+      parentName: DEF-f_pinky.01.R
+      position: {x: -5.9604643e-10, y: 0.0005494228, z: -0.0000000010430813}
+      rotation: {x: 0.046320524, y: 0.0001941621, z: -0.004177585, w: 0.99891794}
+      scale: {x: 0.9999996, y: 0.9999996, z: 0.9999998}
+    - name: DEF-f_pinky.03.R
+      parentName: DEF-f_pinky.02.R
+      position: {x: -0.000000005066395, y: 0.00044528395, z: -0.0000000010430813}
+      rotation: {x: 0.08705774, y: -0.00018412677, z: 0.010433832, w: 0.99614865}
+      scale: {x: 0.9999999, y: 1.0000013, z: 1.0000008}
+    - name: DEF-f_pinky.03.R_end
+      parentName: DEF-f_pinky.03.R
+      position: {x: -0, y: 0.00029598476, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-palm.04.R
+      parentName: DEF-hand.R
+      position: {x: -0.000022752509, y: 0.0007093842, z: -0.00048382088}
+      rotation: {x: -0.06200214, y: 0.65928626, z: -0.07157452, w: 0.74590516}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000005}
+    - name: DEF-palm.04.R_end
+      parentName: DEF-palm.04.R
+      position: {x: -0, y: 0.0014742891, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-breast.L
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: -0.0023335605, y: -0.000035523473, z: 0.029458217}
+      rotation: {x: -0.00000007549791, y: -0, z: 1, w: 3.5527137e-15}
+      scale: {x: 0.9999997, y: 1.0000004, z: 1.0000001}
+    - name: DEF-breast.L_end
+      parentName: DEF-breast.L
+      position: {x: -0, y: 0.0027435103, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-breast.R
+      parentName: LittleAdventurerAndie_GameRig
+      position: {x: 0.0023335605, y: -0.000035523473, z: 0.029458217}
+      rotation: {x: -0.00000007549791, y: -0, z: 1, w: 3.5527137e-15}
+      scale: {x: 0.9999997, y: 1.0000004, z: 1.0000001}
+    - name: DEF-breast.R_end
+      parentName: DEF-breast.R
+      position: {x: -0, y: 0.0027435103, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LittleAdventurerAndieMesh
+      parentName: LittleAdventurerAndie(Clone)
+      position: {x: 0.000064505264, y: 1.0671923, z: -0.044626858}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 40, y: 40, z: 40}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
