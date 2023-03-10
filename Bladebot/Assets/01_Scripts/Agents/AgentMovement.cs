@@ -8,7 +8,8 @@ public class AgentMovement : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 8f, _gravity = -9.8f;
 
-    private CharacterController _characterController;
+    private CharacterController _charController;
+    private AgentAnimator _agentAnimator;
 
     private Vector3 _movementVelocity;
     public Vector3 MovementVelocity => _movementVelocity;
@@ -16,30 +17,25 @@ public class AgentMovement : MonoBehaviour
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        _charController = GetComponent<CharacterController>();
+        _agentAnimator = transform.Find("Visual").GetComponent<AgentAnimator>();
     }
 
-    private void Update()
+    public void SetMovementVelocity(Vector3 value)
     {
-        UpdateMoveInput();
-    }
-
-    private void UpdateMoveInput()
-    {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        _movementVelocity = new Vector3(h, 0, v);
+        _movementVelocity = value;
     }
 
     private void CalculatePlayerMovement()
     {
-        // vector3는 stack
-        _movementVelocity.Normalize(); // _movementVelocity의 값이 직접 변함
+        _movementVelocity.Normalize();
+
         _movementVelocity = Quaternion.Euler(0, -45f, 0) * _movementVelocity;
 
+        _agentAnimator?.SetSpeed(_movementVelocity.sqrMagnitude); //이동속도 반영
+
         _movementVelocity *= _moveSpeed * Time.fixedDeltaTime;
-        if (_movementVelocity.sqrMagnitude > 0 )
+        if (_movementVelocity.sqrMagnitude > 0)
         {
             transform.rotation = Quaternion.LookRotation(_movementVelocity);
         }
@@ -48,13 +44,13 @@ public class AgentMovement : MonoBehaviour
     public void StopImmediately()
     {
         _movementVelocity = Vector3.zero;
+        _agentAnimator?.SetSpeed(0); 
     }
 
     private void FixedUpdate()
     {
         CalculatePlayerMovement();
-
-        if (_characterController.isGrounded == false)
+        if (_charController.isGrounded == false)
         {
             _verticalVelocity = _gravity * Time.fixedDeltaTime;
         }
@@ -64,6 +60,7 @@ public class AgentMovement : MonoBehaviour
         }
 
         Vector3 move = _movementVelocity + _verticalVelocity * Vector3.up;
-        _characterController.Move(move);
+        _charController.Move(move);
+        _agentAnimator?.SetAirbone(!_charController.isGrounded);
     }
 }
