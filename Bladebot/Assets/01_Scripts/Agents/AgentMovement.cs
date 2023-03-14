@@ -21,7 +21,7 @@ public class AgentMovement : MonoBehaviour
         _agentAnimator = transform.Find("Visual").GetComponent<AgentAnimator>();
     }
 
-    public void SetMovementVelocity(Vector3 value)
+    public void SetMovementVelocity(Vector3 value) // NormalState에서 넘어옴
     {
         _movementVelocity = value;
     }
@@ -29,8 +29,10 @@ public class AgentMovement : MonoBehaviour
     private void CalculatePlayerMovement()
     {
         _movementVelocity.Normalize();
+        // _movementVelocity = _movementVelocity.normalized;
 
-        _movementVelocity = Quaternion.Euler(0, -45f, 0) * _movementVelocity;
+        _movementVelocity = Quaternion.Euler(0, -45f, 0) * _movementVelocity; // 로컬축을 기준으로 회전
+        // 45f로 하면 월드축을 기준으로 회전함
 
         _agentAnimator?.SetSpeed(_movementVelocity.sqrMagnitude); //이동속도 반영
 
@@ -50,6 +52,7 @@ public class AgentMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CalculatePlayerMovement();
+
         if (_charController.isGrounded == false)
         {
             _verticalVelocity = _gravity * Time.fixedDeltaTime;
