@@ -11,13 +11,13 @@ public abstract class CommonState : MonoBehaviour, IState
     public abstract void UpdateState();
 
     protected AgentAnimator _agentAnimator;
-    protected AgentInput _agnetInput;
+    protected AgentInput _agentInput;
     protected AgentController _agentController;
 
     public virtual void SetUp(Transform agentRoot)
     {
         _agentAnimator = agentRoot.Find("Visual").GetComponent<AgentAnimator>();
-        _agnetInput = agentRoot.GetComponent<AgentInput>();
+        _agentInput = agentRoot.GetComponent<AgentInput>();
         _agentController = agentRoot.GetComponent<AgentController>();
     }
 

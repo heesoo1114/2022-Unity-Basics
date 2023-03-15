@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Core;
 
 public class NormalState : CommonState
 {
@@ -13,13 +15,20 @@ public class NormalState : CommonState
     public override void OnEnterState()
     {
         _agentMovement.StopImmediately();
-        _agnetInput.OnMovementKeyPress += OnMovementHandle; // 들어올 때 키입력 구독
+        _agentInput.OnMovementKeyPress += OnMovementHandle; // 들어올 때 키입력 구독
+        _agentInput.OnAttackKeyPress += OnAttackKeyHandle;
+    }
+
+    private void OnAttackKeyHandle()
+    {
+        _agentController.ChangeState(StateType.Attack);
     }
 
     public override void OnExitState()
     {
         _agentMovement.StopImmediately();
-        _agnetInput.OnMovementKeyPress -= OnMovementHandle; // 나갈 때 키입력 구독해제
+        _agentInput.OnMovementKeyPress -= OnMovementHandle; // 나갈 때 키입력 구독해제
+        _agentInput.OnAttackKeyPress -= OnAttackKeyHandle;
     }
 
     private void OnMovementHandle(Vector3 obj)

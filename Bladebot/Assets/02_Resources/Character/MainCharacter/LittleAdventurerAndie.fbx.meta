@@ -121,22 +121,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13953488
-        functionName: PlayBlade01
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.28228635
-        functionName: EnableDamageCaster
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9755245
-        functionName: AttackAnimationEnds
+      - time: 0.33106354
+        functionName: OnAnimationEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -171,22 +157,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.21328671
-        functionName: PlayBlade02
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.29370627
-        functionName: EnableDamageCaster
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.979021
-        functionName: AttackAnimationEnds
+      - time: 0.6032494
+        functionName: OnAnimationEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -221,22 +193,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.16083917
-        functionName: PlayBlade03
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.3146853
-        functionName: EnableDamageCaster
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.979021
-        functionName: AttackAnimationEnds
+      - time: 0.4668375
+        functionName: OnAnimationEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
