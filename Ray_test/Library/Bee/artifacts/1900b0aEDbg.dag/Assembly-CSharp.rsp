@@ -354,6 +354,7 @@
 "Assets/01_Scripts/PlayerMove.cs"
 "Assets/01_Scripts/PlayerShot.cs"
 "Assets/01_Scripts/RayCaster.cs"
+"Assets/01_Scripts/Test/MoveTest.cs"
 -langversion:9.0
 
 /deterministic
