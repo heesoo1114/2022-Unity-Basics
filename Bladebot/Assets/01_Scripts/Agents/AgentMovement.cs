@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ public class AgentMovement : MonoBehaviour
     private Vector3 _movementVelocity;
     public Vector3 MovementVelocity => _movementVelocity;
     private float _verticalVelocity;
+
+    public bool IsActiveMove { get; set; }
 
     private void Awake()
     {
@@ -43,6 +46,13 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    public void SetRotation(Vector3 target)
+    {
+        Vector3 dir = target - transform.position;
+        dir.y = transform.position.y;
+        transform.rotation = Quaternion.LookRotation(dir);
+    }
+
     public void StopImmediately()
     {
         _movementVelocity = Vector3.zero;
@@ -51,7 +61,7 @@ public class AgentMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CalculatePlayerMovement();
+        if (IsActiveMove) CalculatePlayerMovement();
 
         if (_charController.isGrounded == false)
         {

@@ -11,6 +11,8 @@ public class AgentAnimator : MonoBehaviour
     private readonly int _attackHash = Animator.StringToHash("attack");
     private readonly int _isAttackHash = Animator.StringToHash("is_attack");
 
+    private readonly int _isRollingHash = Animator.StringToHash("is_rolling");
+
     public event Action OnAnimationEndTrigger = null; // 애니메이션이 종료될 때마다 트리거 되는 이벤트
 
     private Animator _animator;
@@ -19,6 +21,11 @@ public class AgentAnimator : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>(); 
+    }
+
+    public void SetRollingState(bool state)
+    {
+        _animator.SetBool(_isRollingHash, state);
     }
 
     public void SetAttackState(bool state)
