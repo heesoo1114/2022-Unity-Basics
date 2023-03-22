@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.VFX;
 using static Core.Define;
 
 public class AgentInput : MonoBehaviour
@@ -10,6 +11,8 @@ public class AgentInput : MonoBehaviour
     public event Action<Vector3> OnMovementKeyPress = null;
     public event Action OnAttackKeyPress = null;
     public event Action OnRollingKeyPress = null; // 회피키 이벤트
+
+    private Vector3 _directionInput;
 
     private void Update()
     {
@@ -39,7 +42,14 @@ public class AgentInput : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        OnMovementKeyPress?.Invoke(new Vector3(h, 0, v));
+        _directionInput = new Vector3(h, 0, v);
+        
+        OnMovementKeyPress?.Invoke(_directionInput);
+    }
+
+    public Vector3 GetCurrentInputDirection()
+    {
+        return Quaternion.Euler(0, -45f, 0) * _directionInput.normalized;
     }
 
     public Vector3 GetMouseWorldPosision()

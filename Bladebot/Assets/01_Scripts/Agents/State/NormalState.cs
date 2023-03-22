@@ -4,12 +4,6 @@ using Core;
 
 public class NormalState : CommonState
 {
-    public override void SetUp(Transform agentRoot)
-    {
-        base.SetUp(agentRoot);
-        _agentMovement = agentRoot.GetComponent<AgentMovement>(); 
-    }
-
     public override void OnEnterState()
     {
         _agentMovement.StopImmediately();
