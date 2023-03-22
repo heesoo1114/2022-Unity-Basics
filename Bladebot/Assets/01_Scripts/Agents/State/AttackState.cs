@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core;
+using Unity.VisualScripting;
 
 public class AttackState : CommonState
 {
+    public event Action<int> OnAttackStart = null; // 공격시 콤보값을 알려주는 이벤트
+    public event Action OnAttackstateEnd = null; // 공격상태를 나갈 때 발행하는 이벤트
+
     [SerializeField]
     private float _keyDelay = 0.5f; // 0.5초 내에 마우스를 한 번 눌러줘야 실행
 
@@ -35,6 +39,7 @@ public class AttackState : CommonState
         _agentInput.OnRollingKeyPress -= OnRollingHandle;
         _agentAnimator.SetAttackState(false); // 공격상태로 전환
         _agentAnimator.SetAttackTrigger(false);
+        OnAttackstateEnd?.Invoke();
     }
 
     private void OnRollingHandle()
@@ -56,6 +61,7 @@ public class AttackState : CommonState
             _canAttack = false;
             _agentAnimator.SetAttackTrigger(true);
             _currentCombo++;
+            OnAttackStart?.Invoke(_currentCombo);
         }
     }
 
