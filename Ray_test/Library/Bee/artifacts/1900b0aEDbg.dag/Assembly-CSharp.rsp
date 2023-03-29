@@ -351,10 +351,15 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/01_Scripts/PlayerMove.cs"
-"Assets/01_Scripts/PlayerShot.cs"
-"Assets/01_Scripts/RayCaster.cs"
-"Assets/01_Scripts/Test/MoveTest.cs"
+"Assets/01_NevSC/BaseBlock.cs"
+"Assets/01_NevSC/GameManager.cs"
+"Assets/01_NevSC/MoveObstacle.cs"
+"Assets/01_NevSC/OffMeshClimb.cs"
+"Assets/01_NevSC/PlayerChase.cs"
+"Assets/01_NevSC/RoadBlock.cs"
+"Assets/99_RaytestSC/ray_test/PlayerMove.cs"
+"Assets/99_RaytestSC/ray_test/PlayerShot.cs"
+"Assets/99_RaytestSC/ray_test/RayCaster.cs"
 -langversion:9.0
 
 /deterministic

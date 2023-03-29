@@ -56,10 +56,15 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\01_Scripts\PlayerShot.cs" />
-    <Compile Include="Assets\01_Scripts\PlayerMove.cs" />
-    <Compile Include="Assets\01_Scripts\RayCaster.cs" />
-    <Compile Include="Assets\01_Scripts\Test\MoveTest.cs" />
+    <Compile Include="Assets\99_RaytestSC\ray_test\PlayerShot.cs" />
+    <Compile Include="Assets\99_RaytestSC\ray_test\PlayerMove.cs" />
+    <Compile Include="Assets\99_RaytestSC\ray_test\RayCaster.cs" />
+    <Compile Include="Assets\01_NevSC\RoadBlock.cs" />
+    <Compile Include="Assets\01_NevSC\BaseBlock.cs" />
+    <Compile Include="Assets\01_NevSC\GameManager.cs" />
+    <Compile Include="Assets\01_NevSC\PlayerChase.cs" />
+    <Compile Include="Assets\01_NevSC\MoveObstacle.cs" />
+    <Compile Include="Assets\01_NevSC\OffMeshClimb.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
