@@ -3,7 +3,7 @@ using UnityEngine;
 using Core;
 
 public class NormalState : CommonState
-{
+{  
     public override void OnEnterState()
     {
         _agentMovement.StopImmediately();
