@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7330979091227879536}
   - component: {fileID: 5957474436365481492}
   - component: {fileID: -4222453846305728915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RoadBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
