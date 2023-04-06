@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Core;
-using Unity.VisualScripting;
 
 public class AttackState : CommonState
 {

@@ -5,9 +5,7 @@ using UnityEngine;
 public abstract class CommonState : MonoBehaviour, IState
 {
     public abstract void OnEnterState();
-
     public abstract void OnExitState();
-
     public abstract void UpdateState();
 
     protected AgentAnimator _agentAnimator;
@@ -23,7 +21,8 @@ public abstract class CommonState : MonoBehaviour, IState
         _agentMovement = agentRoot.GetComponent<AgentMovement>();
     }
 
-    public void OnHitHandle(Vector3 postion, Vector3 normal)
+    //아직은 미구현
+    public void OnHitHandle(Vector3 position, Vector3 normal)
     {
 
     }
