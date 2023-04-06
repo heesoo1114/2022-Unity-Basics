@@ -11,17 +11,29 @@ public class InnerDistanceDecision : AIDecsion
     [SerializeField]
     private float _range;
 
+    [SerializeField]
+    private bool _alwaysVisible;
+
     public override bool MakeDecision()
     {
-        return Vector3.Distance(_playerTrm.position, transform.position) < _range; // 사거리 안에 들어와 있는지
+        bool isIn = Vector3.Distance(_playerTrm.position, transform.position) < _range; // 사거리 안에 들어와 있는지
+
+        if (isIn)
+        {
+            _actionData.LastSpotPos = _playerTrm.position;
+        }
+        return isIn;
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, _range);
-        Gizmos.color = Color.white;
+        if (UnityEditor.Selection.activeObject == gameObject || _alwaysVisible)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _range);
+            Gizmos.color = Color.white;
+        }
     }
 #endif
 }

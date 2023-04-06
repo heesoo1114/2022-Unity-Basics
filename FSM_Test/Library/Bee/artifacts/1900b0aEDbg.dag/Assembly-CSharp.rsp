@@ -345,10 +345,15 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/01. Scripts/Actions/ChaseAction.cs"
+"Assets/01. Scripts/Actions/IdleAction.cs"
+"Assets/01. Scripts/AIAction.cs"
+"Assets/01. Scripts/AIActionData.cs"
 "Assets/01. Scripts/AIBrain.cs"
 "Assets/01. Scripts/AIDecsion.cs"
 "Assets/01. Scripts/AIState.cs"
 "Assets/01. Scripts/AITransition.cs"
+"Assets/01. Scripts/Decisions/ArrivedDecision.cs"
 "Assets/01. Scripts/Decisions/InnerDistanceDecision.cs"
 -langversion:9.0
 
