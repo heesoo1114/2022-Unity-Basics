@@ -14,6 +14,7 @@ public class AgentAnimator : MonoBehaviour
     private readonly int _isRollingHash = Animator.StringToHash("is_rolling");
 
     public event Action OnAnimationEndTrigger = null; // 애니메이션이 종료될 때마다 트리거 되는 이벤트
+    public event Action OnAnimationEventTrigger = null; // 애니메이션 내의 이벤트 트리거
 
     private Animator _animator;
     public Animator Animator => _animator;
@@ -59,5 +60,10 @@ public class AgentAnimator : MonoBehaviour
     public void OnAnimationEnd() // 애니메이션이 종료되면 실행됨
     {
         OnAnimationEndTrigger?.Invoke();
+    }
+
+    public void OnAnimationEvent()
+    {
+        OnAnimationEventTrigger?.Invoke();
     }
 }

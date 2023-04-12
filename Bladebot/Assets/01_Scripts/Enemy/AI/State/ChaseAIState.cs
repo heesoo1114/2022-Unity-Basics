@@ -6,18 +6,24 @@ public class ChaseAIState : CommonAIState
 {
     public override void OnEnterState()
     {
-
+        _enemyController.AgentAnimator.OnAnimationEventTrigger += FootStepHandle;
+        _enemyController.AgentAnimator.SetSpeed(0.2f);
     }
 
     public override void OnExitState()
     {
+        _enemyController.AgentAnimator.OnAnimationEventTrigger -= FootStepHandle;
+        _enemyController.AgentAnimator.SetSpeed(0);
+    }
 
+    public void FootStepHandle()
+    {
+        _enemyController.VFXManager.PlayFootStep();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        // 여기에 할 일을 써주자
 
         _enemyController.NavMovement.MoveToTarget(_aiActionData.LastSpotPoint);
         _aiActionData.IsArrived = _enemyController.NavMovement.CheckIsArrived();
