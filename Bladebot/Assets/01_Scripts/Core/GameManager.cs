@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [SerializeField]
+    private PoolingListSO _poolingList;
 
     private Transform _playerTrm;
     public Transform PlayerTrm
@@ -26,5 +30,16 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Multiple GameManager is running");
         }
         Instance = this;
+
+        CreatePool();
+    }
+
+    private void CreatePool()
+    {
+        PoolManager.Instance = new PoolManager(transform);
+        _poolingList.Pairs.ForEach(pair =>
+        {
+            PoolManager.Instance.CreatePool(pair.Prefab, pair.Count);
+        });
     }
 }

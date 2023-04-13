@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SwordEdgeMat
-  m_Shader: {fileID: -6465566751694194690, guid: 12118e3aa250a0942a6731e7f0795c92, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 645eeebc711372b44ad9e185ea27f036, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -46,6 +46,7 @@ Material:
     - Cell_Desnisty: 6.29
     - Intensity: 12.42
     - Remap_Out: 0.25
+    - Scale: 0
     - Strength: 15.63
     - _AngleOffset: 12.91
     - _CellDensity: 6.29
