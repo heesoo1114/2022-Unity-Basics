@@ -7,6 +7,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private CommonAIState _currentState;
 
+    [SerializeField]
+    protected EnemyDataSO _enemyData;
+    public EnemyDataSO EnemyData => _enemyData;
+
+    protected EnemyHealth _enemyHealth;
+    public EnemyHealth EnemyHealth => _enemyHealth;
+
     private Transform _targetTrm;
     public Transform TargetTrm => _targetTrm;
 
@@ -29,12 +36,16 @@ public class EnemyController : MonoBehaviour
         _navMovement = GetComponent<NavAgentMovement>();
         _agentAnimator = transform.Find("Visual").GetComponent<AgentAnimator>();
         _vfxManager = GetComponent<EnemyVFXManager>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     protected virtual void Start()
     {
         _targetTrm = GameManager.Instance.PlayerTrm;
         // 나중에 직접 오버랩 스피어로 변경가능
+
+        _navMovement.SetInitData(_enemyData.MoveSpeed);
+        _enemyHealth.SetMaxHP(_enemyData.MaxHP);
     }
 
     public void ChangeState(CommonAIState nextState)

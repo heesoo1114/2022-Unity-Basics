@@ -12,6 +12,17 @@ public class AttackAIState : CommonAIState
 
     protected bool _isActive = false;
 
+    protected int _atkDamage = 1;
+    protected float _atkCooltime = 0.2f;
+
+    public override void SetUp(Transform agentRoot)
+    {
+        base.SetUp(agentRoot);
+        _rotateSpeed = _enemyController.EnemyData.RotateSpeed;
+        _atkDamage = _enemyController.EnemyData.AtkDamage;
+        _atkCooltime = _enemyController.EnemyData.AtkCoolTime;
+    }
+
     public override void OnEnterState()
     {
         _enemyController.NavMovement.StopImmediately();
@@ -19,7 +30,6 @@ public class AttackAIState : CommonAIState
         _enemyController.AgentAnimator.OnAnimationEventTrigger += AttackCollisionHandle;
         _isActive = true;
     }
-
 
     public override void OnExitState()
     {
@@ -35,13 +45,20 @@ public class AttackAIState : CommonAIState
     {
         //애니메이션이 끝났을 때를 위한 식
         _enemyController.AgentAnimator.SetAttackState(false);
-        _aiActionData.IsAttacking = false;
+
+        StartCoroutine(DelayCoroutine(() => _aiActionData.IsAttacking = false, _atkCooltime));
+    }
+
+    private IEnumerator DelayCoroutine(Action Callback, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Callback?.Invoke();
     }
 
     private void AttackCollisionHandle()
     {
         //적이 공격했을 때 주변을 캐스팅해서 데미지를 주는 식을 넣어야 한다.
-        //나중에 컴포넌트화 예정이고
+        //나중에 컴포넌트화 예정
     }
 
     private void SetTarget()
@@ -78,5 +95,4 @@ public class AttackAIState : CommonAIState
             }
         }
     }
-
 }

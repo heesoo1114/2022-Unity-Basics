@@ -13,7 +13,7 @@ public abstract class CommonAIState : MonoBehaviour, IState
     public abstract void OnEnterState();
     public abstract void OnExitState();
 
-    public void SetUp(Transform agentRoot)
+    public virtual void SetUp(Transform agentRoot)
     {
         _enemyController = agentRoot.GetComponent<EnemyController>();
         _aiActionData = agentRoot.Find("AI").GetComponent<AIActionData>();

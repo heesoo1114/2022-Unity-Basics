@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayHitParticleFeedback : Feedback
+public class PlaySlashParticleFeedback : Feedback
 {
-    [SerializeField] private PoolAbleMono _hitParticle;
+    [SerializeField] private PoolAbleMono _slashParticle;
     [SerializeField] private float _effectPlayTime;
 
     private AIActionData _aiActionData;
@@ -15,7 +15,7 @@ public class PlayHitParticleFeedback : Feedback
 
     public override void CreateFeedback()
     {
-        EffectPlayer effect = PoolManager.Instance.Pop(_hitParticle.name) as EffectPlayer;
+        EffectPlayer effect = PoolManager.Instance.Pop(_slashParticle.name) as EffectPlayer;
         effect.transform.position = _aiActionData.HitPoint;
         effect.StartPlay(_effectPlayTime);
     }

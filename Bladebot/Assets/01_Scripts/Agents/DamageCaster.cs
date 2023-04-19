@@ -15,6 +15,9 @@ public class DamageCaster : MonoBehaviour
     [SerializeField]
     private LayerMask _targetLayer;
 
+    [SerializeField]
+    private int _damage = 10;
+
     public void CastDamage()
     {
         Vector3 startPos = transform.position - transform.forward * _casterRadius;
@@ -24,7 +27,11 @@ public class DamageCaster : MonoBehaviour
 
         if (isHit)
         {
-            Debug.Log($"맞았습니다. {hit.collider.name}");
+            // Debug.Log($"맞았습니다. {hit.collider.name}");
+            if (hit.collider.TryGetComponent<IDamageAble>(out IDamageAble health))
+            {
+                health.OnDamage(_damage, hit.point, hit.normal);
+            }
         }
         else
         {
