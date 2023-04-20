@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
@@ -58,6 +60,24 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (_enemyHealth.IsDead) return;
         _currentState?.UpdateState();
+    }
+
+    public UnityEvent OnAfterDead = null;
+
+    public void SetDead()
+    {
+        _navMovement.StopNavigation();
+        _agentAnimator.StopAnimator(true);
+        _navMovement.KnockBack(() =>
+        {
+            _agentAnimator.StopAnimator(false);
+            _agentAnimator.SetDead();
+            UtilMono.Instance.AddDelayCoroutine(() =>
+            {
+                OnAfterDead?.Invoke();
+            }, 1f);
+        });
     }
 }

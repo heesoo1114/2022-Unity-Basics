@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         CreatePool();
+        CreateTimeContoller();
     }
 
     private void CreatePool()
@@ -41,5 +42,9 @@ public class GameManager : MonoBehaviour
         {
             PoolManager.Instance.CreatePool(pair.Prefab, pair.Count);
         });
+    }
+    private void CreateTimeContoller()
+    {
+        TimeController.Instance = gameObject.AddComponent<TimeController>();
     }
 }

@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3393922512490129572
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -21,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EnemyBaseMat
-  m_Shader: {fileID: -6465566751694194690, guid: 564630bceffb9304b93e464a211a07f0, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 153c395bea77ee54497ba9abf2d2472f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -69,11 +56,29 @@ Material:
     m_Floats:
     - _Blink: 0
     - _Brightness: 0.8
-    - _Metalic: 1
+    - _DissolveEdgeWidth: 0.8
+    - _DissolveHeight: 5
+    - _DissolveWidth: 1.5
+    - _IsDissolve: 1
+    - _Metalic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.825
+    - _Smoothness: 0.491
     m_Colors:
-    - _BlinkColor: {r: 1, g: 1, b: 1, a: 0}
-    - _EmissionColor: {r: 1, g: 0.4009434, b: 0.46062675, a: 0}
+    - _BlinkColor: {r: 4, g: 4, b: 4, a: 0}
+    - _DissolveColor: {r: 1.9766746, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1.474109, g: 0.02377595, b: 0.1248237, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &303293661430321857
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

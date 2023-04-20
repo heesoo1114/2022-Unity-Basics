@@ -13,6 +13,9 @@ public class AgentAnimator : MonoBehaviour
 
     private readonly int _isRollingHash = Animator.StringToHash("is_rolling");
 
+    private readonly int _isDeadHash = Animator.StringToHash("is_dead");
+    private readonly int _deadTriggerHash = Animator.StringToHash("dead");
+
     public event Action OnAnimationEndTrigger = null; // 애니메이션이 종료될 때마다 트리거 되는 이벤트
     public event Action OnAnimationEventTrigger = null; // 애니메이션 내의 이벤트 트리거
 
@@ -65,5 +68,16 @@ public class AgentAnimator : MonoBehaviour
     public void OnAnimationEvent()
     {
         OnAnimationEventTrigger?.Invoke();
+    }
+
+    public void StopAnimator(bool value)
+    {
+        _animator.speed = value ? 0 : 1;
+    }
+
+    public void SetDead()
+    {
+        _animator.SetTrigger(_deadTriggerHash);
+        _animator.SetBool(_isDeadHash, true);
     }
 }
