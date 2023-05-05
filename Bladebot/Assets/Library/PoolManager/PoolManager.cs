@@ -30,7 +30,7 @@ public class PoolManager
             return null;
         }
         PoolAbleMono item = _pools[prefabName].Pop();
-        item.Reset();
+        item.Init();
         return item;
     }
 

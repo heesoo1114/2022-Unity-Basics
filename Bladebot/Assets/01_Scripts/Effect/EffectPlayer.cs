@@ -31,7 +31,7 @@ public class EffectPlayer : PoolAbleMono
         PoolManager.Instance.Push(this);
     }
 
-    public override void Reset()
+    public override void Init()
     {
         if (_particles != null)
         {

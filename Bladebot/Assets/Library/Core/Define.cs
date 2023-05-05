@@ -10,6 +10,12 @@ namespace Core
         Rolling = 3,
     }
 
+    public enum ResourceType
+    {
+        HealOrb,
+
+    }
+
     public class Define
     {
         private static Camera _mainCam = null;

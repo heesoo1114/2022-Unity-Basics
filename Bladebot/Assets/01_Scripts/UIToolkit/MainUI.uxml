@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/01_Scripts/UIToolkit/MainUI.uss?fileID=7433441132597879392&amp;guid=d705f489d93804f43a61f29b453a4ef4&amp;type=3#MainUI" />
+    <ui:VisualElement style="flex-direction: row; width: 100%; height: 100%;">
+        <ui:Button text="설정" display-tooltip-when-elided="true" name="MyPopupBtn" enable-rich-text="true" class="btn" style="position: absolute; left: auto; top: 20px; right: 20px; bottom: auto; -unity-font-definition: url(&apos;project://database/Assets/09.%20Fonts/neodgmSDFToolkit.asset?fileID=11400000&amp;guid=8fc64958c503e684a829a8d8d2909a8c&amp;type=2#neodgmSDFToolkit&apos;); -unity-font: none; font-size: 30px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="popupWindow">
+        <ui:VisualElement name="popup">
+            <ui:Button text="닫기" display-tooltip-when-elided="true" name="closeBtn" class="btn red" style="position: absolute; right: 10px; bottom: 10px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
