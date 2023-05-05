@@ -1,0 +1,5 @@
+newmtl Teleport_Anchor
+map_Kd GridBox_Default.png
+Kd 1 0.9995157 0.6274511
+d 1
+

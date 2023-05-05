@@ -1,0 +1,6 @@
+[Sonniss.com - GDC 2020 - Game Audio Bundle\Async Audio - Sci-Fi Blaster\Blast Laser 2.wav]
+	-> (Trim First) [Gun Shoot - Success.wav]
+[Sonniss.com - GDC 2020 - Game Audio Bundle\Bart Kamski - Clicks & Switches\Camera_Flash_Open-001.wav]
+	-> (Trim First) [Gun Shoot - Fail.wav]
+[Sonniss.com - GDC 2020 - Game Audio Bundle\Sound Sower - Electric Field\Electric, Switch ON OFF, power, turn-on, medium frequency, motor, pulse, hum.wav]
+	-> (Trim First) [Gun Reload.wav]
