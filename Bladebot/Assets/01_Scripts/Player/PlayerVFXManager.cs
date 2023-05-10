@@ -12,6 +12,9 @@ public class PlayerVFXManager : MonoBehaviour
     [SerializeField]
     private VisualEffect _footStep;
 
+    [SerializeField]
+    private VisualEffect _headEffect;
+
     private AttackState _atkState;
 
     private void Awake()
@@ -31,6 +34,11 @@ public class PlayerVFXManager : MonoBehaviour
         {
             _footStep.Stop();
         }
+    }
+
+    public void PlayHealEffect()
+    {
+        _headEffect.Play();
     }
 
     private void PlayBlade(int combo)

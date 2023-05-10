@@ -39,7 +39,7 @@
 #popup {
     width: 600px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 255);
+    background-color: rgb(255, 255, 255);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -56,5 +56,35 @@
 }
 
 .red {
-    background-color: rgba(255, 0, 0, 255);
+    background-color: rgb(255, 0, 0);
+}
+
+.rect {
+    width: 600px;
+    height: 80px;
+    background-color: rgb(41, 82, 81);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -150px;
+    transition-property: margin-top;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-cubic;
+}
+
+.rect.on {
+    margin-top: 0;
+}
+
+.font {
+    -unity-font-definition: url('project://database/Assets/09.%20Fonts/neodgmSDFToolkit.asset?fileID=11400000&guid=8fc64958c503e684a829a8d8d2909a8c&type=2#neodgmSDFToolkit');
+    font-size: 30px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 0;
+    color: rgba(255, 255, 255, 255);
 }
