@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : PoolAbleMono
 {
     [SerializeField]
     private CommonAIState _currentState;
@@ -28,6 +28,9 @@ public class EnemyController : MonoBehaviour
     private EnemyVFXManager _vfxManager;
     public EnemyVFXManager VFXManager => _vfxManager;
 
+    private CommonAIState _initState;
+    private AIActionData _actionData;
+
     protected virtual void Awake()
     {
         List<CommonAIState> states = new List<CommonAIState>();
@@ -39,6 +42,10 @@ public class EnemyController : MonoBehaviour
         _agentAnimator = transform.Find("Visual").GetComponent<AgentAnimator>();
         _vfxManager = GetComponent<EnemyVFXManager>();
         _enemyHealth = GetComponent<EnemyHealth>();
+
+        _actionData = transform.Find("AI").GetComponent<AIActionData>();
+
+        _initState = _currentState;
     }
 
     protected virtual void Start()
@@ -79,5 +86,18 @@ public class EnemyController : MonoBehaviour
                 OnAfterDead?.Invoke();
             }, 1f);
         });
+    }
+
+    public override void Init()
+    {
+        _enemyHealth.SetMaxHP(EnemyData.MaxHP);
+        _navMovement.ResetNavAgent();
+        ChangeState(_initState);
+        _actionData.Init(); // 액션데이터도 초기화
+    }
+
+    public void GotoPool()
+    {
+        PoolManager.Instance.Push(this);
     }
 }

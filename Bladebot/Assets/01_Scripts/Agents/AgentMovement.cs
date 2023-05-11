@@ -15,10 +15,13 @@ public class AgentMovement : MonoBehaviour
 
     public bool IsActiveMove { get; set; }
 
+    private AgentController _controller;
+
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
         _agentAnimator = transform.Find("Visual").GetComponent<AgentAnimator>();
+        _controller = GetComponent<AgentController>();
     }
 
     public void SetMovementVelocity(Vector3 value) // NormalState에서 넘어옴
@@ -35,7 +38,9 @@ public class AgentMovement : MonoBehaviour
         _movementVelocity = Quaternion.Euler(0, -45f, 0) * _inputVelocity; // 로컬축을 기준으로 회전
         // 45f로 하면 월드축을 기준으로 회전함
 
-        _agentAnimator?.SetSpeed(_movementVelocity.sqrMagnitude); //이동속도 반영
+        _agentAnimator?.SetSpeed(_movementVelocity.sqrMagnitude); // 이동속도 반영
+
+        _movementVelocity *= _controller.CharData.MoveSpeed * Time.fixedDeltaTime;
 
         _movementVelocity *= _moveSpeed * Time.fixedDeltaTime;
         if (_movementVelocity.sqrMagnitude > 0)

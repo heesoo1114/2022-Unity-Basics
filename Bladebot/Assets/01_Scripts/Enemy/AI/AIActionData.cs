@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIActionData : MonoBehaviour
 {
-    public bool TargetSpotted; // 적이 발견되었는지
+    public bool TargetSpotted;      // 적이 발견되었는지
     
     public Vector3 HitPoint;        // 마지막으로 맞은 지점
     public Vector3 HitNormal;       // 마지막으로 맞은 지점의 노말벡터
@@ -13,5 +13,10 @@ public class AIActionData : MonoBehaviour
     public bool IsArrived;          // 도착했는지
     public bool IsAttacking;        // 공격을 하고 있는지
 
-
+    public void Init()
+    {
+        TargetSpotted = false;
+        IsArrived = false;
+        IsAttacking = false;
+    }
 }

@@ -18,6 +18,9 @@ public class EnemyHealth : MonoBehaviour, IDamageAble
     private int _maxHP;
     private int _currentHP;
 
+    public int MaxHP => _maxHP;
+    public int CurrentHP => _currentHP; 
+
     private void Awake()
     {
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
@@ -38,6 +41,8 @@ public class EnemyHealth : MonoBehaviour, IDamageAble
 
         // 실질적인 체력 감소는 여기서
         _currentHP -= damage;
+        _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);
+
         if (_currentHP <= 0)
         {
             IsDead = true;
@@ -45,6 +50,9 @@ public class EnemyHealth : MonoBehaviour, IDamageAble
         }
 
         OnHitTriggered?.Invoke();
-        OnHealthChanged?.Invoke(_currentHP, _maxHP); // 나중 UI
+
+        UIManager.Instance.Subscribe(this); // 구독
+
+        OnHealthChanged?.Invoke(_currentHP, _maxHP); // 전파
     }
 }

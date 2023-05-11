@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class EnemyHPBar : MonoBehaviour
+public class EnemyHPBar 
 {
     private VisualElement _barRect;
     private VisualElement _bar;
