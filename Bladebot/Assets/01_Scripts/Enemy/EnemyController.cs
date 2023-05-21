@@ -8,6 +8,7 @@ public class EnemyController : PoolAbleMono
 {
     [SerializeField]
     private CommonAIState _currentState;
+    public CommonAIState CurrentState => _currentState;
 
     [SerializeField]
     protected EnemyDataSO _enemyData;
@@ -31,11 +32,18 @@ public class EnemyController : PoolAbleMono
     private CommonAIState _initState;
     private AIActionData _actionData;
 
+    private EnemyAttack _enemyAttack;
+    public EnemyAttack EnemyAttackCompo => _enemyAttack;
+
+    private List<AITransition> _anyTransitions = new List<AITransition>();
+    public List<AITransition> AnyTransitions => _anyTransitions;
+
     protected virtual void Awake()
     {
         List<CommonAIState> states = new List<CommonAIState>();
         transform.Find("AI").GetComponentsInChildren<CommonAIState>(states);
 
+        // 각 스테이트에 대한 셋업이 여기서 들어감
         states.ForEach(s => s.SetUp(transform));
 
         _navMovement = GetComponent<NavAgentMovement>();
@@ -44,6 +52,14 @@ public class EnemyController : PoolAbleMono
         _enemyHealth = GetComponent<EnemyHealth>();
 
         _actionData = transform.Find("AI").GetComponent<AIActionData>();
+        _enemyAttack = GetComponent<EnemyAttack>();
+
+        Transform anyTranTrm = transform.Find("AI/AnyTransitions");
+        if (anyTranTrm != null)
+        {
+            anyTranTrm.GetComponentsInChildren<AITransition>(_anyTransitions);
+            _anyTransitions.ForEach(t => t.SetUp(transform));
+        }
 
         _initState = _currentState;
     }

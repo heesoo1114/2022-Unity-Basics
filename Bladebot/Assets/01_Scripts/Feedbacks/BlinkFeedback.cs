@@ -24,6 +24,7 @@ public class BlinkFeedback : Feedback
 
     public override void CreateFeedback()
     {
+        Debug.Log("ºí¸µÅ©");
         StartCoroutine(MaterialBlink());
     }
 

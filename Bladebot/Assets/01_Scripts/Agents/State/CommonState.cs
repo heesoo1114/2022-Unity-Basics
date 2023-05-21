@@ -6,7 +6,7 @@ public abstract class CommonState : MonoBehaviour, IState
 {
     public abstract void OnEnterState();
     public abstract void OnExitState();
-    public abstract void UpdateState();
+    public abstract bool UpdateState();
 
     protected AgentAnimator _agentAnimator;
     protected AgentInput _agentInput;

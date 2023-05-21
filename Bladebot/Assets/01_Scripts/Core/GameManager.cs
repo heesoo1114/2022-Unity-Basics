@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             Ray ray = Define.MainCam.ScreenPointToRay(Input.mousePosition);
 
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
                 EnemyController e = PoolManager.Instance.Pop("HammerEnemy") as EnemyController;
                 e.transform.SetPositionAndRotation(hit.point, Quaternion.identity);
             }
-        }
+        }*/
     }
 
     #endregion

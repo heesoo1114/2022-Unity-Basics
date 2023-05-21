@@ -8,19 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LittleAdventurerAndie
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _EMISSION
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
-  - _OCCLUSIONMAP
+  m_Shader: {fileID: -6465566751694194690, guid: 093a23d4d8ed9c843b9cafbe01260709, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -123,7 +118,7 @@ Material:
     - Boolean_8c9ca0d8eb01493da7c19d2c85eb15eb: 1
     - Boolean_b0523346adc34c91af8a466392e41cd1: 1
     - Boolean_cf6c3701851a4241a6a2fdd166392aa5: 0
-    - Brightness: 1
+    - Brightness: 0.491
     - ClearCoat: 0
     - ClearCoatSmoothness: 1
     - DissolveEdgeWidth: 0.5
@@ -133,9 +128,9 @@ Material:
     - Fresnel: 3.95
     - Height: 12
     - MainTextBrightness: 0
-    - Metallic: 1
+    - Metallic: 0.84
     - Scale: 100
-    - Smoothness: 0.69
+    - Smoothness: 0.95
     - Use_Fresnel: 0
     - Vector1_11828729941c42e482e8e129a5b5088b: 0
     - Vector1_1e7704ebd5584b06be5b311be89b08c3: 0

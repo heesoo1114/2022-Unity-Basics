@@ -19,7 +19,7 @@ public class NavAgentMovement : MonoBehaviour
     private CharacterController _characterController;
     private bool _isControllerMode = false; //현재 네브메시모드인지 컨트롤러모드인지
     private float _knockBackStartTime;
-    private Action EndKnockBackAction; //넉백이 끝나고 실행해야 할 콜백이있다면 여기다 저장하고 실행
+    private Action EndKnockBackAction;      //넉백이 끝나고 실행해야 할 콜백이있다면 여기다 저장하고 실행
 
     private AIActionData _aiActionData;
     protected void Awake()
@@ -62,6 +62,7 @@ public class NavAgentMovement : MonoBehaviour
     {
         _navAgent.isStopped = true;
     }
+
     public void KnockBack(Action EndCallback = null)
     {
         // _navAgent.updatePosition = false;

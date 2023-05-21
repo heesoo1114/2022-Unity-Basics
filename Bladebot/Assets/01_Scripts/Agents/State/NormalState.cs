@@ -40,8 +40,8 @@ public class NormalState : CommonState
         _agentController.ChangeState(StateType.Rolling);
     }
 
-    public override void UpdateState()
+    public override bool UpdateState()
     {
-
+        return false; // true, false 상관없음
     }
 }

@@ -78,7 +78,7 @@ public class AttackState : CommonState
         }
     }
 
-    public override void UpdateState()
+    public override bool UpdateState()
     {
         if (_canAttack && _keyTimer > 0)
         {
@@ -97,5 +97,7 @@ public class AttackState : CommonState
 
             _agentMovement.SetMovementVelocity(Vector3.Lerp(_agentMovement.transform.forward * _attackSlideSpeed, Vector3.zero, lerpTime));
         }
+
+        return false;
     }
 }

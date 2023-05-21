@@ -9,5 +9,6 @@ public class EnemyDataSO : ScriptableObject
     public float MoveSpeed;
     public float RotateSpeed;
     public int   AtkDamage;
-    public float AtkCoolTime; // 공격 딜레이
+    public float MotionDelay; // 공격 딜레이
+    public float AtkCooltime; // 공격 쿨타임
 }

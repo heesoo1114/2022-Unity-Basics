@@ -13,6 +13,11 @@ public class AgentController : MonoBehaviour
     private Dictionary<StateType, IState> _stateDictionary = null;
     private IState _currentState;
 
+    public bool IsDead { get; set; }
+
+    private AgentHealth _agentHealth;
+    public AgentHealth AgentHealthCompo => _agentHealth;
+
     private void Awake()
     {
         _stateDictionary = new Dictionary<StateType, IState>();
@@ -31,6 +36,7 @@ public class AgentController : MonoBehaviour
             stateScript.SetUp(transform);
             _stateDictionary.Add(state, stateScript);
         }
+        _agentHealth = GetComponent<AgentHealth>();
     }
 
     private void Start()
@@ -47,6 +53,8 @@ public class AgentController : MonoBehaviour
 
     private void Update()
     {
+        if (IsDead) return;
+
         _currentState.UpdateState();
     }
 }

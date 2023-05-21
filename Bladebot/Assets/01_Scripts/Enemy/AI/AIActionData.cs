@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AIActionData : MonoBehaviour
@@ -13,10 +14,14 @@ public class AIActionData : MonoBehaviour
     public bool IsArrived;          // 도착했는지
     public bool IsAttacking;        // 공격을 하고 있는지
 
+    [field:SerializeField]
+    public bool IsHit { get; set; }              // 현재 맞고 있는지
+
     public void Init()
     {
         TargetSpotted = false;
         IsArrived = false;
         IsAttacking = false;
+        IsHit = false;
     }
 }
