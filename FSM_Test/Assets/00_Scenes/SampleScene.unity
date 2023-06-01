@@ -641,7 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a210e4edd8f84995c2fc80e9f8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transitions: []
+  Transitions:
+  - {fileID: 1459885053}
   Actions:
   - {fileID: 913657640}
 --- !u!114 &913657640
@@ -866,7 +867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375f101d85850e443a53e05bbea758e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Decisions: []
+  Decisions:
+  - {fileID: 1562959537}
+  - {fileID: 1562959539}
   NextState: {fileID: 913657639}
 --- !u!114 &1562959539
 MonoBehaviour:
@@ -927,7 +930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a210e4edd8f84995c2fc80e9f8b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transitions: []
+  Transitions:
+  - {fileID: 1562959538}
   Actions:
   - {fileID: 1820768360}
 --- !u!114 &1820768360
