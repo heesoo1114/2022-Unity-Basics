@@ -64,9 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 100
   moveSpeed: 30
-  sideSpeed: 15
+  sideSpeed: 50
   acceleration: 1
   deAcceleration: 10
+  rotationSpeed: 100
 --- !u!1001 &7859607501969204246
 PrefabInstance:
   m_ObjectHideFlags: 0

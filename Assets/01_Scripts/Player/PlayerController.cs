@@ -7,15 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody _rigid;
 
-
     [Header("Movement")]
-    [SerializeField] private float maxSpeed;
     [SerializeField] private float moveSpeed;
     public float MoveSpeed => moveSpeed;
-    [SerializeField] private float sideSpeed;
 
-    [SerializeField] private float acceleration;   // 가속도
-    [SerializeField] private float deAcceleration; // 감속도
+    [Header("Roatation")]
+    public float rollAmount;
+    Vector3 rotateValue;
+    public float lerpAmount;
 
     private void Awake()
     {
@@ -24,32 +23,42 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        moveSpeed = AccelSpeed();
-        transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+        float z = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        RoatateAircraft(z);
+        MoveAircraft(z);
+
+        #region 변경 전
+        // moveSpeed = AccelSpeed();
+        // transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+
+        /*if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * sideSpeed * Time.deltaTime;
+            transform.rotation *= Quaternion.Euler(0f, 0f, Mathf.Clamp((rotationSpeed * Time.deltaTime * 8), -90f, 90f));
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * sideSpeed * Time.deltaTime;
-        }
+            transform.rotation *= Quaternion.Euler(0f, 0f, Mathf.Clamp(-(rotationSpeed * Time.deltaTime * 8), -90f, 90f));
+        }*/
+        #endregion
     }
 
-    private float AccelSpeed()
+    private void MoveAircraft(float x)
     {
-        moveSpeed += acceleration * Time.deltaTime;
+        Vector3 movement = new Vector3(x, 0f, 0f);
 
-        return Mathf.Clamp(moveSpeed, 0, maxSpeed);
+        _rigid.velocity = movement * moveSpeed;
     }
 
-    private float DecelSpeed()
+    private void RoatateAircraft(float z)
     {
-        moveSpeed -= deAcceleration * Time.deltaTime;
+        Vector3 lerpVector = new Vector3(0, 0, -z * rollAmount);
+        rotateValue = Vector3.Lerp(rotateValue, lerpVector, lerpAmount * Time.fixedDeltaTime);
 
-        return Mathf.Clamp(moveSpeed, 0, maxSpeed);
+        _rigid.MoveRotation(_rigid.rotation * Quaternion.Euler(rotateValue * Time.fixedDeltaTime));
     }
 
     private void StopImmediatelly()
@@ -57,8 +66,20 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        moveSpeed = DecelSpeed();
-    }
+    #region Accel,Decel
+    // private float AccelSpeed()
+    // {
+    //     moveSpeed += acceleration * Time.deltaTime;
+    // 
+    //     return Mathf.Clamp(moveSpeed, 0, maxSpeed);
+    // }
+    // 
+    // private float DecelSpeed()
+    // {
+    //     moveSpeed -= deAcceleration * Time.deltaTime;
+    // 
+    //     return Mathf.Clamp(moveSpeed, 0, maxSpeed);
+    // }
+    #endregion
+
 }
