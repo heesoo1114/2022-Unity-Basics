@@ -27,23 +27,6 @@ public class PlayerController : MonoBehaviour
 
         RoatateAircraft(z);
         MoveAircraft(z);
-
-        #region º¯°æ Àü
-        // moveSpeed = AccelSpeed();
-        // transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-
-        /*if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += Vector3.left * sideSpeed * Time.deltaTime;
-            transform.rotation *= Quaternion.Euler(0f, 0f, Mathf.Clamp((rotationSpeed * Time.deltaTime * 8), -90f, 90f));
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += Vector3.right * sideSpeed * Time.deltaTime;
-            transform.rotation *= Quaternion.Euler(0f, 0f, Mathf.Clamp(-(rotationSpeed * Time.deltaTime * 8), -90f, 90f));
-        }*/
-        #endregion
     }
 
     private void MoveAircraft(float x)
@@ -81,5 +64,4 @@ public class PlayerController : MonoBehaviour
     //     return Mathf.Clamp(moveSpeed, 0, maxSpeed);
     // }
     #endregion
-
 }
