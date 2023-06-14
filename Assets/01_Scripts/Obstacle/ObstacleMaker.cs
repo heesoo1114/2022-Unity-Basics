@@ -14,6 +14,6 @@ public class ObstacleMaker : MonoBehaviour
         GameObject obsPrefab = Instantiate(obstaclePrefab);
         obsPrefab.transform.parent = GameObject.Find("BuildingContainer").transform;
         obsPrefab.transform.position = transform.position;
-        obsPrefab.GetComponent<DownMovement>().MoveSpeed = 250;
+        obsPrefab.GetComponent<DownMovement>().MoveSpeed = 350;
     }
 }

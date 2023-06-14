@@ -62,12 +62,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01291dac9a325174d924e72c00d8c168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
-  moveSpeed: 30
+  frontSpeed: 100
   sideSpeed: 50
-  acceleration: 1
-  deAcceleration: 10
-  rotationSpeed: 100
+  dashSpeed: 150
+  dashDuration: 0.5
+  rollAmount: 220
+  lerpAmount: 6
 --- !u!1001 &7859607501969204246
 PrefabInstance:
   m_ObjectHideFlags: 0
