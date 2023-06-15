@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody _rigid;
+    Transform _modelTr;
 
     [Header("Movement")]
     [SerializeField] private float frontSpeed;
     public float FrontSpeed => frontSpeed;
     public float sideSpeed;
-
 
     [Header("Dash")]
     public float dashSpeed;
@@ -20,12 +20,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Roatation")]
     public float rollAmount;
-    Vector3 rotateValue;
     public float lerpAmount;
+    Vector3 rotateValue;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
+        _modelTr = transform.Find("Model").GetComponent<Transform>();   
     }
 
     private void Update()
@@ -53,17 +54,20 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 lerpVector = new Vector3(0, 0, -z * rollAmount);
         rotateValue = Vector3.Lerp(rotateValue, lerpVector, lerpAmount * Time.deltaTime);
-        _rigid.MoveRotation(_rigid.rotation * Quaternion.Euler(rotateValue * Time.fixedDeltaTime));
+
+        _modelTr.rotation *= Quaternion.Euler(rotateValue * Time.fixedDeltaTime);
+
+        // _rigid.MoveRotation(_rigid.rotation * Quaternion.Euler(rotateValue * Time.fixedDeltaTime));
     }
 
     private void DashMovement(float z)
     {
         Vector3 dashDir = (z == 1) ? Vector3.right : Vector3.left;
 
+        StartCoroutine(Dash(dashDir));
+
         // _rigid.AddForce(dashDir * dashSpeed, ForceMode.Impulse); 
         // _rigid.velocity = dashDir * dashSpeed;
-
-        StartCoroutine(Dash(dashDir));
     }
 
     private IEnumerator Dash(Vector3 dashDir)
