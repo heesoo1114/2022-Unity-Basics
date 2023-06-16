@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // 입력 부분 나중에 모바일 버전으로 수정하기
         float z = Input.GetAxisRaw("Horizontal");
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DashMovement(z);
