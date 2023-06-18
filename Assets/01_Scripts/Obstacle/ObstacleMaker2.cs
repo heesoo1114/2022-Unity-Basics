@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.Rendering.UI;
-using TMPro.EditorUtilities;
 
 public class ObstacleMaker2 : MonoBehaviour
 {
     [SerializeField] private GameObject obstaclePrefab;
 
     [Header("ObstacleCntRange")]
-    public float obstacleCntMin;
-    public float obstacleCntMax;
+    public int obstacleCntMin;
+    public int obstacleCntMax;
 
     [Header("DelayRange")]
     public float delayTimeMin;
@@ -22,11 +20,12 @@ public class ObstacleMaker2 : MonoBehaviour
     [SerializeField] private float xPosMax;
 
     // RealInfo
-    private float obstacleCount;
+    private int obstacleCount;
     private float delayTime;
     private float xPos;
 
     public float RandomNumber(float min, float max) => UnityEngine.Random.Range(min, max);
+    public int RandomNumber(int min, int max) => UnityEngine.Random.Range(min, max);
 
     private void Start()
     {

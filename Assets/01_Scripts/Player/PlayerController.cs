@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,9 +8,9 @@ public class PlayerController : MonoBehaviour
     Transform _modelTr;
 
     [Header("Movement")]
-    [SerializeField] private float frontSpeed;
-    public float FrontSpeed => frontSpeed;
+    public float verticalSpeed;
     public float sideSpeed;
+    // [SerializeField] private float frontSpeed;
 
     [Header("Dash")]
     public float dashSpeed;
@@ -38,9 +37,17 @@ public class PlayerController : MonoBehaviour
             DashMovement(z);
         }
 
-        transform.Translate(Vector3.forward * frontSpeed * Time.deltaTime, Space.World);
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            StartCoroutine(Dash(Vector3.down));
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            StartCoroutine(Dash(Vector3.up));
+        }
 
         RotationPlane(z);
+        
         HorizontalMovement(z);
     }
 
@@ -92,9 +99,15 @@ public class PlayerController : MonoBehaviour
 
     private void StopImmediatelly()
     {
-        frontSpeed = 0;
+        // frontSpeed = 0;
+        verticalSpeed = 0;
         sideSpeed = 0;
         dashSpeed = 0;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision Happen");
     }
 
     #region Accel,Decel
