@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 7859607502999166195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.6, z: -25.92}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7680983846806078461}
@@ -107,11 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01291dac9a325174d924e72c00d8c168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideSpeed: 60
-  dashSpeed: 170
-  dashDuration: 0.5
-  rollAmount: 250
-  lerpAmount: 6
+  sideSpeed: 100
+  dashSpeed: 500
+  dashDuration: 0.3
+  rollAmount: 310
+  lerpAmount: 7
 --- !u!1001 &216736540
 PrefabInstance:
   m_ObjectHideFlags: 0
