@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     Transform _modelTr;
 
     [Header("Movement")]
-    public float verticalSpeed;
     public float sideSpeed;
     // [SerializeField] private float frontSpeed;
 
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
-        _modelTr = transform.Find("Model").GetComponent<Transform>();   
+        _modelTr = transform.Find("Model").GetComponent<Transform>();
     }
 
     private void Update()
@@ -37,17 +36,7 @@ public class PlayerController : MonoBehaviour
             DashMovement(z);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            StartCoroutine(Dash(Vector3.down));
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            StartCoroutine(Dash(Vector3.up));
-        }
-
         RotationPlane(z);
-        
         HorizontalMovement(z);
     }
 
@@ -80,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash(Vector3 dashDir)
     {
         isDashing = true;
-        Vector3 dashDirection = dashDir; 
+        Vector3 dashDirection = dashDir;
         float elapsedTime = 0f;
 
         while (elapsedTime < dashDuration)
@@ -100,7 +89,7 @@ public class PlayerController : MonoBehaviour
     private void StopImmediatelly()
     {
         // frontSpeed = 0;
-        verticalSpeed = 0;
+        // verticalSpeed = 0;
         sideSpeed = 0;
         dashSpeed = 0;
     }
