@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Building : PoolAbleMono
@@ -11,7 +12,7 @@ public class Building : PoolAbleMono
         set => moveSpeed = value; 
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(DownMove());
     }
@@ -29,7 +30,7 @@ public class Building : PoolAbleMono
     {
         if (other.CompareTag("Garbage"))
         {
-            Destroy(gameObject);
+            PoolManager.Instance.Push(this);
         }
     }
 

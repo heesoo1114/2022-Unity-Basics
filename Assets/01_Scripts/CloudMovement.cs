@@ -24,7 +24,7 @@ public class CloudMovement : MonoBehaviour
         {
             transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.World);
 
-            if (transform.position.z < -1000)
+            if (transform.position.z < -850)
             {
                 transform.position = returnTr.position;
             }

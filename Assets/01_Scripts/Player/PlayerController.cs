@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,9 +8,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody _rigid;
     Transform _modelTr;
 
+    [SerializeField] private Transform _startTr;
+    [SerializeField] private Transform _readyTr;
+
     [Header("Movement")]
     public float sideSpeed;
-    // [SerializeField] private float frontSpeed;
+    public float minX;
+    public float maxX;
 
     [Header("Dash")]
     public float dashSpeed;
@@ -21,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public float lerpAmount;
     Vector3 rotateValue;
 
+    [SerializeField] private TextMeshProUGUI _debuggingText;
+
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
@@ -29,41 +36,55 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // 입력 부분 나중에 모바일 버전으로 수정하기
         float z = Input.GetAxisRaw("Horizontal");
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DashMovement(z);
         }
-
-        RotationPlane(z);
+        
         HorizontalMovement(z);
+        RotationPlane(z);
+
+        PositionClamp();
     }
 
-    private void HorizontalMovement(float x)
+    public void StartAnimation()
+    {
+        transform.DOMove(_startTr.transform.position, 1.5f);
+    }
+
+    public void Init()
+    {
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        transform.position = _readyTr.transform.position;
+    }
+
+    public void PositionClamp()
+    {
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, minX, maxX);
+        transform.position = clampedPosition;
+    }
+
+    public void HorizontalMovement(float x)
     {
         Vector3 movement = new Vector3(x, 0f, 0f);
         _rigid.velocity = movement * sideSpeed;
     }
 
-    private void RotationPlane(float z)
+    public void RotationPlane(float z)
     {
         Vector3 lerpVector = new Vector3(0, 0, -z * rollAmount);
         rotateValue = Vector3.Lerp(rotateValue, lerpVector, lerpAmount * Time.deltaTime);
-
         _modelTr.rotation *= Quaternion.Euler(rotateValue * Time.fixedDeltaTime);
-
-        // _rigid.MoveRotation(_rigid.rotation * Quaternion.Euler(rotateValue * Time.fixedDeltaTime));
     }
 
-    private void DashMovement(float z)
+    public void DashMovement(float z)
     {
         Vector3 dashDir = (z == 1) ? Vector3.right : Vector3.left;
 
         StartCoroutine(Dash(dashDir));
-
-        // _rigid.AddForce(dashDir * dashSpeed, ForceMode.Impulse); 
-        // _rigid.velocity = dashDir * dashSpeed;
     }
 
     private IEnumerator Dash(Vector3 dashDir)
@@ -88,8 +109,6 @@ public class PlayerController : MonoBehaviour
 
     private void StopImmediatelly()
     {
-        // frontSpeed = 0;
-        // verticalSpeed = 0;
         sideSpeed = 0;
         dashSpeed = 0;
     }
@@ -97,6 +116,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision Happen");
+        GameManager.Instance.GameOver();
     }
 
     #region Accel,Decel
