@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="EnemyHPContainer" style="width: 100%; align-items: center;">
+        <ui:VisualElement name="HPBarRect" style="background-color: rgb(16, 47, 53);">
+            <ui:VisualElement name="Bar" style="width: 100%; height: 100%; background-color: rgb(48, 127, 142); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; scale: 1 1; transform-origin: left; transition-property: scale; transition-duration: 0.2s;" />
+            <ui:VisualElement name="TextContainer" style="flex-direction: row; justify-content: space-between; position: absolute; bottom: 5px; left: 10px; width: 100%; padding-right: 10px;">
+                <ui:Label text="HammerEnemy01" display-tooltip-when-elided="true" name="EnemyName" class="hp-text" />
+                <ui:Label text="100 / 100" display-tooltip-when-elided="true" name="HPText" class="hp-text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="TopUIBar">
+        <ui:VisualElement name="ProfileBox" style="width: 550px; height: 200px; flex-direction: row; margin-top: 20px;">
+            <ui:VisualElement name="ProfileImage" style="flex-basis: 200px; flex-shrink: 0; background-color: rgba(18, 34, 43, 0.72); margin-left: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; background-image: url(&apos;project://database/Assets/04.Textures/UI/Button16.png?fileID=2800000&amp;guid=b4266380719f03e42abe7bb6371b55c2&amp;type=3#Button16&apos;); -unity-slice-left: 5; -unity-slice-top: 5; -unity-slice-right: 5; -unity-slice-bottom: 5; -unity-background-scale-mode: stretch-to-fill;">
+                <ui:VisualElement name="ImageElement" style="background-image: url(&apos;project://database/Assets/01_Scripts/UIToolkit/CharUI.renderTexture?fileID=8400000&amp;guid=848f77f1e51b7244eae17dc52444968d&amp;type=2#CharUI&apos;); width: 100%; height: 100%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="InfoRows" style="flex-grow: 1;">
+                <ui:VisualElement name="HPRow" class="data-row">
+                    <ui:VisualElement name="Icon" class="icon" style="background-image: url(&apos;project://database/Assets/04.Textures/UI/Button08.png?fileID=2800000&amp;guid=9bd06e4b2642021408758108558e21e5&amp;type=3#Button08&apos;);" />
+                    <ui:VisualElement name="barContainer" class="bar-container">
+                        <ui:VisualElement name="Bar" class="bar" style="-unity-background-image-tint-color: rgb(233, 76, 76);" />
+                        <ui:Label text="100 / 100" display-tooltip-when-elided="true" name="InfoText" class="label" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="EnergyRow" class="data-row">
+                    <ui:VisualElement name="Icon" class="icon" style="background-image: url(&apos;project://database/Assets/04.Textures/UI/Button07.png?fileID=2800000&amp;guid=ed7e131d99131d4478aba02ab96cbebb&amp;type=3#Button07&apos;);" />
+                    <ui:VisualElement name="barContainer" class="bar-container">
+                        <ui:VisualElement name="Bar" class="bar" style="-unity-background-image-tint-color: rgb(184, 255, 112);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

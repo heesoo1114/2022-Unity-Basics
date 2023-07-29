@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Card" src="project://database/Assets/UI/DataBinding/Card.uxml?fileID=9197481963319205126&amp;guid=044e1f2410e6a4a4dae3a74f116752dd&amp;type=3#Card" />
+    <Style src="project://database/Assets/UI/DataBinding/DataBinding.uss?fileID=7433441132597879392&amp;guid=5f4f9aae7eaac854c9d6dee0bf044611&amp;type=3#DataBinding" />
+    <Style src="project://database/Assets/UI/DataBinding/Card.uss?fileID=7433441132597879392&amp;guid=1903f64b4870d3d4ab4d1be5719fdb48&amp;type=3#Card" />
+    <ui:VisualElement name="Container" style="flex-basis: 100%; flex-grow: 1;">
+        <ui:VisualElement name="Header" style="flex-basis: 120px; flex-shrink: 0; background-color: rgb(254, 242, 178); flex-direction: row; align-items: center; justify-content: space-between; padding-left: 20px; padding-right: 20px;">
+            <ui:TextField picking-mode="Ignore" text="이름" name="NameInput" style="flex-grow: 0; flex-shrink: 1; flex-basis: 25%;" />
+            <ui:TextField picking-mode="Ignore" text="설명" name="InfoInput" style="flex-grow: 0; flex-shrink: 1; flex-basis: 25%;" />
+            <ui:DropdownField label="성별" index="-1" choices="남자,여자" name="GenderInput" style="width: 353px; flex-shrink: 1; flex-grow: 1; flex-basis: auto; height: 42px; flex-direction: row; justify-content: flex-end; align-items: stretch; -unity-text-align: upper-center; color: rgb(0, 0, 0); -unity-font-style: bold; font-size: 20px;" />
+            <ui:Button text="생성" display-tooltip-when-elided="true" name="BtnMake" class="btn blue" style="flex-basis: 120px;" />
+            <ui:Button text="선택 해제" display-tooltip-when-elided="true" name="BtnNew" class="btn blue" style="flex-basis: 120px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgb(16, 28, 44); justify-content: center; align-items: center; flex-direction: row;">
+            <ui:Instance template="Card" name="Card" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

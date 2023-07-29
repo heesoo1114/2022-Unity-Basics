@@ -1,0 +1,58 @@
+#Header TextField {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+#Header TextField > #unity-text-input {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: rgba(77, 77, 77, 255);
+    color: rgba(255, 255, 255, 255);
+}
+
+.btn {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 20px;
+    -unity-font-style: bold;
+    transition-duration: 0.25s;
+    cursor: url('project://database/Assets/04.Sprites/Cursor_B.png?fileID=2800000&guid=c52578bb8809e26498d3307fe893129d&type=3#Cursor_B');
+}
+
+.btn.blue {
+    background-color: rgb(11, 57, 221);
+    border-left-color: rgb(12, 51, 192);
+    border-right-color: rgb(12, 51, 192);
+    border-top-color: rgb(12, 51, 192);
+    border-bottom-color: rgb(12, 51, 192);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    color: rgba(255, 255, 255, 255);
+}
+
+.btn.blue:hover {
+    background-color: rgb(42, 82, 229);
+}
+
+.btn.red {
+    background-color: rgb(207, 21, 7);
+    border-left-color: rgb(190, 26, 13);
+    border-right-color: rgb(190, 26, 13);
+    border-top-color: rgb(190, 26, 13);
+    border-bottom-color: rgb(190, 26, 13);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    color: rgb(255, 255, 255);
+}
+
+.btn.red:hover {
+    background-color: rgb(219, 30, 15);
+}
