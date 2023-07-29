@@ -47,23 +47,23 @@ public class PlayerInput : MonoBehaviour
                 isTouching = false;
                 _debuggingText.text = "not input";
             }
-            else if (touch.phase == TouchPhase.Stationary)
-            {
-                // _debuggingText.text = "continue touch";
-                
-                if (touch.position.x <= 540)
-                {
-                    _plController.RotationPlane(-1);
-                    _plController.HorizontalMovement(-1);
-                    _debuggingText.text = "left touch input";
-                }
-                else
-                {
-                    _plController.RotationPlane(1);
-                    _plController.HorizontalMovement(1);
-                    _debuggingText.text = "right touch input";
-                }
-            }
+            // else if (touch.phase == TouchPhase.Stationary)
+            // {
+            //     // _debuggingText.text = "continue touch";
+            //     
+            //     if (touch.position.x <= 540)
+            //     {
+            //         _plController.RotationPlane(-1);
+            //         _plController.HorizontalMovement(-1);
+            //         _debuggingText.text = "left touch input";
+            //     }
+            //     else
+            //     {
+            //         _plController.RotationPlane(1);
+            //         _plController.HorizontalMovement(1);
+            //         _debuggingText.text = "right touch input";
+            //     }
+            // }
         }
     }
 

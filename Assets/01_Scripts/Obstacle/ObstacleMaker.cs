@@ -21,8 +21,8 @@ public class ObstacleMaker : MonoBehaviour
         StopAllCoroutines();
 
         // 인스펙터에서 바꾸면 여기서도 바꿔주어야 함
-        obstacleSpeed = 250;
-        delayTime = 1.3f;
+        obstacleSpeed = 300;
+        delayTime = 1;
     }
 
     public void RoopStop()

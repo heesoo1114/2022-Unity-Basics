@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7859607502999166192
 Transform:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   minX: -100
   maxX: 100
   dashSpeed: 500
-  dashDuration: 0.3
+  dashDuration: 0.4
   rollAmount: 250
   lerpAmount: 6
   _debuggingText: {fileID: 0}

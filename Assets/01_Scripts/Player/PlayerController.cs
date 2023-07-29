@@ -84,10 +84,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 dashDir = (z == 1) ? Vector3.right : Vector3.left;
 
-        StartCoroutine(Dash(dashDir));
+        StartCoroutine(Dash(dashDir, z));
     }
 
-    private IEnumerator Dash(Vector3 dashDir)
+    private IEnumerator Dash(Vector3 dashDir, float plusMinus)
     {
         isDashing = true;
         Vector3 dashDirection = dashDir;
