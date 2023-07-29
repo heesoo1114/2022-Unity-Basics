@@ -1,3 +1,0 @@
-Frames and bars of different thicknesses and colours. 
-These Frames are sliced to facilitate the creation of bars of different sizes.
-Perfect to make bars to track HP, MP, EXP, hunger, thirst, etc. in-game.

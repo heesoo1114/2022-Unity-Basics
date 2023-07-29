@@ -1,2 +1,0 @@
-Layered emoticons and speech bubbles for your game characters.
-It also includes quest markers for NPCs.

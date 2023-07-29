@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="PotionBox" style="position: absolute; left: 20px; bottom: 20px; width: 200px; height: 200px;">
-        <ui:VisualElement name="Potion" style="width: 80px; height: 80px; background-image: url(&apos;project://database/Assets/Sprite/sprites_props_and_UI.png?fileID=1247263959&amp;guid=5e65a3741a3c7434db0c1e72eb69ca0c&amp;type=3#sprites_props_and_UI_0&apos;);" />
-    </ui:VisualElement>
-</ui:UXML>
