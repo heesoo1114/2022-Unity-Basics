@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "MMORPG 게임개발 시리즈 CSharp 기초 프로그래밍 입문/1.0.0": {
+        "runtime": {
+          "MMORPG 게임개발 시리즈 CSharp 기초 프로그래밍 입문.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MMORPG 게임개발 시리즈 CSharp 기초 프로그래밍 입문/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

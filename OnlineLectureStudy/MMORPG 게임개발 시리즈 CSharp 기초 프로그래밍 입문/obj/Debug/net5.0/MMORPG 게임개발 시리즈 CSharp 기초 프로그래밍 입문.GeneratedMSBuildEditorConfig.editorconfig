@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net5.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MMORPG_게임개발_시리즈_CSharp_기초_프로그래밍_입문
+build_property.ProjectDir = C:\GitHub\OnlineLectureStudy\MMORPG 게임개발 시리즈 CSharp 기초 프로그래밍 입문\

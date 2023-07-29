@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>MMORPG_게임개발_시리즈_CSharp__자료구조와_알고리즘</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="03_트리\Generic 우선순위 큐.cs" />
+    <Compile Remove="03_트리\우선순위 큐 .cs" />
+    <Compile Remove="03_트리\트리.cs" />
+    <Compile Remove="Board.cs" />
+    <Compile Remove="Player.cs" />
+    <Compile Remove="Program.cs" />
+    <Compile Remove="02_그래프\BFS %28너비우선탐색%29.cs" />
+    <Compile Remove="02_그래프\DFS %28길이우선탐색%29.cs" />
+    <Compile Remove="02_그래프\다익스트라 최단경로 구하기.cs" />
+    <Compile Remove="02_그래프\스택과 큐.cs" />
+    <Compile Remove="다익스트라.cs" />
+    <Compile Remove="동적 배열 구현 연습.cs" />
+    <Compile Remove="00_미로프로그램\Board.cs" />
+    <Compile Remove="00_미로프로그램\Player.cs" />
+    <Compile Remove="00_미로프로그램\Program.cs" />
+    <Compile Remove="01_선형자료기초\동적 배열 구현 연습.cs" />
+    <Compile Remove="01_선형자료기초\연결 리스트 구현 연습.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="02_그래프\BFS (너비우선탐색).cs" />
+    <None Include="02_그래프\DFS (길이우선탐색).cs" />
+    <None Include="02_그래프\다익스트라 최단경로 구하기.cs" />
+    <None Include="02_그래프\스택과 큐.cs" />
+    <None Include="00_미로프로그램\Board.cs" />
+    <None Include="00_미로프로그램\Player.cs" />
+    <None Include="00_미로프로그램\Program.cs" />
+    <None Include="01_선형자료기초\동적 배열 구현 연습.cs" />
+    <None Include="01_선형자료기초\연결 리스트 구현 연습.cs" />
+    <None Include="03_트리\Generic 우선순위 큐.cs" />
+    <None Include="03_트리\우선순위 큐 .cs" />
+    <None Include="03_트리\트리.cs" />
+  </ItemGroup>
+
+</Project>
