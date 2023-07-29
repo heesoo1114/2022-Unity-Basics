@@ -38,6 +38,9 @@ public class EnemyController : PoolAbleMono
     private List<AITransition> _anyTransitions = new List<AITransition>();
     public List<AITransition> AnyTransitions => _anyTransitions;
 
+    [field: SerializeField]
+    public bool IsActive { get; set; }
+
     protected virtual void Awake()
     {
         List<CommonAIState> states = new List<CommonAIState>();
@@ -73,17 +76,21 @@ public class EnemyController : PoolAbleMono
         _enemyHealth.SetMaxHP(_enemyData.MaxHP);
     }
 
+    private void Update()
+    {
+        if (_enemyHealth.IsDead || !IsActive)
+        {
+            return;
+        }
+
+        _currentState?.UpdateState();
+    }
+
     public void ChangeState(CommonAIState nextState)
     {
         // 스테이트 변경
         _currentState?.OnExitState();
         _currentState = nextState;
-        _currentState?.OnEnterState();
-    }
-
-    private void Update()
-    {
-        if (_enemyHealth.IsDead) return;
         _currentState?.UpdateState();
     }
 

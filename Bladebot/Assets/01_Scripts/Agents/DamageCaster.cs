@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
-using UnityEngine.Rendering.Universal;
 
 public class DamageCaster : MonoBehaviour
 {

@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 4819979839690615191}
   - component: {fileID: 4819979839690615180}
   - component: {fileID: 4819979839690615188}
+  - component: {fileID: 1822910976}
   m_Layer: 8
   m_Name: LaserEnemy
   m_TagString: Untagged
@@ -838,6 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: {fileID: 4819979838944021201}
   _enemyData: {fileID: 11400000, guid: 0497837c2ffbe2a4e8f206730cc252b3, type: 2}
+  <IsActive>k__BackingField: 0
   OnAfterDead:
     m_PersistentCalls:
       m_Calls:
@@ -1027,7 +1029,38 @@ MonoBehaviour:
   _atkPosTrm: {fileID: 7206155620237011836}
   _whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
+--- !u!114 &1822910976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819979839690615183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c25544eb81d1234b8068d54c9bf44e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  _maxDistance: 20
+  OnDropComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4819979839690615181}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: set_IsActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &4969152220860253863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1191,7 @@ GameObject:
   - component: {fileID: 7206155618876199362}
   - component: {fileID: 7206155618876199363}
   - component: {fileID: 7206155618876199360}
+  - component: {fileID: 2060344228}
   m_Layer: 0
   m_Name: TransitionIdle
   m_TagString: Untagged
@@ -1206,6 +1240,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReverse: 1
+--- !u!114 &2060344228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206155618876199373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d02bb1ec9c79d47b97e9f23100eeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReverse: 1
+  _baseState: {fileID: 7206155619215256048}
 --- !u!1 &7206155619215256050
 GameObject:
   m_ObjectHideFlags: 0
