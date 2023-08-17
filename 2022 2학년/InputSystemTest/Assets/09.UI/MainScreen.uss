@@ -1,0 +1,29 @@
+#MenuBox {
+    visibility: hidden;
+    opacity: 0;
+    width: 450px;
+}
+
+#MenuBox.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.binding-box {
+    flex-direction: row;
+}
+
+.binding-box > .name {
+    flex-basis: 200px;
+    -unity-font-style: bold;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.binding-box > .label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    flex-grow: 1;
+}
