@@ -15,9 +15,9 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         _UIdocument = GetComponent<UIDocument>();
-        _inputMap.Add("Fire", _inputAction.Player.Fire);
         _inputMap.Add("Jump", _inputAction.Player.Jump);
         _inputMap.Add("Movement", _inputAction.Player.Movement);
+        _inputMap.Add("Fire", _inputAction.Player.Fire);
     }
 
     private void OnEnable()

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212888264}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10d61c0cdc04a6548af40bb731d7078c, type: 3}
   m_Name: 
@@ -516,6 +516,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1213389079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213389080}
+  m_Layer: 0
+  m_Name: FireTrm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1213389080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213389079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.152, z: 0.919}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4904007102262873419}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3517196822225498253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -583,6 +614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372409372435556304, guid: 17c02fe1be37a0c42a280456f9aea495,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -659,7 +695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7125938383640282942, guid: 2b80b2e8e9c0fc44ba4d652417222103,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1213389080}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8152578299111498837, guid: 2b80b2e8e9c0fc44ba4d652417222103,
         type: 3}
@@ -669,6 +709,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4904007102262873416}
+    - targetCorrespondingSourceObject: {fileID: 8152578299111498837, guid: 2b80b2e8e9c0fc44ba4d652417222103,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4904007102262873418}
+    - targetCorrespondingSourceObject: {fileID: 8152578299111498837, guid: 2b80b2e8e9c0fc44ba4d652417222103,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4904007102262873420}
     - targetCorrespondingSourceObject: {fileID: 8152578299111498837, guid: 2b80b2e8e9c0fc44ba4d652417222103,
         type: 3}
       insertIndex: -1
@@ -738,3 +786,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &4904007102262873418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904007102262873412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236c778cd2fbb5144bf07e925f68b5c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!4 &4904007102262873419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7125938383640282942, guid: 2b80b2e8e9c0fc44ba4d652417222103,
+    type: 3}
+  m_PrefabInstance: {fileID: 4904007102262873411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4904007102262873420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904007102262873412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed240827c9facd499456978e3f46afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireTr: {fileID: 1213389080}
+  prefab: {fileID: 6793426061680931842, guid: 4047de3f85cac7144967f22b4c4b270f, type: 3}
