@@ -1,13 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/09.UI/MainScreen.uss?fileID=7433441132597879392&amp;guid=4d156de748b416a49ab1916bc34cd407&amp;type=3#MainScreen" />
     <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center;">
-        <ui:VisualElement name="MenuBox" style="background-color: rgb(123, 123, 123); border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+        <ui:VisualElement name="MenuBox" class="open" style="background-color: rgb(123, 123, 123); border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
             <ui:VisualElement name="VisualElement">
                 <ui:Label tabindex="-1" text="키보드 입력 재설정" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="-unity-text-align: upper-center; font-size: 30px; -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
             </ui:VisualElement>
             <ui:VisualElement name="BindingBox" class="binding-box">
                 <ui:Label tabindex="-1" text="Jump" parse-escape-sequences="true" display-tooltip-when-elided="true" name="KeyName" class="name" />
                 <UILabelWithData tabindex="-1" name="KeyRabel" text="Space" enable-rich-text="false" key-data="Jump" class="label" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BindingBox" class="binding-box">
+                <ui:Label tabindex="-1" text="Fire" parse-escape-sequences="true" display-tooltip-when-elided="true" name="KeyName" class="name" />
+                <UILabelWithData tabindex="-1" text="Mouse Left" key-data="Fire" index-data="0" class="label" />
             </ui:VisualElement>
             <ui:VisualElement name="BindingBox" class="binding-box">
                 <ui:Label tabindex="-1" text="Move Up" parse-escape-sequences="true" display-tooltip-when-elided="true" name="KeyName" class="name" />

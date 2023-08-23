@@ -1,10 +1,11 @@
-using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine;
+using System;
 
 public class PlayerInput : MonoBehaviour
 {
     private PlayerInputAction _inputAction;
+    public PlayerInputAction InputAction => _inputAction;
 
     public event Action<Vector2> OnMovement;
     public event Action<Vector2> OnAim;
