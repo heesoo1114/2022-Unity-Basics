@@ -1,0 +1,55 @@
+.bullet {
+    background-color: rgb(209, 52, 31);
+    width: 20px;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-right-radius: 10px;
+    margin-right: 5px;
+}
+
+#BulletContainer {
+    flex-direction: row;
+    justify-content: center;
+    align-self: auto;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+}
+
+#DialogPanel {
+    background-color: rgb(255, 255, 255);
+    padding-left: 4px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#MessageLabel {
+    font-size: 30px;
+}
+
+#Corner {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    translate: -50% 50%;
+    rotate: 45deg;
+}
