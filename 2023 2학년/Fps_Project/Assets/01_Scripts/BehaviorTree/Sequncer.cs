@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 한 명만 실패해라
 public class Sequncer : Composite
 {
     private int nowNode = 0;

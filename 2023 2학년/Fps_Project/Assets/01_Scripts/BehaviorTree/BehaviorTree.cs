@@ -5,10 +5,16 @@ using UnityEngine;
 public class BehaviorTree : MonoBehaviour
 {
     private BT_Node mRoot;
-    public BT_Node Root => mRoot;
+    public BT_Node Root
+    {
+        get => mRoot;
+        set => mRoot = value;
+    }
 
     private bool startBehavior;
     private Coroutine behavior;
+
+    public PlayerState nowState { get; set; }
 
     public Dictionary<string, object> blackBoard { get; set; }
 
