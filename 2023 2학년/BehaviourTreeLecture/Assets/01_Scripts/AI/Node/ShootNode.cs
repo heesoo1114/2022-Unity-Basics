@@ -14,14 +14,26 @@ public class ShootNode : Node
         _agent = agent;
         _brain = brain;
         _coolTIme = coolTime;
+
+        _nodeState = NodeState.SUCCESS;
+        _code = NodeActionCode.Shoot;
     }
 
     public override NodeState Evaluate()
     {
         _agent.isStopped = true;
-        if (_lastFireTime + _coolTIme <= Time.time)
+
+        if (_brain.currentCode != _code)
         {
             _brain.TryToTalk("Attack!", 1f);
+            _brain.currentCode = _code;
+        }
+
+        if (_lastFireTime + _coolTIme <= Time.time)
+        {
+            Debug.Log("АјАн");
+            _brain.Attack();
+            _lastFireTime = Time.time;
         }
         return NodeState.RUNNING;
     }

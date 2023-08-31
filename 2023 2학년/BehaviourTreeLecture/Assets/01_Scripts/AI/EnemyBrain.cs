@@ -1,24 +1,25 @@
+using BehaviourTree;
 using System.Collections;
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBrain : MonoBehaviour
+public abstract class EnemyBrain : MonoBehaviour
 {
-    [SerializeField] protected Transform _targetTrm; // 플레이어 타게ㅅ
+    [SerializeField] protected Transform _targetTrm; // 플레이어 타겟
 
     protected NavMeshAgent _navAgent;
     public NavMeshAgent NavAgent => _navAgent;
 
     private UIBar _uiBar;
-    private Camera _camera;
-
     private Coroutine _coroutine;
+
+    public NodeActionCode currentCode; // 현재 상태를 저장
 
     protected virtual void Awake()
     {
         _navAgent = GetComponent<NavMeshAgent>();
         _uiBar = transform.Find("Status").GetComponent<UIBar>();
-        _camera = Camera.main;
     }
 
     protected virtual void LateUpdate()
@@ -43,4 +44,6 @@ public class EnemyBrain : MonoBehaviour
         yield return new WaitForSeconds(timer);
         _uiBar.IsOn = false;
     }
+
+    public abstract void Attack();
 }

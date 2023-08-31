@@ -11,10 +11,21 @@ namespace BehaviourTree
         RUNNING = 3
     }
 
+    // for debugging
+    public enum NodeActionCode
+    {
+        None = 0,
+        Chasing = 1,
+        Shoot = 2,
+    }
+
     public abstract class Node 
     {
         protected NodeState _nodeState;
         public NodeState NodeState => _nodeState;
+
+        // for debugging
+        protected NodeActionCode _code = NodeActionCode.None;
 
         public abstract NodeState Evaluate();
     }
