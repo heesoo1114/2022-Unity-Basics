@@ -10,3 +10,8 @@
 | FSMProject | **설명:** <br/> 오로지 FSM의 틀을 구현하고 기본 오브젝트에 적용해 여러 가지 상황에 실행시켜 보며 이해하는 수업을 진행한 프로젝트 <br/> <br/> **배운 내용:** <br/> 1. FSM 틀 작성, <br/> 2. 오브젝트에 적용 후 디버깅을 통해 FSM 구조 완벽히 파악
 | FSM_Test | **설명:** <br/> 2학년 1학기 2차 FSM을 활용하여 적의 AI를 구현하는 연습을 진행한 프로젝트 <br/> <br/> **배운 내용:** <br/> 1. 전보다 FSM에 대한 더 완벽하고 자세한 이해, <br/> 2. 추후 해당 FSM을 가지고 다양한 응용 아이디어 탄생 
 | VRDefenceGame | **설명:** <br/> 방과후 시간에 진행한 간단한 VR 게임 <br/> <br/> **배운 내용:** <br/> 1. XR Interacton Toolkit을 활용한 1인칭 슈팅 게임 움직임과 발사 구현, <br/> 2. Particle system을 활용한 간단 Effect 제작 방법
+| EnemyAI | **설명:** <br/> 2학년 2학기 방과후 시간에 진행한 BT를 활용한 AI 구현 <br/> <br/> **배운 내용:** <br/> 1. BehaviorTree 개념, <br/> 2.  BehaviorTree 구현 방법
+| InputSystemTest | **설명:** <br/> 방과후 시간에 진행한 간단한 VR 게임 <br/> <br/> **배운 내용:** <br/> 1. XR Interacton Toolkit을 활용한 1인칭 슈팅 게임 움직임과 발사 구현, <br/> 2. Particle system을 활용한 간단 Effect 제작 방법
+| NewInputSystem | **설명:** <br/> 새로운 InputSystem을 사용하여 간단한 플레이어 움직임 구현 <br/> <br/> **배운 내용:** <br/> 1. InputSystem 설정 방법, <br/> 2. Input system을 사용하는 코드 작성 방식
+| BehaviourTreeLecture | **설명:** <br/> BehaviorTree로 플레이어와 적 구현 <br/> <br/> **배운 내용:** <br/> 1. BehaviorTree 구현 방법
+| FOVPencil | **설명:** <br/> ~ing <br/> <br/> **배운 내용:** <br/> ~ing
