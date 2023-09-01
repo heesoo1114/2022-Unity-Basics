@@ -1,11 +1,10 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("참조 변수들")]
+    [Header("참조 변수들 ")]
     [SerializeField] private InputReader _inputReader;
-    [SerializeField] private Transform _rootTrm; // 방향 측정
+    [SerializeField] private Transform _rootTrm;
 
     [Header("셋팅 값들")]
     [SerializeField] private float _moveSpeed = 5f;
@@ -20,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 MovementVelocity => _movementVelocity;
     private float _verticalVelocity;
 
-    public bool ActiveMove { get; private set; }
+    public bool ActiveMove { get; private set; } = true;
 
     private void Awake()
     {
@@ -30,13 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetMovement(Vector2 movement)
     {
-        // normalize 되어서 들어옴
         _inputDirection = movement;
     }
 
     private void CalculatePlayerMovement()
     {
-        _movementVelocity = (_rootTrm.forward * _inputDirection.y + _rootTrm.right * _inputDirection.x) * (_moveSpeed * Time.fixedDeltaTime);
+        _movementVelocity = (_rootTrm.forward * _inputDirection.y + _rootTrm.right * _inputDirection.x) * _moveSpeed * Time.fixedDeltaTime;
     }
 
     public void StopImmediately()
@@ -46,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMovement(Vector3 value)
     {
-        _movementVelocity = new Vector3(value.x, 0, value.z);
+        _movementVelocity = new Vector3(value.x, 0, value.y);
         _verticalVelocity = value.y;
     }
 
@@ -54,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGround && _verticalVelocity < 0)
         {
-            _verticalVelocity = -1f;
+            _verticalVelocity = -1;
         }
         else
         {
