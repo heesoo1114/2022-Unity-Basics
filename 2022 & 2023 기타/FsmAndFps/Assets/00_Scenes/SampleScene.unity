@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 2.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,18 +270,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1321ab79b54fe1c4a9a0279187e05a60, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d2411fc80c541043ac63c8e45859207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivotOffset: {x: 0, y: 1, z: 0}
-  directOffset: {x: 0.4, y: 0.5, z: -2}
-  smooth: 10
-  horizontalAimingSpd: 6
-  verticalAimingSpd: 6
-  verticalAngleMin: -60
-  recoilAngleBounce: 5
-  verticalAngleMax: 30
-  playerTransform: {fileID: 916636754}
+  camTarget: {fileID: 916636754}
+  camDistance: 10
+  camAngle: 45
+  targetHeight: 2
+  camFlowTime: 0.5
+  camHeight: 5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
