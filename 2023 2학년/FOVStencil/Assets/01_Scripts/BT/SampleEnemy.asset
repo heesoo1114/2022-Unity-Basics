@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9214921298133143717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6dfc4dc2c426d46915cd5e6c9883ea, type: 3}
+  m_Name: AttackNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c552bcf002fa3a043882a719eef75149
+  position: {x: -116.060005, y: 583}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: cool 2
+  coolTime: 2
+  randomRange: 0.2
+--- !u!114 &-8179032903673811581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aef11151aacffd4385f2592ee5d632e, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8402ad35a95b64548ad3ded76c2cfe68
+  position: {x: 0, y: 0}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  child: {fileID: 4942825885300770397}
+--- !u!114 &-7244998898892516425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aba3b19ba8212749ad7e3419bb34bdd, type: 3}
+  m_Name: PrioritySelectorNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2d992a7924efc5b498dfc4dec5ecf672
+  position: {x: -15.127228, y: 262.664}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  children:
+  - {fileID: -2507229291095746479}
+  - {fileID: 4373919157330649491}
+--- !u!114 &-5839095035727105426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c90271073b4deb46b99b15ad0f90974, type: 3}
+  m_Name: InRangeNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 804db597a626f52488c5f9d50526ec9d
+  position: {x: -294.06, y: 583}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: in range 6
+  range: 6
+--- !u!114 &-2507229291095746479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ff18e011eb4e1ba59c08354a7ff280, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 30d898230d8f84746a4b10ec98fc2ae6
+  position: {x: -203.05998, y: 444.00003}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: attack seq
+  children:
+  - {fileID: -5839095035727105426}
+  - {fileID: -9214921298133143717}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a310246ca011401097a098354ca424fb, type: 3}
+  m_Name: SampleEnemy
+  m_EditorClassIdentifier: 
+  treeRoot: {fileID: -8179032903673811581}
+  treeState: 0
+  nodes:
+  - {fileID: -8179032903673811581}
+  - {fileID: 4942825885300770397}
+  - {fileID: -7244998898892516425}
+  - {fileID: -2507229291095746479}
+  - {fileID: 4373919157330649491}
+  - {fileID: -5839095035727105426}
+  - {fileID: -9214921298133143717}
+  - {fileID: 7762705237607902757}
+  - {fileID: 3035859762690078553}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+--- !u!114 &3035859762690078553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab083aab4131a949ba046ee47def357, type: 3}
+  m_Name: ChaseNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: feb4a5c8ce2ad784da507729093b8d83
+  position: {x: 272.13007, y: 583}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  speed: 5
+  stoppingDistance: 0.1
+  updateRotation: 1
+  acceleration: 40
+  tolerance: 1
+--- !u!114 &4373919157330649491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ff18e011eb4e1ba59c08354a7ff280, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3466deb49ebebe84db081d11b59f7925
+  position: {x: 169, y: 444}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  children:
+  - {fileID: 7762705237607902757}
+  - {fileID: 3035859762690078553}
+--- !u!114 &4942825885300770397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a664222551774468e89422b7938f78, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 1991639a81ef5f04abe9eb7333bcb1b6
+  position: {x: 0, y: 129}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: 
+  child: {fileID: -7244998898892516425}
+--- !u!114 &7762705237607902757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c90271073b4deb46b99b15ad0f90974, type: 3}
+  m_Name: InRangeNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 22ec071ab5984ac4f922701d5abed1f9
+  position: {x: 75.00008, y: 583}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    enemySpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+  brain: {fileID: 0}
+  description: range 14
+  range: 14
