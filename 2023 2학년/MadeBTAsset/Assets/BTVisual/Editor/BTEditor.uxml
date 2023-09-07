@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/BTVisual/Editor/BTEditor.uss?fileID=7433441132597879392&amp;guid=a9db1a4ceaae6f34695c517b58d42c41&amp;type=3#BTEditor" />
+    <BTVisual.SplitView fixed-pane-initial-dimension="300">
+        <ui:VisualElement name="LeftPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <BTVisual.InspectorView name="inspector-view" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <BTVisual.BehaviourTreeView focusable="true" name="tree-view" />
+        </ui:VisualElement>
+    </BTVisual.SplitView>
+</ui:UXML>

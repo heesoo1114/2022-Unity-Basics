@@ -1,0 +1,14 @@
+#tree-view {
+    flex-grow: 1;
+}
+
+#tree-view GridBackground {
+    --grid-background-color: ;
+    --line-color: ;
+    --thick-line-color: ;
+    --spacing: 15;
+}
+
+#inspector-view {
+    flex-grow: 1;
+}
