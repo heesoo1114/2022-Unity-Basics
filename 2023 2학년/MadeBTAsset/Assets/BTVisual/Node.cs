@@ -11,8 +11,11 @@ namespace BTVisual
             SUCCESS
         }
 
-        public State state = State.RUNNING;
-        public bool started = false;
+        [HideInInspector] public State state = State.RUNNING;
+        [HideInInspector] public bool started = false;
+        [HideInInspector] public string guid;
+        // Global unique id
+        [HideInInspector] public Vector2 position;
 
         public State Update()
         {

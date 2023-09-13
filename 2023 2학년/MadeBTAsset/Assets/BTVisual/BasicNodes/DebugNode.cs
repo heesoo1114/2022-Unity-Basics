@@ -4,6 +4,7 @@ namespace BTVisual.BasicNode
 {
     public class DebugNode : ActionNode
     {
+        [TextArea]
         public string message;
 
         protected override void OnStart()

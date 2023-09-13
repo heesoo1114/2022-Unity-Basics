@@ -34,6 +34,13 @@ namespace BTVisual
             seq.children.Add(wNode3);
             seq.children.Add(node3);
 
+
+
+
+
+
+
+
             var rNode = ScriptableObject.CreateInstance<RepeatNode>();
             rNode.child = seq;
 

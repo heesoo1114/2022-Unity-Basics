@@ -3,12 +3,25 @@
 }
 
 #tree-view GridBackground {
-    --grid-background-color: ;
-    --line-color: ;
-    --thick-line-color: ;
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.4);
     --spacing: 15;
 }
 
 #inspector-view {
     flex-grow: 1;
+    padding-left: 8px;
+    padding-right: 12px;
+    padding-top: 8px;
+}
+
+.titlle-label {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    -unity-font-style: bold;
+    padding-left: 4px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 8px;
 }
