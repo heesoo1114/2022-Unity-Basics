@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7140919888912340095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b982a5bf39703fb4b855df3d1f6913c8, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 34d79df1dd5db044aa0b55a65b5f6005
-  position: {x: 0, y: 0}
-  duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,23 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootNode: {fileID: 0}
   treeState: 0
-  nodes:
-  - {fileID: 4613770266208459208}
-  - {fileID: -7140919888912340095}
---- !u!114 &4613770266208459208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1229a55b6f15c43498a5b98e39d50065, type: 3}
-  m_Name: DebugNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: e27a27a62b40287478828bb4cfea78f7
-  position: {x: 68.95999, y: 10.399994}
-  message: 
+  nodes: []

@@ -4,24 +4,24 @@
 
 #tree-view GridBackground {
     --grid-background-color: rgb(40, 40, 40);
-    --line-color: rgba(193, 196, 192, 0.1);
-    --thick-line-color: rgba(193, 196, 192, 0.4);
     --spacing: 15;
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
 }
 
 #inspector-view {
     flex-grow: 1;
-    padding-left: 8px;
-    padding-right: 12px;
-    padding-top: 8px;
 }
 
-.titlle-label {
+.title-label {
+    background-color: rgb(62, 62, 62);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     color: rgb(255, 255, 255);
-    font-size: 18px;
     -unity-font-style: bold;
-    padding-left: 4px;
-    padding-right: 8px;
-    padding-top: 4px;
-    padding-bottom: 8px;
+    font-size: 17px;
 }
