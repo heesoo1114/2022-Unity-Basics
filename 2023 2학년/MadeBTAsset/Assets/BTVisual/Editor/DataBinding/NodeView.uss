@@ -1,0 +1,96 @@
+#node-border {
+    background-color: rgb(183, 183, 183);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#selection-border {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(46, 97, 229);
+    border-right-color: rgb(46, 97, 229);
+    border-top-color: rgb(46, 97, 229);
+    border-bottom-color: rgb(46, 97, 229);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#input {
+    align-items: center;
+}
+
+#output {
+    align-items: center;
+}
+
+:hover > #selection-border {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+:selected > #selectin-border {
+}
+
+:hover:selected > #selection-border {
+}
+
+.node {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#title {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#divider {
+    max-height: 0;
+    min-height: 1px;
+    background-color: rgba(183, 170, 170, 0);
+}
+
+.action #input {
+    background-color: rgb(26, 74, 221);
+}
+
+.decorator #input {
+    background-color: rgb(214, 209, 41);
+}
+
+.root #input {
+    background-color: rgb(229, 33, 33);
+}
+
+.composite #input {
+    background-color: rgb(65, 204, 32);
+}
+
+#title > #title-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+}
+
+#description {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    height: 24px;
+}

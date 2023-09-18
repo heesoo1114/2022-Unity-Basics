@@ -17,6 +17,11 @@ namespace BTVisual
         // Global unique id
         [HideInInspector] public Vector2 position;
 
+        public virtual Node Clone()
+        {
+            return Instantiate(this);
+        }
+
         public State Update()
         {
             if (!started)

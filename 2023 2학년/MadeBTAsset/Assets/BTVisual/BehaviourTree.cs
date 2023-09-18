@@ -1,8 +1,6 @@
-using Codice.CM.Common.Tree;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static PlasticGui.LaunchDiffParameters;
 
 namespace BTVisual
 {
@@ -113,6 +111,27 @@ namespace BTVisual
             }
             
             return children;
+        }
+
+        public void Traverse(Node node, System.Action<Node> visitor)
+        {
+            if (node)
+            {
+                visitor.Invoke(node);
+                var children = GetChildren(node);
+                children.ForEach(n => Traverse(n, visitor));
+            }
+        }
+
+        public BehaviourTree Clone()
+        {
+            var tree = Instantiate(this);
+            tree.rootNode = tree.rootNode.Clone();
+            
+            tree.nodes = new List<Node>();
+            Traverse(tree.rootNode, n => tree.nodes.Add(n));
+            
+            return tree;
         }
     }
 }

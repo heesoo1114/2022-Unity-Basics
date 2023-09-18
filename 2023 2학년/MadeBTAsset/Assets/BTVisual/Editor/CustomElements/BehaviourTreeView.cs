@@ -24,6 +24,14 @@ namespace BTVisual
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
+
+            Undo.undoRedoPerformed += OnUndoRedoHandle;
+        }
+
+        private void OnUndoRedoHandle()
+        {
+            PopulateView(_tree);
+            AssetDatabase.SaveAssets();
         }
 
         // 그려주는 부분
