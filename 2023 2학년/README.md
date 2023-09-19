@@ -16,3 +16,4 @@
 | BehaviourTreeLecture | **설명:** <br/> BehaviorTree로 플레이어와 적 구현 <br/> <br/> **배운 내용:** <br/> 1. BehaviorTree 구현 방법
 | FOVPencil | **설명:** <br/> 플레이어 시야각 적용 프로젝트 <br/> <br/> **배운 내용:** <br/> 1. PlayerFOV 기능 제작, <br/> 2. InputSystem SO로 활용
 | MadeBTAsset | **설명:** <br/> ~ing <br/> <br/> **배운 내용:** <br/> ~ing
+| PlugableBehaviorTree | **설명:** <br/> ~ing <br/> <br/> **배운 내용:** <br/> ~ing
