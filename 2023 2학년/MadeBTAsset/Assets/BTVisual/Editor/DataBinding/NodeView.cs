@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using System;
 using UnityEditor;
+using UnityEditor.UIElements;
 
 namespace BTVisual
 {
@@ -33,6 +34,10 @@ namespace BTVisual
             CreateInputPorts();
             CreateOutputPorts();
             SetUpClasses();
+
+            Label descLabel = this.Q<Label>("description");
+            descLabel.bindingPath = "description";
+            descLabel.Bind(new SerializedObject(node));
         }
 
         private void CreateInputPorts()
@@ -117,6 +122,36 @@ namespace BTVisual
             else if (node is RootNode)
             {
                 AddToClassList("root");
+            }
+        }
+        public void SortChildren()
+        {
+            var composite = node as CompositeNode;
+            if (composite != null)
+            {
+                composite.children.Sort((left, right) => left.position.x < right.position.x ? -1 : 1);
+            }
+        }
+
+        public void UpdateState()
+        {
+            RemoveFromClassList("running");
+            RemoveFromClassList("sccess");
+            RemoveFromClassList("failure");
+            switch (node.state)
+            {
+                case Node.State.RUNNING:
+                    if (node.started)
+                    {
+                        AddToClassList("running");
+                    }
+                    break;
+                case Node.State.FAILURE:
+                    AddToClassList("failure");
+                    break;
+                case Node.State.SUCCESS:
+                    AddToClassList("success");
+                    break;
             }
         }
     }

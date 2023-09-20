@@ -22,7 +22,13 @@ namespace BTVisual
 
             _eidtor = Editor.CreateEditor(nv.node);
 
-            IMGUIContainer container = new IMGUIContainer(() => _eidtor.OnInspectorGUI());
+            IMGUIContainer container = new IMGUIContainer(() =>
+            {
+                if (_eidtor.target)
+                {
+                    _eidtor.OnInspectorGUI();
+                }
+            });
 
             Add(container);
         }

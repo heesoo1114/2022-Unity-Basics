@@ -1,9 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/BTVisual/Editor/BTEditor.uss?fileID=7433441132597879392&amp;guid=aac14575982f7eb4e886f64227b6f71e&amp;type=3#BTEditor" />
+    <Style src="project://database/Assets/BTVisual/Editor/BTEditor.uss?fileID=7433441132597879392&amp;guid=7c202d18bb545e447a9d96d3401e9395&amp;type=3#BTEditor" />
     <BTVisual.SplitView fixed-pane-initial-dimension="200">
         <ui:VisualElement name="left-panel" style="flex-grow: 1;">
-            <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />
-            <BTVisual.InspectorView name="inspector-view" />
+            <BTVisual.SplitView orientation="Vertical" fixed-pane-initial-dimension="230">
+                <ui:VisualElement name="inspector-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />
+                    <BTVisual.InspectorView name="inspector-view" />
+                </ui:VisualElement>
+                <ui:VisualElement name="blackboard-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" />
+                    <ui:IMGUIContainer name="blackboard" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </BTVisual.SplitView>
         </ui:VisualElement>
         <ui:VisualElement name="right-panel" style="flex-grow: 1;">
             <ui:Label tabindex="-1" text="TreeView" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />

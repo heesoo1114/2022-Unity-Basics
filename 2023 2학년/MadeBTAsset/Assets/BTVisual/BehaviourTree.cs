@@ -12,6 +12,8 @@ namespace BTVisual
 
         public List<Node> nodes = new List<Node>();
 
+        public BlackBoard blackboard = new BlackBoard();
+
         public Node.State Updaate()
         {
             if (rootNode.state == Node.State.RUNNING)
@@ -26,18 +28,27 @@ namespace BTVisual
         {
             var node = ScriptableObject.CreateInstance(type) as Node;
             node.name = type.Name;
-            node.guid = GUID.Generate().ToString(); 
+            node.guid = GUID.Generate().ToString();
+            Undo.RecordObject(this, "BT(CreateNode)");
             nodes.Add(node);
 
+            if (!Application.isPlaying)
+            {
+                AssetDatabase.AddObjectToAsset(node, this);
+            }
+
             AssetDatabase.AddObjectToAsset(node, this);
+            Undo.RegisterCreatedObjectUndo(node, "BT(CreateNode)");
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public void DeleteNode(Node node)
         {
+            Undo.RecordObject(this, "BT(DeleteNode)");
             nodes.Remove(node);
-            AssetDatabase.RemoveObjectFromAsset(node);
+            // AssetDatabase.RemoveObjectFromAsset(node);
+            Undo.DestroyObjectImmediate(node); // Undo를 통해 삭제해야 되돌리기가 가능해짐
             AssetDatabase.SaveAssets();
         }
 
@@ -46,20 +57,27 @@ namespace BTVisual
             var decorator = parent as DecoratorNode;
             if (decorator != null)
             {
+                Undo.RecordObject(decorator, "BT(AddChild)");
                 decorator.child = child;
+                EditorUtility.SetDirty(decorator);
                 return;
             }
 
             var rootNode = parent as RootNode;
             if (rootNode != null)
             {
+                Undo.RecordObject(rootNode, "BT(AddChild)");
                 rootNode.child = child;
+                EditorUtility.SetDirty(rootNode);
+                return;
             }
 
             var composite = parent as CompositeNode;
             if (composite != null)
             {
+                Undo.RecordObject(composite, "BT(AddChild)");
                 composite.children.Add(child);
+                EditorUtility.SetDirty(composite);
                 return;
             }
         }
@@ -69,21 +87,27 @@ namespace BTVisual
             var decorator = parent as DecoratorNode;
             if (decorator != null)
             {
+                Undo.RecordObject(decorator, "BT(RemoveChild)");
                 decorator.child = null;
+                EditorUtility.SetDirty(decorator);
                 return;
             }
 
             var rootNode = parent as RootNode;
             if (rootNode != null)
             {
+                Undo.RecordObject(rootNode, "BT(RemoveChild)");
                 rootNode.child = null;
+                EditorUtility.SetDirty(rootNode);
                 return;
             }
 
             var composite = parent as CompositeNode;
             if (composite != null)
             {
+                Undo.RecordObject(composite, "BT(RemoveChild)");
                 composite.children.Remove(child);
+                EditorUtility.SetDirty(composite);
                 return;
             }
         }
@@ -132,6 +156,15 @@ namespace BTVisual
             Traverse(tree.rootNode, n => tree.nodes.Add(n));
             
             return tree;
+        }
+
+        public void Bind(EnemyBrain brain)
+        {
+            Traverse(rootNode, n =>
+            {
+                n.blackBoard = blackboard;
+                n.brain = brain;
+            });
         }
     }
 }

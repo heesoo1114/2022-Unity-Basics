@@ -17,6 +17,11 @@ namespace BTVisual
         // Global unique id
         [HideInInspector] public Vector2 position;
 
+        [HideInInspector] public BlackBoard blackBoard;
+        [HideInInspector] public EnemyBrain brain;
+
+        [TextArea] public string str;
+
         public virtual Node Clone()
         {
             return Instantiate(this);

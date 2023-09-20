@@ -25,3 +25,6 @@
     -unity-font-style: bold;
     font-size: 17px;
 }
+
+.titile-label {
+}
