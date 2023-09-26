@@ -1,0 +1,29 @@
+#TreeView {
+    flex-grow: 1;
+}
+
+#TreeView GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 15;
+}
+
+#Inspector {
+    flex-grow: 1;
+}
+
+.title-label {
+    font-size: 16px;
+    -unity-font-style: bold;
+    background-color: rgb(60, 60, 60);
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    color: rgb(255, 255, 255);
+}

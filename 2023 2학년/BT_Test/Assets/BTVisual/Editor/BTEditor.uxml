@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/BTVisual/Editor/BTEditor.uss?fileID=7433441132597879392&amp;guid=de9eec390472ade49944c2fc83101ba8&amp;type=3#BTEditor" />
+    <uie:Toolbar>
+        <uie:ToolbarMenu tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" text="Assets" />
+    </uie:Toolbar>
+    <SplitView fixed-pane-initial-dimension="300">
+        <ui:VisualElement name="LeftPanel" style="flex-grow: 1;">
+            <SplitView orientation="Vertical" fixed-pane-initial-dimension="200">
+                <ui:VisualElement name="inspector-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />
+                    <InspectorView name="Inspector" />
+                </ui:VisualElement>
+                <ui:VisualElement name="blackBoard-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="BlackBoard" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />
+                    <ui:IMGUIContainer name="black-imgui" />
+                </ui:VisualElement>
+            </SplitView>
+        </ui:VisualElement>
+        <ui:VisualElement name="RightPanel" style="flex-grow: 3;">
+            <ui:Label tabindex="-1" text="TreeView" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title-label" />
+            <BTVisual.BehaviourTreeView focusable="true" name="TreeView" />
+        </ui:VisualElement>
+    </SplitView>
+</ui:UXML>
