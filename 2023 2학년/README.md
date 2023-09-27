@@ -15,5 +15,7 @@
 | NewInputSystem | **설명:** <br/> 새로운 InputSystem을 사용하여 간단한 플레이어 움직임 구현 <br/> <br/> **배운 내용:** <br/> 1. InputSystem 설정 방법, <br/> 2. Input system을 사용하는 코드 작성 방식
 | BehaviourTreeLecture | **설명:** <br/> BehaviorTree로 플레이어와 적 구현 <br/> <br/> **배운 내용:** <br/> 1. BehaviorTree 구현 방법
 | FOVPencil | **설명:** <br/> 플레이어 시야각 적용 프로젝트 <br/> <br/> **배운 내용:** <br/> 1. PlayerFOV 기능 제작, <br/> 2. InputSystem SO로 활용
-| MadeBTAsset | **설명:** <br/> ~ing <br/> <br/> **배운 내용:** <br/> ~ing
-| PlugableBehaviorTree | **설명:** <br/> ~ing <br/> <br/> **배운 내용:** <br/> ~ing
+| MadeBTAsset | **설명:** <br/> 지금까지 배운 BT에 관해 유니티 에디터에서 Tree를 구성할 수 있게 만든 프로젝트 <br/> <br/> **배운 내용:** <br/> SO를 활용하여 만든 노드들을 에디터 프로그래밍을 통해 표현하고 구성할 수 있게 한다.
+| PlugableBehaviorTree | **설명:** <br/> Plugable 구조로 BT 구현 <br/> <br/> **배운 내용:** <br/> BT의 새로운 구조를 알게 됨, 다양한 구현 방식 존재 확인
+| BT_Test | **설명:** <br/> 2학년 2학기 1차 게임 엔증 수행 - BehaviourTree에 관해 <br/> 
+| TimelineRecture | **설명:** <br/> 타임라인, Cloth Componemt <br/> <br/> **배운 내용:** <br/> ~ing
