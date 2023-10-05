@@ -20,3 +20,4 @@
 | BT_Test | **설명:** <br/> 2학년 2학기 1차 게임 엔증 수행 - BehaviourTree에 관해 <br/> 
 | TimelineRecture | **설명:** <br/> 타임라인, Cloth Componemt <br/> <br/> **배운 내용:** <br/> ~ing
 | RigAnimation | **설명:** <br/> Tps 캐릭터 기본 기능, 커스텀 애니메이션 <br/> <br/> **배운 내용:** <br/> ~ing
+| NetworkUnity | **설명:** <br/> Firebase를 활용한 클라이언트의 기본적인 기능 구현 <br/> <br/> **배운 내용:** <br/> ~ing
