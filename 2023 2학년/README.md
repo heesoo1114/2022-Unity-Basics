@@ -19,3 +19,4 @@
 | PlugableBehaviorTree | **설명:** <br/> Plugable 구조로 BT 구현 <br/> <br/> **배운 내용:** <br/> BT의 새로운 구조를 알게 됨, 다양한 구현 방식 존재 확인
 | BT_Test | **설명:** <br/> 2학년 2학기 1차 게임 엔증 수행 - BehaviourTree에 관해 <br/> 
 | TimelineRecture | **설명:** <br/> 타임라인, Cloth Componemt <br/> <br/> **배운 내용:** <br/> ~ing
+| RigAnimation | **설명:** <br/> Tps 캐릭터 기본 기능, 커스텀 애니메이션 <br/> <br/> **배운 내용:** <br/> ~ing
