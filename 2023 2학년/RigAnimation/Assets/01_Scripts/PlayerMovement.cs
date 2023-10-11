@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         _movementVelocity = _desiredMoveDirection * (_moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void RotateToCamera(Transform t)
+    public void RotateToCamera(Transform t)
     {
         var forward = _mainCamera.transform.forward;
         var rot = _modelTrm.rotation;
