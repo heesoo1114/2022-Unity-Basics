@@ -1,7 +1,7 @@
-using UnityEngine;
 using Cinemachine;
-using System;
 using DG.Tweening;
+using System;
+using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
@@ -11,14 +11,14 @@ public class ShootingSystem : MonoBehaviour
     [SerializeField] private Transform _splatGunNozzle;
 
     private PlayerMovement _movement;
-    private CinemachineImpulseSource _impurseSource;
+    private CinemachineImpulseSource _impulseSource;
 
-    private bool _isPressFire = false;
+    public bool _isPressFire = false;
 
     private void Awake()
     {
         _movement = GetComponent<PlayerMovement>();
-        _impurseSource = _freeLookCam.GetComponent<CinemachineImpulseSource>();
+        _impulseSource = _freeLookCam.GetComponent<CinemachineImpulseSource>();
         _inputReader.FireEvent += OnHandleFire;
     }
 
@@ -30,6 +30,7 @@ public class ShootingSystem : MonoBehaviour
     private void OnHandleFire(bool value)
     {
         _isPressFire = value;
+
     }
 
     private void VisualPolish()
@@ -37,15 +38,16 @@ public class ShootingSystem : MonoBehaviour
         if (!DOTween.IsTweening(_parentTrm))
         {
             _parentTrm.DOComplete();
-            Vector3 forward = -1 * _parentTrm.forward;
+            Vector3 forward = -_parentTrm.forward;
             Vector3 localPos = _parentTrm.localPosition;
 
             _parentTrm.DOLocalMove(localPos - new Vector3(0, 0, 0.2f), 0.03f)
-                .OnComplete(() => _parentTrm.DOLocalMove(localPos, 0.1f)
-                .SetEase(Ease.OutSine));
+                .OnComplete(() => _parentTrm.DOLocalMove(localPos, 0.1f).SetEase(Ease.OutSine));
 
-            _impurseSource.GenerateImpulse(0.1f);
+            _impulseSource.GenerateImpulse(0.3f);
         }
+
+
     }
 
     private void Update()
@@ -59,7 +61,7 @@ public class ShootingSystem : MonoBehaviour
             VisualPolish();
         }
 
-        // 원래라면 총알 발사 로직 구현해야 하는데 만들지 않음.
+        //여기에 총알발사 로직이 실제로 들어가야 하는데 우린 안만들꺼다.
 
         float camYAxis = 0;
         if (_isPressFire)
@@ -68,7 +70,10 @@ public class ShootingSystem : MonoBehaviour
         }
 
         _parentTrm.localEulerAngles = new Vector3(
-            Mathf.LerpAngle(_parentTrm.localEulerAngles.x, camYAxis, 0.3f), angle.y, angle.z);
+            Mathf.LerpAngle(_parentTrm.localEulerAngles.x, camYAxis, 0.3f),
+            angle.y,
+            angle.z);
+
     }
 
     private float RemapCamera(float value, float from1, float to1, float from2, float to2)

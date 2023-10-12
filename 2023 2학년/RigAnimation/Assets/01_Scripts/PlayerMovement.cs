@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
+    private ShootingSystem _shootingSystem;
 
     [SerializeField] private float _gravity = -9.8f;
     [SerializeField] private float _moveSpeed = 5f;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _mainCamera = Camera.main;
         _characterController = GetComponent<CharacterController>();
+        _shootingSystem = GetComponent<ShootingSystem>();
         _inputReader.MovementEvent += SetMovement;
         _inputReader.JumpEvent += Jump;
     }
@@ -108,6 +110,10 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyAnimation()
     {
         _animator.SetShooting(blockRotationPlayer); //블록상태면 슈팅이 된거니까 전환
+
+        _animator.SetMoving(_inputDirection != Vector2.zero);
+        _animator.SetShooting(_shootingSystem._isPressFire);
+
         float speed = _inputDirection.sqrMagnitude;
         _animator.SetBlendValue(speed);
         _animator.SetXY(_inputDirection);

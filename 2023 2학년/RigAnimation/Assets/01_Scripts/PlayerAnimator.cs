@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -7,13 +5,15 @@ public class PlayerAnimator : MonoBehaviour
     public Animator AnimatorCompo { get; private set; }
 
     [Range(0f, 1f)] public float startAnimTime = 0.3f;
-    [Range(0f, 1f)] public float stopAnimTime = 0.15f;
+    [Range(0f, 1f)] public float stopAnimTime = 0.15f; 
     public float allowPlayerAnimation = 0.1f;
 
     private readonly int _xHash = Animator.StringToHash("X");
     private readonly int _yHash = Animator.StringToHash("Y");
     private readonly int _shootingHash = Animator.StringToHash("shooting");
-    private readonly int _blendHash = Animator.StringToHash("blend");
+    private readonly int _blendHash = Animator.StringToHash("Blend");
+    private readonly int _deathHash = Animator.StringToHash("death");
+    private readonly int _movingHash = Animator.StringToHash("isMoving");
 
     private void Awake()
     {
@@ -40,6 +40,11 @@ public class PlayerAnimator : MonoBehaviour
     public void SetShooting(bool value)
     {
         AnimatorCompo.SetBool(_shootingHash, value);
+    }
+
+    public void SetMoving(bool value)
+    {
+        AnimatorCompo.SetBool(_movingHash, value);
     }
 
     public void SetBlendValue(float blend)
