@@ -1,0 +1,22 @@
+.font {
+    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/09.UI/ONE%20Mobile%20Bold.ttf?fileID=12800000&guid=a92f35543cb72564188fc4b9af5a4356&type=3#ONE Mobile Bold');
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+}
+
+.container {
+    flex-grow: 1;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-complete {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

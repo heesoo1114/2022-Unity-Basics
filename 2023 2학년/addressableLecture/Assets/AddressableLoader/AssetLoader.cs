@@ -32,6 +32,8 @@ public class AssetLoader : MonoBehaviour
 
     private async Task LoadAssets()
     {
+        // await Task.WhenAll(_assetList.loadingList.Select(x => LoadAsset(x));
+
         foreach (var r in _assetList.loadingList)
         {
             var asset = await r.LoadAssetAsync<GameObject>().Task;
@@ -46,6 +48,13 @@ public class AssetLoader : MonoBehaviour
             _assetList.LoadingComplete(r.assetRef, asset.name);
         }
     }
+
+    // private async Task  LoadAsset(AssetReference r)
+    // {
+    //     var asset = await r.LoadAssetAsync<GameObject>().Task;
+    //     OnDescMessage?.Invoke($"loading...{asset.name}");
+    //     _assetList.LoadingComplete(r, asset.name);
+    // }
 
     private async Task MakePooling()
     {

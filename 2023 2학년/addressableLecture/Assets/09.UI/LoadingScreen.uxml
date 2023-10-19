@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UI/font.uss?fileID=7433441132597879392&amp;guid=1684a39681149e7458d3ee58a6a84245&amp;type=3#font" />
+    <ui:VisualElement name="container" class="container" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
+        <ui:Label tabindex="-1" text="게임 데이터 로딩 중..." display-tooltip-when-elided="true" name="title" class="font" style="-unity-text-align: upper-center;" />
+        <ui:VisualElement name="inner-box" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="로딩 카테고리 나오는 부분" display-tooltip-when-elided="true" name="title-label" class="font" style="font-size: 70px;" />
+            <ui:Label tabindex="-1" text="세부 카테고리가 나오는 부분" display-tooltip-when-elided="true" name="desc-label" class="font" style="justify-content: flex-start; align-items: stretch; -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="load-complete" class="loading-complete">
+            <ui:Label tabindex="-1" text="로딩 완료, 아무 키나 누르세요." display-tooltip-when-elided="true" name="complete-label" class="font" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
