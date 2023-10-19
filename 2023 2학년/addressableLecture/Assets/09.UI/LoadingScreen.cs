@@ -59,7 +59,7 @@ public class LoadingScreen : MonoBehaviour
             if (Keyboard.current.anyKey.wasPressedThisFrame)
             {
                 //여기에 씬 넘기는 로직이 들어오면 된다.
-                SceneManager.LoadScene(SceneList.Menu);
+                SceneManager.LoadScene(SceneList.Game);
             }
         }
     }
