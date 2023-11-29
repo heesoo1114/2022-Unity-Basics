@@ -4,6 +4,12 @@ public enum PlayerStateEnum
 {
     Idle,
     Move,
+    Jump,
+    Fall,
+    Dash,
+    WallSlide,
+    WallJump,
+    PrimaryAttack
 }
 
 public class PlayerStateMachine 

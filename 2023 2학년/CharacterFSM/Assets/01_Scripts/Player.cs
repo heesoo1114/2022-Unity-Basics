@@ -6,6 +6,13 @@ public class Player : MonoBehaviour
     [SerializeField] private InputReader _inputReader;
     public InputReader PlayerInput => _inputReader;
 
+    [Header("Collision Check")]
+    [SerializeField] protected Transform _groundChecker;
+    [SerializeField] protected float _groundCheckDistance;
+    [SerializeField] protected Transform _wallChecker;
+    [SerializeField] protected float _wallCheckDistance;
+    [SerializeField] protected LayerMask _whatIsGround;
+
     [Header("MoveValue")]
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
@@ -16,6 +23,9 @@ public class Player : MonoBehaviour
     public Rigidbody2D RigidbodyCompo { get; private set; }
 
     public PlayerStateMachine StateMachine { get; private set; }
+
+    public int FacingDirection { get; private set; } = 1; // 오른쪽이 1, 왼쪽 -1
+
 
     private void Awake()
     {
@@ -42,6 +52,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        PlayerInput.DashEvent += HandleDashEvent;
+    }
+
+    private void OnDisable()
+    {
+        PlayerInput.DashEvent -= HandleDashEvent;
+    }
+
+    // 대시 입력 핸들링
+    private void HandleDashEvent()
+    {
+        StateMachine.ChangeState(PlayerStateEnum.Dash);
+    }
+
     private void Start()
     {
         StateMachine.Initialize(PlayerStateEnum.Idle, this);
@@ -50,10 +76,60 @@ public class Player : MonoBehaviour
     public void SetVelocity(float x, float y, bool doNotFlip = false)
     {
         RigidbodyCompo.velocity = new Vector2(x, y);
+        if (!doNotFlip)
+        {
+            FlipController(x);
+        }
+    }
+
+    public void StopImmediately(bool withYAxis)
+    {
+        if (withYAxis)
+        {
+            RigidbodyCompo.velocity = Vector2.zero;
+        }
+        else
+        {
+            RigidbodyCompo.velocity = new Vector2(0, RigidbodyCompo.velocity.y);
+        }
     }
 
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
     }
+
+    public void AnimationEndTrigger()
+    {
+        StateMachine.CurrentState.AnimationFinishTrigger();
+    }
+
+    #region 플립컨트롤
+
+    public virtual void Flip()
+    {
+        FacingDirection = FacingDirection * -1;
+        transform.Rotate(0, 180f, 0);
+    }
+
+    public virtual void FlipController(float x)
+    {
+        bool gotoRight = x > 0 && FacingDirection < 0;
+        bool gotoLeft = x < 0 && FacingDirection > 0;
+
+        if (gotoRight || gotoLeft)
+        {
+            Flip();
+        }
+    }
+
+    #endregion
+
+    #region 체크 컬리전
+
+    public virtual bool IsGroundDetected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
+    public virtual bool IsWallDetected() => Physics2D.Raycast(_wallChecker.position, Vector2.right * FacingDirection, _wallCheckDistance, _whatIsGround);
+    
+    #endregion
+
 }

@@ -7,6 +7,7 @@ public class PlayerState
     protected Rigidbody2D _rigidBody;
 
     protected int _animBoolHash;
+    protected readonly int _yVelocityHash = Animator.StringToHash("y_velocity");
 
     protected bool _triggerCalled;
 
@@ -28,7 +29,7 @@ public class PlayerState
     // 상태에 있는 동안 해줘야 할 일
     public virtual void UpdateState()
     {
-
+        _player.AnimatorCompo.SetFloat(_yVelocityHash, _rigidBody.velocity.y);
     }
     
     // 상태를 나갈 때 해줄 일

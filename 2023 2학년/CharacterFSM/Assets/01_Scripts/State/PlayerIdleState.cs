@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class PlayerIdleState : PlayerGroundState
 {
     public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animationBoolName) : base(player, stateMachine, animationBoolName)
     {
@@ -10,6 +10,7 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        _player.StopImmediately(false);
     }
 
     public override void UpdateState()
