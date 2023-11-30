@@ -7,9 +7,24 @@ public class PlayerAnimation : MonoBehaviour
     private readonly int _moveYHash = Animator.StringToHash("move_y");
     private readonly int _isMoveHash = Animator.StringToHash("is_move");
 
+    private Animator _rigAnimator;
+    private readonly int _armedHash = Animator.StringToHash("is_armed");
+
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _rigAnimator = transform.Find("RigBuilder").GetComponent<Animator>();   
+    }
+
+    private void Start()
+    {
+        _rigAnimator.enabled = true;
+    }
+
+    public void SetArmed(bool value)
+    {
+        _rigAnimator.SetBool(_armedHash, value);
     }
 
     public void SetAnimationDirection(Vector2 dir)

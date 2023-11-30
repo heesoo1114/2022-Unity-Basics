@@ -25,6 +25,10 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 1
+  - m_AssetGUID: 8657b8a35c5548e42bde13d0ee96c190
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   poolingList:
   - assetRef:
       m_AssetGUID: eed5561b72ec50749a925826e51c1c38
