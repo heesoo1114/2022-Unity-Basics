@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour
     [Header("AttackSetting")]
     public Vector2[] attackMovement;
     public float comboWindow = 0.5f;
+
+    [Header("Stat")]
+    [SerializeField] private CharacterStat _characterStat;
+    public CharacterStat Stat => _characterStat;
 
     public Animator AnimatorCompo { get; private set; }
     public Rigidbody2D RigidbodyCompo { get; private set; }
@@ -54,6 +59,9 @@ public class Player : MonoBehaviour
                 Debug.LogError($"{typeName} 클래스 인스턴스를 생성할 수 없습니다. {e.Message}");
             }
         }
+
+        _characterStat = Instantiate(_characterStat);
+        _characterStat.SetOwner(this);
     }
 
     private void OnEnable()
@@ -101,6 +109,16 @@ public class Player : MonoBehaviour
     protected virtual void Update()
     {
         StateMachine.CurrentState.UpdateState();
+
+        if (Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            Stat.IncreaseStatBy(10, 3, StatType.strength);
+        }
+
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            Debug.Log(Stat.strength.GetValue());
+        }
     }
 
     public void AnimationEndTrigger()

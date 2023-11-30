@@ -913,6 +913,7 @@ MonoBehaviour:
   - {x: 1, y: 2.5}
   - {x: 4, y: 1.5}
   comboWindow: 0.5
+  _characterStat: {fileID: 11400000, guid: 8f92c21cb6435e4439dd974f8b635dfe, type: 2}
 --- !u!1 &2147186084
 GameObject:
   m_ObjectHideFlags: 0
