@@ -10,6 +10,7 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
 
     public event Action JumpEvent;
     public event Action DashEvent;
+    public event Action PrimaryAttackEvent;
 
     private Controls _controls;
 
@@ -47,5 +48,13 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
     public void OnYMovement(InputAction.CallbackContext context)
     {
         YInput = context.ReadValue<float>();
+    }
+
+    public void OnPrimaryAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PrimaryAttackEvent?.Invoke();
+        }
     }
 }

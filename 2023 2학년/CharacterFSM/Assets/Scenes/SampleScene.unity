@@ -908,6 +908,11 @@ MonoBehaviour:
   jumpForce: 12
   dashDuration: 0.4
   dashSpeed: 20
+  attackMovement:
+  - {x: 3, y: 1.5}
+  - {x: 1, y: 2.5}
+  - {x: 4, y: 1.5}
+  comboWindow: 0.5
 --- !u!1 &2147186084
 GameObject:
   m_ObjectHideFlags: 0

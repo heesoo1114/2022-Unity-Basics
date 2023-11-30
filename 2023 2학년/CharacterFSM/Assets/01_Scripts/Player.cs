@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     public float dashDuration = 0.4f;
     public float dashSpeed = 20f;
 
+    [Header("AttackSetting")]
+    public Vector2[] attackMovement;
+    public float comboWindow = 0.5f;
+
     public Animator AnimatorCompo { get; private set; }
     public Rigidbody2D RigidbodyCompo { get; private set; }
 
