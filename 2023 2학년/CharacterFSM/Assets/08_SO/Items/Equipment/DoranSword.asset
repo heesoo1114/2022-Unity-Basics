@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903967b0c90ed504588efea760437218, type: 3}
+  m_Name: DoranSword
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: doran sword
+  itemIcon: {fileID: -1091316472, guid: 9172dfe9cb49d6b44a99577ddec37e4c, type: 3}
+  equipmentType: 0
+  itemEffectDescription: "\uB3C4\uB780\uAC80"
+  strength: 10
+  agility: 10
+  intelligence: 0
+  vitality: 30
+  maxHealth: 0
+  armor: 0
+  evasion: 0
+  magicRegistance: 0
+  damage: 0
+  criticalDamage: 0
+  criticalChance: 0
