@@ -91,10 +91,10 @@ public class ItemDataEquipment : ItemData
         }
     }
 
-    private string GetItemDescription()
+    public override string GetDescription()
     {
         _stringBuilder.Clear();
-        foreach (var fieldPair in _fieldInfoDictionary)
+        foreach(var fieldPair in _fieldInfoDictionary)
         {
             AddItemDescription((int)fieldPair.Value.GetValue(this), fieldPair.Key.ToString());
         }
@@ -104,14 +104,15 @@ public class ItemDataEquipment : ItemData
 
     private void AddItemDescription(int value, string statName)
     {
-        if (value != 0)
+        if(value != 0)
         {
-            if (_stringBuilder.Length > 0)
+            if(_stringBuilder.Length > 0) //이미 스트링빌더가 만들어져 있다면
             {
-                _stringBuilder.AppendLine(); // 한줄 추가
+                _stringBuilder.AppendLine(); //한줄 추가하고
             }
 
             _stringBuilder.Append($"{statName} : {value.ToString()}");
+            //만약 다국어지원을 한다면 어떻게 해야할까?
         }
     }
 }

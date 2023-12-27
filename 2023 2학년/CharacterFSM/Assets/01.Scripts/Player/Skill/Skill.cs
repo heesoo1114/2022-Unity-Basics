@@ -5,16 +5,17 @@ using UnityEngine;
 
 public abstract class Skill : MonoBehaviour
 {
-    public bool skillEnabled = false; // 해금 유무
+    public bool skillEnabled = false; //해금되어있는 스킬인가?
 
     [SerializeField] protected float _cooldown;
+    [SerializeField] protected LayerMask _whatIsEnemy;
     protected float _cooldownTimer;
     protected Player _player;
 
     [SerializeField] protected PlayerSkill _skillType;
 
-    // 쿨타임이 돌고 있을 때 발행될 이벤트로 UI 등이 이를 구독한다.
-    public event Action<float, float> OnCooldown;
+    //쿨타임이 돌고 있을때 발행될 이벤트로 UI등이 이를 구독한다.
+    public event Action<float, float> OnCooldown; 
 
     protected virtual void Start()
     {
@@ -23,10 +24,10 @@ public abstract class Skill : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (_cooldownTimer > 0)
+        if(_cooldownTimer > 0)
         {
             _cooldownTimer -= Time.deltaTime;
-            if (_cooldownTimer <= 0)
+            if(_cooldownTimer <= 0)
             {
                 _cooldownTimer = 0;
             }
@@ -37,7 +38,7 @@ public abstract class Skill : MonoBehaviour
 
     public virtual bool AttemptUseSkill()
     {
-        if (_cooldownTimer <= 0 && skillEnabled)
+        if(_cooldownTimer <= 0 && skillEnabled)
         {
             _cooldownTimer = _cooldown;
             UseSkill();
@@ -49,6 +50,29 @@ public abstract class Skill : MonoBehaviour
 
     public virtual void UseSkill()
     {
+        //각 스킬마다 스킬을 사용시에 발동하는 효과들을 만들고 싶을 수 도 있지.
         SkillManager.Instance.UseSkillFeedback(_skillType);
+    }
+
+    public virtual Transform FindClosestEnemy(Transform checkTrm, float radius)
+    {
+        Transform target = null;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(checkTrm.position, radius, _whatIsEnemy);
+
+        float closestDistance = Mathf.Infinity;
+
+        foreach(Collider2D collider in colliders)
+        {
+            float distance = Vector2.Distance(checkTrm.position, collider.transform.position);
+            if(distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = collider.transform;
+            }
+        }
+
+        return target;
+
     }
 }

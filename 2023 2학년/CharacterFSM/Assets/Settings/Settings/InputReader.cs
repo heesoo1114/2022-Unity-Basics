@@ -11,6 +11,7 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
     public event Action JumpEvent;
     public event Action DashEvent;
     public event Action PrimaryAttackEvent;
+    public event Action CrystalSkillEvent;
 
     private Controls _controls;
     private void OnEnable()
@@ -54,6 +55,14 @@ public class InputReader : ScriptableObject, Controls.IPlayerActions
         if(context.performed)
         {
             PrimaryAttackEvent?.Invoke();
+        }
+    }
+
+    public void OnCrystalSkill(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            CrystalSkillEvent?.Invoke();
         }
     }
 }

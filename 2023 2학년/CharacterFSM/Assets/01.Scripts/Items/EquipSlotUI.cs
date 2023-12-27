@@ -15,6 +15,7 @@ public class EquipSlotUI : ItemSlotUI
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        //여기서 장착해제하는걸 해줘야겠지.
         Inventory.Instance.UnEquipItem(item.itemData as ItemDataEquipment);
         CleanUpSlot();
     }

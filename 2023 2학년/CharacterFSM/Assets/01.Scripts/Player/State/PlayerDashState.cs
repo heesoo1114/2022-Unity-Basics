@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDashState : PlayerState
@@ -19,8 +21,7 @@ public class PlayerDashState : PlayerState
         //시작 시간에 현재 시간을 더해주고
         _dashStartTime = Time.time;
 
-        CloneSkill cloneSkill = _player.skill.GetSkill<CloneSkill>();
-        cloneSkill.CreateClone(_player.transform, Vector3.zero);
+        _player.skill.GetSkill<CloneSkill>()?.CreateCloneOnDashStart(_player.transform, Vector3.zero);
     }
 
     public override void UpdateState()
@@ -39,7 +40,8 @@ public class PlayerDashState : PlayerState
 
     public override void Exit()
     {
-        //만약 스킬과 연계하려면 대시 종료지점에서 뭔가 스킬 연계시키기
+        //만약 스킬과 연계할꺼면 대시 종료지점에서 뭔가 스킬 연계시켜
+        _player.skill.GetSkill<CloneSkill>()?.CreateCloneOnDashOver(_player.transform, Vector3.zero);
         base.Exit();
     }
 

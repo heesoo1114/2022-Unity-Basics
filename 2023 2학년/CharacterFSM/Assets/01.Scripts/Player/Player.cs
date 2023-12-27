@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     public SkillManager skill { get; private set; }
 
+
     private void Awake()
     {
         Transform visualTrm = transform.Find("Visual");
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
             {
                 Type type = Type.GetType($"Player{typeName}State"); //이 클래스 타입이 불러와져
                 PlayerState stateInstance = Activator.CreateInstance(type, this, StateMachine, typeName) as PlayerState;
+
 
                 StateMachine.AddState(stateEnum, stateInstance); //이거 빼먹었었음.
             } catch (Exception e)
@@ -70,26 +72,36 @@ public class Player : MonoBehaviour
         StateMachine.Initialize(PlayerStateEnum.Idle, this);
     }
 
+    #region 스킬 핸들링 로직들
     private void OnEnable()
     {
         PlayerInput.DashEvent += HandleDashEvent;
+        PlayerInput.CrystalSkillEvent += HandleCrystalSkillEvent;
     }
 
     private void OnDisable()
     {
         PlayerInput.DashEvent -= HandleDashEvent;
+        PlayerInput.CrystalSkillEvent -= HandleCrystalSkillEvent;
     }
 
-    //대시 입력 핸들링
+
     private void HandleDashEvent()
     {
-        // 스킬매니저에서 대시를 가져와서 쿨이 아니면 실헹
-        Skill dashSkill = skill.GetSkill<DashSkill>();
-        if (dashSkill.AttemptUseSkill()) // AttempUseSkill에서 쿨이 없어서 스킬을 사용할 수 있으면 UseSkill 메서드 실행
+        // 스킬 매니저에서 대시를 가져와서
+        // 그게 쿨이 아니면 실행하는거
+        if(skill.GetSkill<DashSkill>().AttemptUseSkill())
         {
             StateMachine.ChangeState(PlayerStateEnum.Dash);
         }
     }
+
+    private void HandleCrystalSkillEvent()
+    {
+        skill.GetSkill<CrystalSkill>()?.AttemptUseSkill();
+    }
+
+    #endregion
 
     public void SetVelocity(float x, float y, bool doNotFilp = false)
     {

@@ -71,6 +71,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CrystalSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""0494b687-6dcb-4e41-b291-2c74b1bde325"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""PrimaryAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb614aef-e9f3-41f9-a003-3c4fdb6c339e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CrystalSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +222,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_PrimaryAttack = m_Player.FindAction("PrimaryAttack", throwIfNotFound: true);
+        m_Player_CrystalSkill = m_Player.FindAction("CrystalSkill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,6 +289,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_PrimaryAttack;
+    private readonly InputAction m_Player_CrystalSkill;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -277,6 +299,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
+        public InputAction @CrystalSkill => m_Wrapper.m_Player_CrystalSkill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,6 +324,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PrimaryAttack.started += instance.OnPrimaryAttack;
             @PrimaryAttack.performed += instance.OnPrimaryAttack;
             @PrimaryAttack.canceled += instance.OnPrimaryAttack;
+            @CrystalSkill.started += instance.OnCrystalSkill;
+            @CrystalSkill.performed += instance.OnCrystalSkill;
+            @CrystalSkill.canceled += instance.OnCrystalSkill;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -320,6 +346,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PrimaryAttack.started -= instance.OnPrimaryAttack;
             @PrimaryAttack.performed -= instance.OnPrimaryAttack;
             @PrimaryAttack.canceled -= instance.OnPrimaryAttack;
+            @CrystalSkill.started -= instance.OnCrystalSkill;
+            @CrystalSkill.performed -= instance.OnCrystalSkill;
+            @CrystalSkill.canceled -= instance.OnCrystalSkill;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -353,5 +382,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnPrimaryAttack(InputAction.CallbackContext context);
+        void OnCrystalSkill(InputAction.CallbackContext context);
     }
 }

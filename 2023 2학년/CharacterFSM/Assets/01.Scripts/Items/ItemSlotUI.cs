@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine;
-using TMPro;
 
 public class ItemSlotUI : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -55,10 +57,14 @@ public class ItemSlotUI : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     {
         if (item == null || item.itemData == null) return;
         string desc = item.itemData.GetDescription();
+        if( !string.IsNullOrEmpty( desc) )
+        {
+            Debug.Log(desc);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-
+        
     }
 }
