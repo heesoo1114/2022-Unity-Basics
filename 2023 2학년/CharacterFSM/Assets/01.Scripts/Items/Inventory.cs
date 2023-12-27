@@ -1,10 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoSingleton<Inventory>
 {
+    [SerializeField] private ItemDatabaseSO _itemDBSO;
+
     //창고 관련 변수
     public List<InventoryItem> stash;
     public Dictionary<ItemData, InventoryItem> stashDictionary;
@@ -83,10 +84,11 @@ public class Inventory : MonoSingleton<Inventory>
 
     public void AddItem(ItemData item)
     {
-        if(item.itemType == ItemType.Equipment)
+        if (item.itemType == ItemType.Equipment)
         {
             AddToInventory(item);
-        }else if(item.itemType == ItemType.Material)
+        }
+        else if(item.itemType == ItemType.Material)
         {
             AddToStash(item);
         }
@@ -191,9 +193,7 @@ public class Inventory : MonoSingleton<Inventory>
         equipItem.AddModifiers(); //장비 장착으로 인한 스텟이 증가된다.
 
         RemoveItem(item); //장비칸으로 옮겨갔으면 인벤에서는 빼준다.
-        
-
-
+ 
         UpdateSlotUI();
     }
 
@@ -211,6 +211,42 @@ public class Inventory : MonoSingleton<Inventory>
             {
                 AddItem(oldEquipItem);
             }
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        // 데이터를 로드
+        // 인벤토리의 addItem 기능을 이용해서 넣어주기
+        // 넣을 때는 ItemDB를 검색해서 알맞은 녀석으로 넣어주기
+
+        List<ItemData> itemDB = _itemDBSO.itemList;
+
+        foreach (var pair in data.inventory)
+        {
+            ItemData item = itemDB.Find(x => x.itemID == pair.Key);
+            if (item != null)
+            {
+                for (int i = 0; i < pair.Value; ++i)
+                {
+                    AddItem(item);
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.inventory.Clear();
+
+        foreach (var pair in invenDictionary)
+        {
+            data.inventory.Add(pair.Key.itemID, pair.Value.stackSize);
+        }
+
+        foreach (var pair in stashDictionary)
+        {
+            data.inventory.Add(pair.Key.itemID, pair.Value.stackSize);
         }
     }
 }

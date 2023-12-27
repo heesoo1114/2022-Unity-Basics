@@ -11,9 +11,10 @@ public class SaveManager : MonoSingleton<SaveManager>
     private FileDataHandler _fileDataHandler;
 
     [SerializeField] private bool _isEncrypt;
+    [SerializeField] private bool _isBase64;
     private void Start()
     {
-        _fileDataHandler = new FileDataHandler(Application.persistentDataPath, filename, _isEncrypt);
+        _fileDataHandler = new FileDataHandler(Application.persistentDataPath, filename, _isEncrypt, _isBase64);
         _saveManagerList = FindAllSaveManagers();
 
         LoadGame();

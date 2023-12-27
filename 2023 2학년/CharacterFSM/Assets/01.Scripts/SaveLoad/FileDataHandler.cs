@@ -1,4 +1,3 @@
-
 using System;
 using System.IO;
 using System.Text;
@@ -10,12 +9,16 @@ public class FileDataHandler
     private string _filename = "";
 
     private bool _isEncrypt;
+    private bool _isBase64;
 
-    public FileDataHandler(string directoryPath, string filename, bool isEncrypt)
+    private CryptoModule _cryptoModule;
+
+    public FileDataHandler(string directoryPath, string filename, bool isEncrypt, bool isBase64 = false)
     {
         _directoryPath = directoryPath;
         _filename = filename;
         _isEncrypt = isEncrypt;
+        _isBase64 = isBase64;
     }
 
     public void Save(GameData gameData)
@@ -29,8 +32,14 @@ public class FileDataHandler
 
             if(_isEncrypt)
             {
-                dataToStore = EncryptAndDecryptData(dataToStore);
+                dataToStore = _cryptoModule.AESEncrypt256(dataToStore);
+                // dataToStore = EncryptAndDecryptData(dataToStore);
             }
+
+            // if (_isBase64)
+            // {
+            //     dataToStore = Base64Process(dataToStore, true);   
+            // }
 
             using(FileStream writeStream = new FileStream(fullPath, FileMode.Create))
             {
@@ -39,7 +48,8 @@ public class FileDataHandler
                     writer.Write(dataToStore);
                 }
             }
-        }catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             Debug.LogError($"Error on trying to save data to file {fullPath} \n");
         }
@@ -65,8 +75,14 @@ public class FileDataHandler
 
                 if (_isEncrypt)
                 {
-                    dataToLoad = EncryptAndDecryptData(dataToLoad);
+                    dataToLoad = _cryptoModule.Decrypt(dataToLoad);
+                    // dataToLoad = EncryptAndDecryptData(dataToLoad);
                 }
+
+                // if (_isBase64)
+                // {
+                //     dataToLoad = Base64Process(dataToLoad, false);
+                // }
 
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
@@ -108,6 +124,21 @@ public class FileDataHandler
         }
 
         return sBuilder.ToString();
+    }
+
+    // 인코딩 -> 표현하는 거        디코딩 => 원래대로 돌려주는 거
+    private string Base64Process(string data, bool encoding)
+    {
+        if (encoding)
+        {
+            byte[] dataByteArr = Encoding.UTF8.GetBytes(data);
+            return Convert.ToBase64String(dataByteArr); // base64 문자열로 나타낸다.
+        }
+        else
+        {
+            byte[] dataByteArr = Convert.FromBase64String(data);
+            return Encoding.UTF8.GetString(dataByteArr); // 
+        }
     }
 
 }
