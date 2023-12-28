@@ -159,7 +159,7 @@ public class Inventory : MonoSingleton<Inventory>
         UpdateSlotUI();
     }
 
-    public void EquipItem(ItemData item)
+    public void EquipItem(ItemData item, bool fromInventory)
     {
         ItemDataEquipment equipItem = item as ItemDataEquipment;
         if(equipItem == null) {
@@ -182,7 +182,8 @@ public class Inventory : MonoSingleton<Inventory>
             }
         }
 
-        if(oldItem != null) { 
+        if(oldItem != null) 
+        { 
             UnEquipItem(oldItem);
         }
 
@@ -192,7 +193,10 @@ public class Inventory : MonoSingleton<Inventory>
 
         equipItem.AddModifiers(); //장비 장착으로 인한 스텟이 증가된다.
 
-        RemoveItem(item); //장비칸으로 옮겨갔으면 인벤에서는 빼준다.
+        if (fromInventory)
+        {
+            RemoveItem(item); //장비칸으로 옮겨갔으면 인벤에서는 빼준다.
+        }
  
         UpdateSlotUI();
     }
@@ -233,11 +237,21 @@ public class Inventory : MonoSingleton<Inventory>
                 }
             }
         }
+
+        foreach (string itemID in data.equipments)
+        {
+            ItemData item = itemDB.Find(x => x.itemID == itemID);
+            if (item != null)
+            {
+                EquipItem(item, false);
+            }
+        }
     }
 
     public void SaveData(ref GameData data)
     {
         data.inventory.Clear();
+        data.equipments.Clear();
 
         foreach (var pair in invenDictionary)
         {
@@ -247,6 +261,11 @@ public class Inventory : MonoSingleton<Inventory>
         foreach (var pair in stashDictionary)
         {
             data.inventory.Add(pair.Key.itemID, pair.Value.stackSize);
+        }
+
+        foreach (var pair in equipDictionary)
+        {
+            data.equipments.Add(pair.Key.itemID);
         }
     }
 }
